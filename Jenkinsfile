@@ -5,10 +5,6 @@ pipeline {
         PATH = "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:${env.PATH}"
     }
 
-    tools {
-        sonarQube 'SonarScanner'
-    }
-
     stages {
 
         stage('Checkout') {
@@ -21,8 +17,13 @@ pipeline {
             steps {
                 sh '''
                     cd backend
+
                     python3 -m venv venv
+
                     . venv/bin/activate
+
+                    pip install --upgrade pip
+
                     pip install -r requirements.txt
                 '''
             }
@@ -32,7 +33,9 @@ pipeline {
             steps {
                 sh '''
                     cd backend
+
                     . venv/bin/activate
+
                     pytest -v
                 '''
             }
@@ -40,14 +43,18 @@ pipeline {
 
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv('SonarQube') {
-                    sh '''
-                        sonar-scanner \
-                          -Dsonar.projectKey=3-tier-architecture \
-                          -Dsonar.projectName=3-tier-architecture \
-                          -Dsonar.sources=. \
-                          -Dsonar.exclusions=backend/venv/**,frontend/node_modules/**,frontend/dist/**
-                    '''
+                script {
+                    def scannerHome = tool 'SonarScanner'
+
+                    withSonarQubeEnv('SonarQube') {
+                        sh """
+                            ${scannerHome}/bin/sonar-scanner \
+                            -Dsonar.projectKey=3-tier-architecture \
+                            -Dsonar.projectName=3-tier-architecture \
+                            -Dsonar.sources=. \
+                            -Dsonar.exclusions=backend/venv/**,frontend/node_modules/**,frontend/dist/**
+                        """
+                    }
                 }
             }
         }
@@ -59,7 +66,7 @@ pipeline {
         }
 
         failure {
-            echo 'Pipeline failed'
+            echo 'Pipeline failed. Check the console output.'
         }
     }
 }
