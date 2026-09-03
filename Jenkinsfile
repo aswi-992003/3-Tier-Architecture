@@ -5,6 +5,10 @@ pipeline {
         PATH = "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:${env.PATH}"
     }
 
+    tools {
+        sonarQube 'SonarScanner'
+    }
+
     stages {
 
         stage('Checkout') {
@@ -31,6 +35,20 @@ pipeline {
                     . venv/bin/activate
                     pytest -v
                 '''
+            }
+        }
+
+        stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('SonarQube') {
+                    sh '''
+                        sonar-scanner \
+                          -Dsonar.projectKey=3-tier-architecture \
+                          -Dsonar.projectName=3-tier-architecture \
+                          -Dsonar.sources=. \
+                          -Dsonar.exclusions=backend/venv/**,frontend/node_modules/**,frontend/dist/**
+                    '''
+                }
             }
         }
     }
