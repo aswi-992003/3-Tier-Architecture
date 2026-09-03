@@ -13,22 +13,6 @@ pipeline {
             }
         }
 
-        stage('Frontend Build') {
-            steps {
-                sh '''
-                    echo "Node version:"
-                    node --version
-
-                    echo "NPM version:"
-                    npm --version
-
-                    cd frontend
-                    npm install
-                    npm run build
-                '''
-            }
-        }
-
         stage('Backend Dependencies') {
             steps {
                 sh '''
