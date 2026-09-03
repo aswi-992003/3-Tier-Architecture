@@ -172,7 +172,7 @@ function App() {
         <div className="app">
             <header>
                 <div className="logo" onClick={() => setPage("home")}>
-                    Claims<span>Management</span>
+                    Claims<span>Management Portal</span>
                 </div>
 
                 <nav>
