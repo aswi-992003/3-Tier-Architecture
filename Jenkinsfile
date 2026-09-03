@@ -23,5 +23,25 @@ pipeline {
                 '''
             }
         }
+
+        stage('Unit Tests') {
+            steps {
+                sh '''
+                    cd backend
+                    . venv/bin/activate
+                    pytest -v
+                '''
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Pipeline completed successfully'
+        }
+
+        failure {
+            echo 'Pipeline failed'
+        }
     }
 }
