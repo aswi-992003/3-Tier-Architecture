@@ -172,7 +172,7 @@ function App() {
         <div className="app">
             <header>
                 <div className="logo" onClick={() => setPage("home")}>
-                    Claims<span>Management Portal</span>
+                    Claims<span>Management</span>
                 </div>
 
                 <nav>
@@ -196,7 +196,7 @@ function App() {
                         <div className="hero">
                             <div>
                                 <p className="small-title">CLAIMS PLATFORM</p>
-                                <h1>Claims Management</h1>
+                                <h1>Claims Management Portal</h1>
                                 <p>
                                     Manage customer claims, review their status
                                     and track claim activity from one place.
@@ -435,7 +435,7 @@ function App() {
             </main>
 
             <footer>
-                <p>Claims Management Application</p>
+                <p>Claims Management Application system</p>
             </footer>
         </div>
     );
