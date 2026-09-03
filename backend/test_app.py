@@ -6,7 +6,7 @@ def test_health():
 
     response = client.get("/api/health")
 
-    assert response.status_code == 300
+    assert response.status_code == 200
 
     data = response.get_json()
 
