@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+
 const API = "http://localhost:5000/api";
 
 function App() {
@@ -74,7 +75,6 @@ function App() {
 
             await loadClaims();
             setPage("claims");
-
         } catch {
             setMessage("Unable to connect to backend");
         } finally {
@@ -122,7 +122,6 @@ function App() {
 
             setMessage(`Welcome ${data.user.name}`);
             setPage("home");
-
         } catch {
             setMessage("Unable to connect to backend");
         }
@@ -157,7 +156,6 @@ function App() {
             });
 
             setPage("login");
-
         } catch {
             setMessage("Unable to connect to backend");
         }
@@ -172,23 +170,33 @@ function App() {
         <div className="app">
             <header>
                 <button
-                   type="button"
-                   className="logo"
-                   onClick={() => setPage("home")}
+                    type="button"
+                    className="logo"
+                    onClick={() => setPage("home")}
                 >
-                   Claims<span>Management</span>
+                    Claims<span>Management</span>
                 </button>
 
                 <nav>
-                    <button onClick={() => setPage("home")}>Home</button>
-                    <button onClick={() => setPage("claims")}>Claims</button>
-                    <button onClick={() => setPage("create")}>Create Claim</button>
-                    <button onClick={() => setPage("login")}>Login</button>
+                    <button type="button" onClick={() => setPage("home")}>
+                        Home
+                    </button>
+
+                    <button type="button" onClick={() => setPage("claims")}>
+                        Claims
+                    </button>
+
+                    <button type="button" onClick={() => setPage("create")}>
+                        Create Claim
+                    </button>
+
+                    <button type="button" onClick={() => setPage("login")}>
+                        Login
+                    </button>
                 </nav>
             </header>
 
             <main>
-
                 {message && (
                     <div className="message">
                         {message}
@@ -199,14 +207,21 @@ function App() {
                     <section>
                         <div className="hero">
                             <div>
-                                <p className="small-title">CLAIMS PLATFORM</p>
-                                <h1>Claims Management Portal</h1>
+                                <p className="small-title">
+                                    CLAIMS PLATFORM
+                                </p>
+
+                                <h1>
+                                    Claims Management Portal
+                                </h1>
+
                                 <p>
                                     Manage customer claims, review their status
                                     and track claim activity from one place.
                                 </p>
 
                                 <button
+                                    type="button"
                                     className="primary"
                                     onClick={() => setPage("claims")}
                                 >
@@ -239,7 +254,11 @@ function App() {
 
                         <div className="section-title">
                             <h2>Recent Claims</h2>
-                            <button onClick={() => setPage("create")}>
+
+                            <button
+                                type="button"
+                                onClick={() => setPage("create")}
+                            >
                                 + Create Claim
                             </button>
                         </div>
@@ -254,9 +273,15 @@ function App() {
                 {page === "claims" && (
                     <section>
                         <div className="page-title">
-                            <p className="small-title">MANAGEMENT</p>
+                            <p className="small-title">
+                                MANAGEMENT
+                            </p>
+
                             <h1>All Claims</h1>
-                            <p>View and manage customer claims.</p>
+
+                            <p>
+                                View and manage customer claims.
+                            </p>
                         </div>
 
                         <ClaimTable
@@ -269,14 +294,28 @@ function App() {
                 {page === "create" && (
                     <section className="form-page">
                         <div className="page-title">
-                            <p className="small-title">NEW CLAIM</p>
+                            <p className="small-title">
+                                NEW CLAIM
+                            </p>
+
                             <h1>Create Claim</h1>
-                            <p>Enter the details of a new customer claim.</p>
+
+                            <p>
+                                Enter the details of a new customer claim.
+                            </p>
                         </div>
 
-                        <form className="form-card" onSubmit={createClaim}>
-                            <label>Customer Name</label>
+                        <form
+                            className="form-card"
+                            onSubmit={createClaim}
+                        >
+                            <label htmlFor="customer_name">
+                                Customer Name
+                            </label>
+
                             <input
+                                id="customer_name"
+                                name="customer_name"
                                 type="text"
                                 value={claimForm.customer_name}
                                 onChange={e =>
@@ -289,8 +328,13 @@ function App() {
                                 required
                             />
 
-                            <label>Claim Amount</label>
+                            <label htmlFor="claim_amount">
+                                Claim Amount
+                            </label>
+
                             <input
+                                id="claim_amount"
+                                name="claim_amount"
                                 type="number"
                                 step="0.01"
                                 value={claimForm.amount}
@@ -304,8 +348,13 @@ function App() {
                                 required
                             />
 
-                            <label>Description</label>
+                            <label htmlFor="claim_description">
+                                Description
+                            </label>
+
                             <textarea
+                                id="claim_description"
+                                name="claim_description"
                                 value={claimForm.description}
                                 onChange={e =>
                                     setClaimForm({
@@ -316,8 +365,13 @@ function App() {
                                 placeholder="Describe the claim"
                             />
 
-                            <button className="primary" type="submit">
-                                {loading ? "Creating..." : "Submit Claim"}
+                            <button
+                                className="primary"
+                                type="submit"
+                            >
+                                {loading
+                                    ? "Creating..."
+                                    : "Submit Claim"}
                             </button>
                         </form>
                     </section>
@@ -325,12 +379,23 @@ function App() {
 
                 {page === "login" && (
                     <section className="auth-page">
-                        <form className="auth-card" onSubmit={login}>
-                            <p className="small-title">ACCOUNT</p>
+                        <form
+                            className="auth-card"
+                            onSubmit={login}
+                        >
+                            <p className="small-title">
+                                ACCOUNT
+                            </p>
+
                             <h1>Login</h1>
 
-                            <label>Email</label>
+                            <label htmlFor="login_email">
+                                Email
+                            </label>
+
                             <input
+                                id="login_email"
+                                name="login_email"
                                 type="email"
                                 value={loginForm.email}
                                 onChange={e =>
@@ -342,8 +407,13 @@ function App() {
                                 required
                             />
 
-                            <label>Password</label>
+                            <label htmlFor="login_password">
+                                Password
+                            </label>
+
                             <input
+                                id="login_password"
+                                name="login_password"
                                 type="password"
                                 value={loginForm.password}
                                 onChange={e =>
@@ -355,12 +425,16 @@ function App() {
                                 required
                             />
 
-                            <button className="primary" type="submit">
+                            <button
+                                className="primary"
+                                type="submit"
+                            >
                                 Login
                             </button>
 
                             <p>
-                                Don't have an account?
+                                Don't have an account?{" "}
+
                                 <button
                                     className="text-button"
                                     type="button"
@@ -375,12 +449,23 @@ function App() {
 
                 {page === "register" && (
                     <section className="auth-page">
-                        <form className="auth-card" onSubmit={register}>
-                            <p className="small-title">ACCOUNT</p>
+                        <form
+                            className="auth-card"
+                            onSubmit={register}
+                        >
+                            <p className="small-title">
+                                ACCOUNT
+                            </p>
+
                             <h1>Create Account</h1>
 
-                            <label>Name</label>
+                            <label htmlFor="register_name">
+                                Name
+                            </label>
+
                             <input
+                                id="register_name"
+                                name="register_name"
                                 type="text"
                                 value={registerForm.name}
                                 onChange={e =>
@@ -392,8 +477,13 @@ function App() {
                                 required
                             />
 
-                            <label>Email</label>
+                            <label htmlFor="register_email">
+                                Email
+                            </label>
+
                             <input
+                                id="register_email"
+                                name="register_email"
                                 type="email"
                                 value={registerForm.email}
                                 onChange={e =>
@@ -405,8 +495,13 @@ function App() {
                                 required
                             />
 
-                            <label>Password</label>
+                            <label htmlFor="register_password">
+                                Password
+                            </label>
+
                             <input
+                                id="register_password"
+                                name="register_password"
                                 type="password"
                                 value={registerForm.password}
                                 onChange={e =>
@@ -418,12 +513,16 @@ function App() {
                                 required
                             />
 
-                            <button className="primary" type="submit">
+                            <button
+                                className="primary"
+                                type="submit"
+                            >
                                 Register
                             </button>
 
                             <p>
-                                Already have an account?
+                                Already have an account?{" "}
+
                                 <button
                                     className="text-button"
                                     type="button"
@@ -435,16 +534,16 @@ function App() {
                         </form>
                     </section>
                 )}
-
             </main>
 
             <footer>
-                <p>Claims Management Application system</p>
+                <p>
+                    Claims Management Application system
+                </p>
             </footer>
         </div>
     );
 }
-
 
 function ClaimTable({ claims, updateStatus }) {
     if (claims.length === 0) {
@@ -472,17 +571,33 @@ function ClaimTable({ claims, updateStatus }) {
                 <tbody>
                     {claims.map(claim => (
                         <tr key={claim.id}>
-                            <td>{claim.claim_number}</td>
-                            <td>{claim.customer_name}</td>
-                            <td>${Number(claim.amount).toFixed(2)}</td>
-                            <td>{claim.description || "-"}</td>
                             <td>
-                                <span className={`status ${claim.status.toLowerCase()}`}>
+                                {claim.claim_number}
+                            </td>
+
+                            <td>
+                                {claim.customer_name}
+                            </td>
+
+                            <td>
+                                ${Number(claim.amount).toFixed(2)}
+                            </td>
+
+                            <td>
+                                {claim.description || "-"}
+                            </td>
+
+                            <td>
+                                <span
+                                    className={`status ${claim.status.toLowerCase()}`}
+                                >
                                     {claim.status}
                                 </span>
                             </td>
+
                             <td>
                                 <select
+                                    aria-label={`Update status for claim ${claim.claim_number}`}
                                     value={claim.status}
                                     onChange={e =>
                                         updateStatus(
@@ -491,9 +606,17 @@ function ClaimTable({ claims, updateStatus }) {
                                         )
                                     }
                                 >
-                                    <option>Pending</option>
-                                    <option>Approved</option>
-                                    <option>Rejected</option>
+                                    <option value="Pending">
+                                        Pending
+                                    </option>
+
+                                    <option value="Approved">
+                                        Approved
+                                    </option>
+
+                                    <option value="Rejected">
+                                        Rejected
+                                    </option>
                                 </select>
                             </td>
                         </tr>
