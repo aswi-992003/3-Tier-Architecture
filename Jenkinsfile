@@ -17,13 +17,9 @@ pipeline {
             steps {
                 sh '''
                     cd backend
-
                     python3 -m venv venv
-
                     . venv/bin/activate
-
                     pip install --upgrade pip
-
                     pip install -r requirements.txt
                 '''
             }
@@ -33,9 +29,7 @@ pipeline {
             steps {
                 sh '''
                     cd backend
-
                     . venv/bin/activate
-
                     pytest -v
                 '''
             }
@@ -58,6 +52,69 @@ pipeline {
                 }
             }
         }
+
+        stage('Check Docker and Trivy') {
+            steps {
+                sh '''
+                    docker --version
+                    trivy --version
+                '''
+            }
+        }
+
+        stage('Docker Build') {
+            steps {
+                sh '''
+                    docker build --no-cache -t claims-backend:test ./backend
+                    docker build --no-cache -t claims-frontend:test ./frontend
+                '''
+            }
+        }
+
+        stage('Trivy Scan - Backend') {
+            steps {
+                sh '''
+                    trivy image \
+                      --scanners vuln \
+                      --severity HIGH,CRITICAL \
+                      --ignore-unfixed \
+                      --exit-code 1 \
+                      claims-backend:test
+                '''
+            }
+        }
+
+        stage('Trivy Scan - Frontend') {
+            steps {
+                sh '''
+                    trivy image \
+                      --scanners vuln \
+                      --severity HIGH,CRITICAL \
+                      --ignore-unfixed \
+                      --exit-code 1 \
+                      claims-frontend:test
+                '''
+            }
+        }
+
+        stage('Tag Images with Git SHA') {
+            steps {
+                script {
+                    env.GIT_SHA = sh(
+                        script: 'git rev-parse --short HEAD',
+                        returnStdout: true
+                    ).trim()
+                }
+
+                sh '''
+                    docker tag claims-backend:test claims-backend:${GIT_SHA}
+                    docker tag claims-frontend:test claims-frontend:${GIT_SHA}
+                '''
+
+                echo "Images tagged with Git SHA: ${env.GIT_SHA}"
+            }
+        }
+
     }
 
     post {
@@ -67,6 +124,10 @@ pipeline {
 
         failure {
             echo 'Pipeline failed. Check the console output.'
+        }
+
+        always {
+            echo 'Pipeline execution finished'
         }
     }
 }
