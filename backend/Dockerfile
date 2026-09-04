@@ -10,7 +10,8 @@ RUN pip install --no-cache-dir --upgrade \
     "setuptools>=78.1.1" \
     "msgpack>=1.2.1"
 
-COPY . .
+COPY app.py .
+COPY test_app.py .
 
 ENV FLASK_HOST=0.0.0.0
 
