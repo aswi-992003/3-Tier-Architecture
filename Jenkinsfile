@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        PATH = "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:${env.PATH}"
+        PATH = "/Users/midhtech_02/.docker/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:${env.PATH}"
     }
 
     stages {
@@ -56,7 +56,10 @@ pipeline {
         stage('Check Docker and Trivy') {
             steps {
                 sh '''
+                    echo "Checking Docker..."
                     docker --version
+
+                    echo "Checking Trivy..."
                     trivy --version
                 '''
             }
@@ -65,8 +68,15 @@ pipeline {
         stage('Docker Build') {
             steps {
                 sh '''
-                    docker build --no-cache -t claims-backend:test ./backend
-                    docker build --no-cache -t claims-frontend:test ./frontend
+                    echo "Building backend image..."
+                    docker build --no-cache \
+                      -t claims-backend:test \
+                      ./backend
+
+                    echo "Building frontend image..."
+                    docker build --no-cache \
+                      -t claims-frontend:test \
+                      ./frontend
                 '''
             }
         }
@@ -74,6 +84,8 @@ pipeline {
         stage('Trivy Scan - Backend') {
             steps {
                 sh '''
+                    echo "Scanning backend image..."
+
                     trivy image \
                       --scanners vuln \
                       --severity HIGH,CRITICAL \
@@ -87,6 +99,8 @@ pipeline {
         stage('Trivy Scan - Frontend') {
             steps {
                 sh '''
+                    echo "Scanning frontend image..."
+
                     trivy image \
                       --scanners vuln \
                       --severity HIGH,CRITICAL \
@@ -104,30 +118,49 @@ pipeline {
                         script: 'git rev-parse --short HEAD',
                         returnStdout: true
                     ).trim()
+
+                    echo "Current Git SHA: ${env.GIT_SHA}"
                 }
 
                 sh '''
-                    docker tag claims-backend:test claims-backend:${GIT_SHA}
-                    docker tag claims-frontend:test claims-frontend:${GIT_SHA}
-                '''
+                    docker tag \
+                      claims-backend:test \
+                      claims-backend:${GIT_SHA}
 
-                echo "Images tagged with Git SHA: ${env.GIT_SHA}"
+                    docker tag \
+                      claims-frontend:test \
+                      claims-frontend:${GIT_SHA}
+
+                    echo "Docker images tagged with Git SHA: ${GIT_SHA}"
+                '''
             }
         }
 
+        stage('Verify Images') {
+            steps {
+                sh '''
+                    echo "Backend image:"
+                    docker images claims-backend
+
+                    echo "Frontend image:"
+                    docker images claims-frontend
+                '''
+            }
+        }
     }
 
     post {
         success {
             echo 'Pipeline completed successfully'
+            echo 'Build, test, SonarQube analysis, Docker build, Trivy scan and image tagging completed.'
         }
 
         failure {
-            echo 'Pipeline failed. Check the console output.'
+            echo 'Pipeline failed. Check the failed stage in Console Output.'
         }
 
         always {
-            echo 'Pipeline execution finished'
+            echo 'Pipeline execution finished.'
         }
     }
 }
