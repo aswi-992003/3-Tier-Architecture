@@ -9,12 +9,13 @@ CORS(
     app,
     origins=[
         "http://localhost:5173",
-        "http://localhost:5174"
+        "http://localhost:5174",
+        "http://localhost:8081"
     ]
 )
 
 DB_CONFIG = {
-    "host": "localhost",
+    "host": "host.docker.internal",
     "database": "claimsdb",
     "user": "claimsuser",
     "password": "claimspassword",
@@ -246,4 +247,4 @@ def login():
 
 
 if __name__ == "__main__":
-    app.run(host="127.0.0.1", port=5000, debug=False)
+    app.run(host="0.0.0.0", port=5000, debug=False)
