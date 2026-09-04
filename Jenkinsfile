@@ -69,14 +69,10 @@ pipeline {
             steps {
                 sh '''
                     echo "Building backend image..."
-                    docker build --no-cache \
-                      -t claims-backend:test \
-                      ./backend
+                    docker build -t claims-backend:test ./backend
 
                     echo "Building frontend image..."
-                    docker build --no-cache \
-                      -t claims-frontend:test \
-                      ./frontend
+                    docker build -t claims-frontend:test ./frontend
                 '''
             }
         }
