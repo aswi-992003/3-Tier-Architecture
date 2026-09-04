@@ -3,3 +3,5 @@ node_modules/
 venv/
 __pycache__/
 *.pyc
+frontend/dist/
+trivy-backend.json
