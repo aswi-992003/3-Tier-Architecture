@@ -171,9 +171,13 @@ function App() {
     return (
         <div className="app">
             <header>
-                <div className="logo" onClick={() => setPage("home")}>
-                    Claims<span>Management</span>
-                </div>
+                <button
+                   type="button"
+                   className="logo"
+                   onClick={() => setPage("home")}
+                >
+                   Claims<span>Management</span>
+                </button>
 
                 <nav>
                     <button onClick={() => setPage("home")}>Home</button>
