@@ -5,9 +5,8 @@ WORKDIR /app
 COPY requirements.txt .
 
 RUN pip install --no-cache-dir -r requirements.txt && \
-    pip install --no-cache-dir --upgrade \
-    "setuptools>=78.1.1" \
-    "msgpack>=1.2.1"
+    pip install --no-cache-dir --upgrade "msgpack>=1.2.1" && \
+    pip uninstall -y setuptools pip
 
 COPY app.py .
 COPY test_app.py .
