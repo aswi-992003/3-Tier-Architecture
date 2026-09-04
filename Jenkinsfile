@@ -1,8 +1,12 @@
 pipeline {
+
     agent any
 
     environment {
         PATH = "/Users/midhtech_02/.docker/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:${env.PATH}"
+
+        HARBOR_REGISTRY = "localhost:8082"
+        HARBOR_PROJECT = "claims"
     }
 
     stages {
@@ -52,13 +56,14 @@ pipeline {
                 }
             }
         }
+
         stage('Quality Gate') {
-    steps {
-        timeout(time: 2, unit: 'MINUTES') {
-            waitForQualityGate abortPipeline: true
+            steps {
+                timeout(time: 2, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: true
+                }
+            }
         }
-    }
-}
 
         stage('Check Docker and Trivy') {
             steps {
@@ -139,23 +144,101 @@ pipeline {
             }
         }
 
+        stage('Harbor Login') {
+            steps {
+                withCredentials([
+                    usernamePassword(
+                        credentialsId: 'harbor-credentials',
+                        usernameVariable: 'HARBOR_USER',
+                        passwordVariable: 'HARBOR_PASSWORD'
+                    )
+                ]) {
+                    sh '''
+                        echo "$HARBOR_PASSWORD" | docker login \
+                          "$HARBOR_REGISTRY" \
+                          -u "$HARBOR_USER" \
+                          --password-stdin
+                    '''
+                }
+            }
+        }
+
+        stage('Tag Images for Harbor') {
+            steps {
+                sh '''
+                    echo "Tagging backend image for Harbor..."
+
+                    docker tag \
+                      claims-backend:${GIT_SHA} \
+                      ${HARBOR_REGISTRY}/${HARBOR_PROJECT}/claims-backend:${GIT_SHA}
+
+                    echo "Tagging frontend image for Harbor..."
+
+                    docker tag \
+                      claims-frontend:${GIT_SHA} \
+                      ${HARBOR_REGISTRY}/${HARBOR_PROJECT}/claims-frontend:${GIT_SHA}
+                '''
+            }
+        }
+
+        stage('Push Images to Harbor') {
+            steps {
+                sh '''
+                    echo "Pushing backend image to Harbor..."
+
+                    docker push \
+                      ${HARBOR_REGISTRY}/${HARBOR_PROJECT}/claims-backend:${GIT_SHA}
+
+                    echo "Pushing frontend image to Harbor..."
+
+                    docker push \
+                      ${HARBOR_REGISTRY}/${HARBOR_PROJECT}/claims-frontend:${GIT_SHA}
+                '''
+            }
+        }
+
+        stage('Record Image Digests') {
+            steps {
+                sh '''
+                    echo "Backend image digest:"
+
+                    docker inspect \
+                      --format='{{index .RepoDigests 0}}' \
+                      ${HARBOR_REGISTRY}/${HARBOR_PROJECT}/claims-backend:${GIT_SHA}
+
+                    echo "Frontend image digest:"
+
+                    docker inspect \
+                      --format='{{index .RepoDigests 0}}' \
+                      ${HARBOR_REGISTRY}/${HARBOR_PROJECT}/claims-frontend:${GIT_SHA}
+                '''
+            }
+        }
+
         stage('Verify Images') {
             steps {
                 sh '''
-                    echo "Backend image:"
+                    echo "Backend local images:"
                     docker images claims-backend
 
-                    echo "Frontend image:"
+                    echo "Frontend local images:"
                     docker images claims-frontend
+
+                    echo "Harbor backend image:"
+                    docker images ${HARBOR_REGISTRY}/${HARBOR_PROJECT}/claims-backend
+
+                    echo "Harbor frontend image:"
+                    docker images ${HARBOR_REGISTRY}/${HARBOR_PROJECT}/claims-frontend
                 '''
             }
         }
     }
 
     post {
+
         success {
             echo 'Pipeline completed successfully'
-            echo 'Build, test, SonarQube analysis, Docker build, Trivy scan and image tagging completed.'
+            echo 'Build, test, SonarQube, Quality Gate, Docker build, Trivy scan, Git SHA tagging and Harbor push completed.'
         }
 
         failure {
