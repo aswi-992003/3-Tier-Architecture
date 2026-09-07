@@ -242,6 +242,7 @@ pipeline {
         success {
             echo 'Pipeline completed successfully'
             echo 'Build, test, SonarQube, Quality Gate, Docker build, Trivy scan, Git SHA tagging and Harbor push completed.'
+            echo 'Build, test, SonarQube, Quality Gate, Docker build, Trivy scan, Git SHA tagging and Harbor push completed.'
         }
 
         failure {
@@ -250,6 +251,8 @@ pipeline {
 
         always {
             echo 'Pipeline execution finished.'
+            echo 'Pipeline execution finished.'
+
         }
     }
 }
