@@ -90,7 +90,6 @@ pipeline {
                 '''
             }
         }
-
         stage('Trivy Scan - Backend') {
             steps {
                 sh '''
