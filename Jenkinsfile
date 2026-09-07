@@ -15,7 +15,8 @@ pipeline {
             steps {
                 echo 'Code checked out from GitLab'
                 echo 'Jenkins pipeline triggered successfully after Jenkinsfile update'
-                echo 'Jenkins pipeline triggered successfully after Jenkinsfile update'
+                echo 'Jenkins pipeline triggered successfully'
+                echo 'Jenkins pipeline triggered successfully'
 
             }
         }
