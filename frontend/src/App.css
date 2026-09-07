@@ -34,10 +34,11 @@ header {
 }
 
 .logo {
-    color: white;
-    font-size: 22px;
-    font-weight: bold;
-    cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
 }
 
 .logo span {

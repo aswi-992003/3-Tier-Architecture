@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import psycopg2
@@ -15,7 +16,7 @@ CORS(
 )
 
 DB_CONFIG = {
-    "host": "host.docker.internal",
+    "host": "localhost",
     "database": "claimsdb",
     "user": "claimsuser",
     "password": "claimspassword",
@@ -35,27 +36,34 @@ def health():
     })
 
 
-@app.route("/api/claims")
+@app.route("/api/claims", methods=["GET"])
 def get_claims():
     try:
         conn = get_db()
-        cur = conn.cursor(cursor_factory=RealDictCursor)
+        cursor = conn.cursor(cursor_factory=RealDictCursor)
 
-        cur.execute("""
-            SELECT id, claim_number, customer_name, amount,
-                   description, status, created_at
+        cursor.execute("""
+            SELECT
+                id,
+                claim_number,
+                customer_name,
+                amount,
+                description,
+                status,
+                created_at
             FROM claims
-            ORDER BY id DESC
+            ORDER BY id;
         """)
 
-        claims = cur.fetchall()
+        claims = cursor.fetchall()
 
-        cur.close()
+        cursor.close()
         conn.close()
 
         return jsonify(claims)
 
     except Exception as e:
+        print("Database error:", e)
         return jsonify({"error": str(e)}), 500
 
 
@@ -249,6 +257,6 @@ def login():
 if __name__ == "__main__":
     app.run(
     host=os.getenv("FLASK_HOST", "127.0.0.1"),
-    port=5000,
+    port=5001,
     debug=False
 )

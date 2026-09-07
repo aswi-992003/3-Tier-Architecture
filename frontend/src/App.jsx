@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const API = "http://localhost:5000/api";
+const API = "http://localhost:5001/api";
 
 function App() {
     const [page, setPage] = useState("home");
@@ -174,7 +174,7 @@ function App() {
                     className="logo"
                     onClick={() => setPage("home")}
                 >
-                    Claims<span>Management</span>
+                   <span>Claims Management</span>
                 </button>
 
                 <nav>
