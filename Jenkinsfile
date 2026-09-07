@@ -14,6 +14,8 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo 'Code checked out from GitLab'
+                echo 'Jenkins pipeline triggered successfully after Jenkinsfile update'
+
             }
         }
 
