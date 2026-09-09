@@ -87,6 +87,7 @@ pipeline {
                 sh '''
                     echo "Building backend image..."
                     docker build -t claims-backend:test ./backend
+                    
 
                     echo "Building frontend image..."
                     docker build -t claims-frontend:test ./frontend
