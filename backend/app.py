@@ -27,7 +27,7 @@ DB_CONFIG = {
 def get_db():
     return psycopg2.connect(**DB_CONFIG)
 
-@app.route("/")
+@app.route("/", methods=["GET"])
 def home():
     return {
         "message": "Claims backend is running",
@@ -35,7 +35,7 @@ def home():
     }
 
 
-@app.route("/api/health")
+@app.route("/api/health", methods=["GET"])
 def health():
     return jsonify({
         "status": "healthy",

@@ -72,10 +72,10 @@ pipeline {
         stage('Check Docker and Trivy') {
             steps {
                 sh '''
-                    echo "Checking Docker..."
+                    echo "Checking Docker"
                     docker --version
 
-                    echo "Checking Trivy..."
+                    echo "Checking Trivy"
                     trivy --version
                 '''
             }
