@@ -76,7 +76,6 @@ pipeline {
                     docker --version
 
                     echo "Checking Trivy..."
-                    echo "Checking Trivy..."
                     trivy --version
                 '''
             }
