@@ -1,9 +1,3 @@
-CREATE DATABASE claimsdb;
-
-CREATE USER claimsuser WITH PASSWORD 'claimspassword';
-
-GRANT ALL PRIVILEGES ON DATABASE claimsdb TO claimsuser;
-
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
@@ -38,6 +32,3 @@ BEFORE INSERT ON claims
 FOR EACH ROW
 WHEN (NEW.claim_number IS NULL)
 EXECUTE FUNCTION generate_claim_number();
-
-GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO claimsuser;
-GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO claimsuser;

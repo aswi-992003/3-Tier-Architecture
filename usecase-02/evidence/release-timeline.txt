@@ -1,0 +1,52 @@
+Use Case 02 — Release Timeline
+
+Release: 5531cba
+Date: 2026-09-15
+Environment path: claims-dev to claims-staging
+
+1. DEV VALIDATION
+The application was deployed successfully in claims-dev.
+Backend and frontend pods used the selected image digests.
+The health endpoint, claims API, and browser were verified.
+
+2. MANUAL APPROVAL
+Time: 12:02:26 IST
+Decision: Approved
+Approved by: Aswini
+The same images were approved for promotion from dev to staging.
+
+3. STAGING PROMOTION
+Time: 12:13:48 IST
+Helm revision: 1
+Status: Deployed
+The same backend and frontend images were deployed without rebuilding.
+
+4. CONTROLLED BAD RELEASE
+Time: 16:54:46 IST
+Helm revision: 2
+Status: Failed
+The backend readiness path was changed to /api/does-not-exist.
+The new backend pod remained 0/1 Ready.
+The readiness probe returned HTTP 404.
+The previous healthy pod remained available.
+
+5. ROLLBACK
+Time: 17:03:16 IST
+Helm revision: 3
+Action: Rollback to revision 1
+Status: Deployed
+
+6. RECOVERY VERIFICATION
+The backend health endpoint returned HTTP 200.
+The claims API returned HTTP 200.
+Staging claim CLM-0001 remained available.
+The frontend loaded successfully at localhost:4174.
+The requested images matched the running image IDs.
+
+Backend digest:
+sha256:f409b2349c6d3f2a1151e4a5245e58c8aac5ac3d66de3d4884424b0f5f2a0d36
+
+Frontend digest:
+sha256:f42ddc386e9fd7d9be2938de9718a81ac3b5b80efdc96ecaa2df79c294508a12
+
+Final result: Use Case 02 completed successfully.

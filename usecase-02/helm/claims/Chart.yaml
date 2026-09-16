@@ -1,0 +1,6 @@
+apiVersion: v2
+name: claims
+description: Claims frontend and backend release
+type: application
+version: 0.1.0
+appVersion: "5531cba"

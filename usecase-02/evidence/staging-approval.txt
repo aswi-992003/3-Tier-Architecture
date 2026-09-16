@@ -1,0 +1,19 @@
+Use Case 02 — Manual approval simulation
+
+Approved by: Aswini
+Approved at: 2026-09-15 12:02:26 IST
+
+Decision: Approved to promote release 5531cba
+From: claims-dev
+To: claims-staging
+
+Backend digest:
+sha256:f409b2349c6d3f2a1151e4a5245e58c8aac5ac3d66de3d4884424b0f5f2a0d36
+
+Frontend digest:
+sha256:f42ddc386e9fd7d9be2938de9718a81ac3b5b80efdc96ecaa2df79c294508a12
+
+Dev testing passed.
+Staging configuration validation passed.
+Promote these same images without rebuilding.
+Use separate staging database storage.
