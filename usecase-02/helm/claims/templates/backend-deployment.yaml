@@ -1,54 +1,66 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: claims-backend
-  labels:
-    app: claims-backend
-    app.kubernetes.io/instance: {{ .Release.Name | quote }}
+  name: claims-db
 spec:
-  replicas: {{ .Values.backend.replicas }}
+  replicas: 1
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
-      app: claims-backend
+      app: claims-db
       app.kubernetes.io/instance: {{ .Release.Name | quote }}
   template:
     metadata:
       labels:
-        app: claims-backend
+        app: claims-db
         app.kubernetes.io/instance: {{ .Release.Name | quote }}
     spec:
-      imagePullSecrets:
-        {{- toYaml .Values.imagePullSecrets | nindent 8 }}
+      automountServiceAccountToken: false
       containers:
-        - name: backend
-          image: "{{ .Values.backend.image.repository }}@{{ .Values.backend.image.digest }}"
-          imagePullPolicy: Always
+        - name: postgres
+          image: postgres:16
           ports:
-            - name: http
-              containerPort: {{ .Values.backend.port }}
+            - name: postgres
+              containerPort: 5432
           env:
-            - name: DB_HOST
-              value: {{ .Values.database.host | quote }}
-            - name: DB_PORT
-              value: {{ .Values.database.port | quote }}
-            - name: DB_NAME
+            - name: POSTGRES_DB
               value: {{ .Values.database.name | quote }}
-            - name: DB_USER
+            - name: POSTGRES_USER
               value: {{ .Values.database.user | quote }}
-            - name: DB_PASSWORD
+            - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: {{ .Values.database.existingSecret | quote }}
                   key: password
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata
           readinessProbe:
-            httpGet:
-              path: {{ .Values.backend.readinessPath | quote }}
-              port: http
+            exec:
+              command:
+                - sh
+                - -c
+                - 'pg_isready -U "$POSTGRES_USER" -d "$POSTGRES_DB"'
             initialDelaySeconds: 5
             periodSeconds: 5
           resources:
             requests:
-              cpu: 100m
-              memory: 128Mi
+              cpu: "100m"
+              memory: "256Mi"
+              ephemeral-storage: "100Mi"
             limits:
-              memory: 512Mi
+              memory: "512Mi"
+              ephemeral-storage: "1Gi"
+          volumeMounts:
+            - name: database-data
+              mountPath: /var/lib/postgresql/data
+            - name: database-init
+              mountPath: /docker-entrypoint-initdb.d
+              readOnly: true
+      volumes:
+        - name: database-data
+          persistentVolumeClaim:
+            claimName: claims-db-data
+        - name: database-init
+          configMap:
+            name: claims-db-init
