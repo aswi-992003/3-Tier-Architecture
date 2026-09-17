@@ -1,0 +1,24 @@
+imagePullSecrets:
+  - name: harbor-pull-secret
+
+backend:
+  image:
+    repository: host.docker.internal:8082/claims/claims-backend
+    digest: sha256:f409b2349c6d3f2a1151e4a5245e58c8aac5ac3d66de3d4884424b0f5f2a0d36
+  replicas: 1
+  port: 5001
+  readinessPath: /api/health
+
+frontend:
+  image:
+    repository: host.docker.internal:8082/claims/claims-frontend
+    digest: sha256:f42ddc386e9fd7d9be2938de9718a81ac3b5b80efdc96ecaa2df79c294508a12
+  replicas: 1
+  port: 8080
+
+database:
+  host: claims-db
+  port: 5432
+  name: claimsdb
+  user: claimsuser
+  existingSecret: claims-db-secret

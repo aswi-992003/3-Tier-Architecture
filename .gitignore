@@ -5,3 +5,6 @@ __pycache__/
 *.pyc
 frontend/dist/
 trivy-backend.json
+# Local configuration containing secrets
+.env
+.env.local
