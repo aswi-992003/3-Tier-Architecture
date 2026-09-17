@@ -34,14 +34,27 @@ pipeline {
         }
 
         stage('Unit Tests') {
-            steps {
-                sh '''
-                    cd backend
-                    . venv/bin/activate
-                    pytest -v
-                '''
-            }
+    steps {
+        withCredentials([
+            string(
+                credentialsId: 'claims-db-password',
+                variable: 'DB_PASSWORD'
+            )
+        ]) {
+            sh '''
+                cd backend
+                . venv/bin/activate
+
+                export DB_HOST=localhost
+                export DB_NAME=claimsdb
+                export DB_USER=claimsuser
+                export DB_PORT=5432
+
+                pytest -v
+            '''
         }
+    }
+}
 
         stage('SonarQube Analysis') {
             steps {
