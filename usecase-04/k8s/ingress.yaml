@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: claims
+  namespace: claims-k8s-lab
+spec:
+  ingressClassName: nginx
+
+  rules:
+    - http:
+        paths:
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: claims-backend
+                port:
+                  number: 5001
+
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: claims-frontend
+                port:
+                  number: 8080
