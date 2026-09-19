@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: claims-frontend
+  labels:
+    app: claims-frontend
+    app.kubernetes.io/instance: {{ .Release.Name | quote }}
+spec:
+  type: ClusterIP
+  selector:
+    app: claims-frontend
+    app.kubernetes.io/instance: {{ .Release.Name | quote }}
+  ports:
+    - name: http
+      port: {{ .Values.frontend.port }}
+      targetPort: http
+      protocol: TCP

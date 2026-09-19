@@ -1,0 +1,313 @@
+---
+# Source: claims/templates/database-init-configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: claims-db-init
+data:
+  init.sql: |
+    CREATE TABLE users (
+        id SERIAL PRIMARY KEY,
+        name VARCHAR(100) NOT NULL,
+        email VARCHAR(150) UNIQUE NOT NULL,
+        password_hash TEXT NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );
+
+    CREATE TABLE claims (
+        id SERIAL PRIMARY KEY,
+        claim_number VARCHAR(20) UNIQUE,
+        customer_name VARCHAR(100) NOT NULL,
+        amount NUMERIC(12,2) NOT NULL,
+        description TEXT,
+        status VARCHAR(20) DEFAULT 'Pending',
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );
+
+    CREATE SEQUENCE claim_number_seq START 1;
+
+    CREATE OR REPLACE FUNCTION generate_claim_number()
+    RETURNS TRIGGER AS $$
+    BEGIN
+        NEW.claim_number :=
+            'CLM-' || LPAD(nextval('claim_number_seq')::TEXT, 4, '0');
+        RETURN NEW;
+    END;
+    $$ LANGUAGE plpgsql;
+
+    CREATE TRIGGER claim_number_trigger
+    BEFORE INSERT ON claims
+    FOR EACH ROW
+    WHEN (NEW.claim_number IS NULL)
+    EXECUTE FUNCTION generate_claim_number();
+
+---
+# Source: claims/templates/database-pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: claims-db-data
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+
+---
+# Source: claims/templates/backend-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: claims-backend
+  labels:
+    app: claims-backend
+    app.kubernetes.io/instance: "claims"
+spec:
+  type: ClusterIP
+  selector:
+    app: claims-backend
+    app.kubernetes.io/instance: "claims"
+  ports:
+    - name: http
+      port: 5001
+      targetPort: http
+      protocol: TCP
+
+---
+# Source: claims/templates/database-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: "claims-db"
+  labels:
+    app: claims-db
+    app.kubernetes.io/instance: "claims"
+spec:
+  type: ClusterIP
+  selector:
+    app: claims-db
+    app.kubernetes.io/instance: "claims"
+  ports:
+    - name: postgres
+      port: 5432
+      targetPort: postgres
+      protocol: TCP
+
+---
+# Source: claims/templates/frontend-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: claims-frontend
+  labels:
+    app: claims-frontend
+    app.kubernetes.io/instance: "claims"
+spec:
+  type: ClusterIP
+  selector:
+    app: claims-frontend
+    app.kubernetes.io/instance: "claims"
+  ports:
+    - name: http
+      port: 8080
+      targetPort: http
+      protocol: TCP
+
+---
+# Source: claims/templates/backend-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: claims-backend
+  labels:
+    app: claims-backend
+    app.kubernetes.io/instance: "claims"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: claims-backend
+      app.kubernetes.io/instance: "claims"
+  template:
+    metadata:
+      labels:
+        app: claims-backend
+        app.kubernetes.io/instance: "claims"
+    spec:
+      imagePullSecrets:
+        - name: harbor-pull-secret
+      containers:
+        - name: backend
+          image: "host.docker.internal:8082/claims/claims-backend@sha256:f409b2349c6d3f2a1151e4a5245e58c8aac5ac3d66de3d4884424b0f5f2a0d36"
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 5001
+          env:
+            - name: DB_HOST
+              value: "claims-db"
+            - name: DB_PORT
+              value: "5432"
+            - name: DB_NAME
+              value: "claimsdb"
+            - name: DB_USER
+              value: "claimsuser"
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: "claims-db-secret"
+                  key: password
+          readinessProbe:
+            httpGet:
+              path: "/api/health"
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              memory: 512Mi
+
+---
+# Source: claims/templates/database-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: claims-db
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: claims-db
+      app.kubernetes.io/instance: "claims"
+  template:
+    metadata:
+      labels:
+        app: claims-db
+        app.kubernetes.io/instance: "claims"
+    spec:
+      automountServiceAccountToken: false
+      containers:
+        - name: postgres
+          image: postgres:16
+          ports:
+            - name: postgres
+              containerPort: 5432
+          env:
+            - name: POSTGRES_DB
+              value: "claimsdb"
+            - name: POSTGRES_USER
+              value: "claimsuser"
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: "claims-db-secret"
+                  key: password
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata
+          readinessProbe:
+            exec:
+              command:
+                - sh
+                - -c
+                - 'pg_isready -U "$POSTGRES_USER" -d "$POSTGRES_DB"'
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+              ephemeral-storage: "100Mi"
+            limits:
+              memory: "512Mi"
+              ephemeral-storage: "1Gi"
+          volumeMounts:
+            - name: database-data
+              mountPath: /var/lib/postgresql/data
+            - name: database-init
+              mountPath: /docker-entrypoint-initdb.d
+              readOnly: true
+      volumes:
+        - name: database-data
+          persistentVolumeClaim:
+            claimName: claims-db-data
+        - name: database-init
+          configMap:
+            name: claims-db-init
+---
+# Source: claims/templates/frontend-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: claims-frontend
+  labels:
+    app: claims-frontend
+    app.kubernetes.io/instance: "claims"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: claims-frontend
+      app.kubernetes.io/instance: "claims"
+  template:
+    metadata:
+      labels:
+        app: claims-frontend
+        app.kubernetes.io/instance: "claims"
+    spec:
+      imagePullSecrets:
+        - name: harbor-pull-secret
+      automountServiceAccountToken: false
+      containers:
+        - name: frontend
+          image: "host.docker.internal:8082/claims/claims-frontend:usecase-04-ingress"
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "64Mi"
+              ephemeral-storage: "100Mi"
+            limits:
+              memory: "256Mi"
+              ephemeral-storage: "1Gi"
+
+---
+# Source: claims/templates/ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: claims
+spec:
+  ingressClassName: nginx
+rules:
+    - host: "claims-gitops.localhost"
+      http:
+        paths:
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: claims-backend
+                port:
+                  number: 5001
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: claims-frontend
+                port:
+                  number: 8080
