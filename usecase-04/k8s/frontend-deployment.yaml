@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: claims-frontend
+  namespace: claims-k8s-lab
+  labels:
+    app: claims-frontend
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: claims-frontend
+
+  template:
+    metadata:
+      labels:
+        app: claims-frontend
+
+    spec:
+      imagePullSecrets:
+        - name: harbor-pull-secret
+
+      containers:
+        - name: frontend
+          image: host.docker.internal:8082/claims/claims-frontend:usecase-04-ingress
+          imagePullPolicy: Always
+
+          ports:
+            - name: http
+              containerPort: 8080
+
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            timeoutSeconds: 2
+            failureThreshold: 3
+
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 20
+            periodSeconds: 10
+            timeoutSeconds: 2
+            failureThreshold: 3
+
+          resources:
+            requests:
+              cpu: 100m
+              memory: 64Mi
+            limits:
+              memory: 256Mi
