@@ -1,0 +1,26 @@
+{
+  "syncStatus": "Synced",
+  "healthStatus": "Healthy",
+  "gitRevision": "62ade3151a818de51fc79e63f3082ed0364d8cbe",
+  "syncHistory": [
+    {
+      "deployStartedAt": "2026-09-19T08:09:33Z",
+      "deployedAt": "2026-09-19T08:09:34Z",
+      "id": 0,
+      "initiatedBy": {
+        "automated": true
+      },
+      "revision": "62ade3151a818de51fc79e63f3082ed0364d8cbe",
+      "source": {
+        "helm": {
+          "valueFiles": [
+            "values-dev.yaml"
+          ]
+        },
+        "path": "usecase-05/helm/claims",
+        "repoURL": "https://gitlab.com/midh-technologies-group1/3-tier-architecture.git",
+        "targetRevision": "feature/usecase-05"
+      }
+    }
+  ]
+}

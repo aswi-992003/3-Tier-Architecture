@@ -8,7 +8,7 @@ spec:
 
   source:
     repoURL: https://gitlab.com/midh-technologies-group1/3-tier-architecture.git
-    targetRevision: feature/usecase-05
+    targetRevision: main
     path: usecase-05/helm/claims
     helm:
       valueFiles:
