@@ -12,7 +12,8 @@ CORS(
         "http://localhost:5173",
         "http://localhost:4173",
         "http://localhost:4174",
-        "http://localhost:8080"
+        "http://localhost:8080",
+        "http://localhost:8081"
     ]
 )
 
@@ -20,7 +21,7 @@ DB_CONFIG = {
     "host": os.getenv("DB_HOST", "localhost"),
     "database": os.getenv("DB_NAME", "claimsdb"),
     "user": os.getenv("DB_USER", "claimsuser"),
-    "password": os.getenv("DB_PASSWORD", "claimspassword"),
+    "password": os.environ["DB_PASSWORD"],
     "port": int(os.getenv("DB_PORT", "5432"))
 }
 

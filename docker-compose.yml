@@ -1,58 +1,60 @@
 services:
-
   database:
     image: postgres:16
-    container_name: claims-db
-
     environment:
-      POSTGRES_DB: claimsdb
-      POSTGRES_USER: claimsuser
-      POSTGRES_PASSWORD: claimspassword
-
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
-
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U claimsuser -d claimsdb"]
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"
+        ]
       interval: 5s
       timeout: 5s
       retries: 10
 
-
   backend:
     build:
       context: ./backend
-
-    container_name: claims-backend
-
     environment:
       DB_HOST: database
-      DB_NAME: claimsdb
-      DB_USER: claimsuser
-      DB_PASSWORD: claimspassword
+      DB_NAME: ${POSTGRES_DB}
+      DB_USER: ${POSTGRES_USER}
+      DB_PASSWORD: ${POSTGRES_PASSWORD}
       DB_PORT: 5432
-
     ports:
-      - "5001:5001"
-
+      - "${BACKEND_HOST_PORT}:5001"
     depends_on:
       database:
         condition: service_healthy
-
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://localhost:5001/api/health')"
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
 
   frontend:
     build:
       context: ./frontend
-
-    container_name: claims-frontend
-
+      args:
+        VITE_API_URL: ${VITE_API_URL}
     ports:
-      - "8081:8080"
-
+      - "${FRONTEND_HOST_PORT}:8080"
     depends_on:
-      - backend
-
+      backend:
+        condition: service_healthy
 
 volumes:
   postgres_data:
