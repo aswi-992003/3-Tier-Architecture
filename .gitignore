@@ -8,3 +8,13 @@ trivy-backend.json
 # Local configuration containing secrets
 .env
 .env.local
+# Terraform generated files
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfplan
+terraform.tfvars
+crash.log
+
+# Operating system files
+.DS_Store
