@@ -1,0 +1,13 @@
+aws_vpc.claims_lab: Refreshing state... [id=vpc-021f88d4a3d0b3f44]
+aws_ecr_repository.claims: Refreshing state... [id=claims-lab]
+aws_internet_gateway.claims_lab: Refreshing state... [id=igw-0028aaec5d3938429]
+aws_route_table.public: Refreshing state... [id=rtb-07705fffeeac2ee5b]
+aws_subnet.public: Refreshing state... [id=subnet-057d745987661a45e]
+aws_security_group.application: Refreshing state... [id=sg-0e5c6f99bc41afcd3]
+aws_route.internet: Refreshing state... [id=r-rtb-07705fffeeac2ee5b1080289494]
+aws_route_table_association.public: Refreshing state... [id=rtbassoc-0a10d7fcfe3aa0c3d]
+
+No changes. Your infrastructure matches the configuration.
+
+Terraform has compared your real infrastructure against your configuration
+and found no differences, so no changes are needed.

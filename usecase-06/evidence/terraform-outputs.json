@@ -1,0 +1,22 @@
+{
+  "ecr_repository_url": {
+    "sensitive": false,
+    "type": "string",
+    "value": "354089337709.dkr.ecr.ap-south-1.amazonaws.com/claims-lab"
+  },
+  "public_subnet_id": {
+    "sensitive": false,
+    "type": "string",
+    "value": "subnet-057d745987661a45e"
+  },
+  "security_group_id": {
+    "sensitive": false,
+    "type": "string",
+    "value": "sg-0e5c6f99bc41afcd3"
+  },
+  "vpc_id": {
+    "sensitive": false,
+    "type": "string",
+    "value": "vpc-021f88d4a3d0b3f44"
+  }
+}
