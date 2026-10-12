@@ -1,0 +1,10 @@
+localhost | SUCCESS => {
+    "ansible_facts": {
+        "ansible_distribution": "MacOSX",
+        "ansible_distribution_major_version": "27",
+        "ansible_distribution_release": "27.0.0",
+        "ansible_distribution_version": "27.0.1",
+        "discovered_interpreter_python": "/Users/midhtech_02/.venvs/ansible/bin/python3.14"
+    },
+    "changed": false
+}
