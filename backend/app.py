@@ -1,10 +1,12 @@
 import os
-from flask import Flask, request, jsonify
+import time
+from flask import Flask, request, jsonify, g
 from flask_cors import CORS
+from prometheus_client import Counter, Histogram, make_wsgi_app
+from werkzeug.middleware.dispatcher import DispatcherMiddleware
 import psycopg2
 from psycopg2.extras import RealDictCursor
 from werkzeug.security import generate_password_hash, check_password_hash
-
 app = Flask(__name__)
 CORS(
     app,
@@ -16,6 +18,24 @@ CORS(
         "http://localhost:8081"
     ]
 )
+HTTP_REQUESTS = Counter(
+    "claims_http_requests_total",
+    "Total number of HTTP requests received by the Claims backend",
+    ["method", "endpoint", "status"]
+)
+
+HTTP_REQUEST_DURATION = Histogram(
+    "claims_http_request_duration_seconds",
+    "Duration of HTTP requests handled by the Claims backend",
+    ["method", "endpoint"]
+)
+
+app.wsgi_app = DispatcherMiddleware(
+    app.wsgi_app,
+    {
+        "/metrics": make_wsgi_app()
+    }
+)
 
 DB_CONFIG = {
     "host": os.getenv("DB_HOST", "localhost"),
@@ -24,6 +44,34 @@ DB_CONFIG = {
     "password": os.environ["DB_PASSWORD"],
     "port": int(os.getenv("DB_PORT", "5432"))
 }
+@app.before_request
+def start_request_timer():
+    g.request_start_time = time.perf_counter()
+
+
+@app.after_request
+def record_request_metrics(response):
+    endpoint = (
+        request.url_rule.rule
+        if request.url_rule is not None
+        else request.path
+    )
+
+    HTTP_REQUESTS.labels(
+        method=request.method,
+        endpoint=endpoint,
+        status=str(response.status_code)
+    ).inc()
+
+    if hasattr(g, "request_start_time"):
+        duration = time.perf_counter() - g.request_start_time
+
+        HTTP_REQUEST_DURATION.labels(
+            method=request.method,
+            endpoint=endpoint
+        ).observe(duration)
+
+    return response
 
 def get_db():
     return psycopg2.connect(**DB_CONFIG)
