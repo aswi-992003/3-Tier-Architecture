@@ -1,0 +1,16 @@
+=== Application containers ===
+NAME                      IMAGE                                                                     COMMAND                  SERVICE    CREATED          STATUS                    PORTS
+claims-local-backend-1    sha256:b540fbc75614b38e97f6a8a82a64dd4feda6a5955a6a10a9313c6dc44c0edf58   "gunicorn -w 1 -b 0.…"   backend    24 hours ago     Up 27 minutes (healthy)   0.0.0.0:5001->5001/tcp, [::]:5001->5001/tcp
+claims-local-database-1   postgres:16                                                               "docker-entrypoint.s…"   database   28 hours ago     Up 27 minutes (healthy)   5432/tcp
+claims-local-frontend-1   claims-local-frontend                                                     "/docker-entrypoint.…"   frontend   27 minutes ago   Up 27 minutes             0.0.0.0:8081->8080/tcp, [::]:8081->8080/tcp
+
+=== Observability containers ===
+NAME                IMAGE                     COMMAND                  SERVICE      CREATED        STATUS       PORTS
+claims-alloy        grafana/alloy:v1.20.1     "/bin/alloy run --se…"   alloy        24 hours ago   Up 3 hours   0.0.0.0:12345->12345/tcp, [::]:12345->12345/tcp
+claims-grafana      grafana/grafana:13.2.4    "/run.sh"                grafana      25 hours ago   Up 3 hours   0.0.0.0:3000->3000/tcp, [::]:3000->3000/tcp
+claims-loki         grafana/loki:3.7.8        "/usr/bin/loki -conf…"   loki         24 hours ago   Up 3 hours   0.0.0.0:3100->3100/tcp, [::]:3100->3100/tcp
+claims-prometheus   prom/prometheus:v3.15.0   "/bin/prometheus --c…"   prometheus   45 hours ago   Up 3 hours   0.0.0.0:9090->9090/tcp, [::]:9090->9090/tcp
+
+=== Backend health ===
+{"service":"claims-backend","status":"healthy"}
+
