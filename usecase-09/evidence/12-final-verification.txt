@@ -1,0 +1,24 @@
+=== Verification time ===
+2026-10-15T11:40:35Z
+
+=== Application containers ===
+NAME                      IMAGE                                                                     COMMAND                  SERVICE    CREATED        STATUS                    PORTS
+claims-local-backend-1    sha256:b540fbc75614b38e97f6a8a82a64dd4feda6a5955a6a10a9313c6dc44c0edf58   "gunicorn -w 1 -b 0.…"   backend    26 hours ago   Up 30 minutes (healthy)   0.0.0.0:5001->5001/tcp, [::]:5001->5001/tcp
+claims-local-database-1   postgres:16                                                               "docker-entrypoint.s…"   database   30 hours ago   Up 3 hours (healthy)      5432/tcp
+claims-local-frontend-1   claims-local-frontend                                                     "/docker-entrypoint.…"   frontend   3 hours ago    Up 3 hours                0.0.0.0:8081->8080/tcp, [::]:8081->8080/tcp
+
+=== Backend health ===
+{"service":"claims-backend","status":"healthy"}
+
+=== Prometheus health ===
+Prometheus Server is Healthy.
+
+=== Loki readiness ===
+ready
+
+=== Grafana health ===
+{
+  "database": "ok",
+  "version": "13.2.4",
+  "commit": "0e79aef9d91abf3bdadae9af15763029072fb45b"
+}

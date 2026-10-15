@@ -1,0 +1,13 @@
+=== Incident time ===
+2026-10-15T09:56:17Z
+
+=== Container status ===
+NAME                      IMAGE                   COMMAND                  SERVICE    CREATED          STATUS                    PORTS
+claims-local-database-1   postgres:16             "docker-entrypoint.s…"   database   28 hours ago     Up 48 minutes (healthy)   5432/tcp
+claims-local-frontend-1   claims-local-frontend   "/docker-entrypoint.…"   frontend   48 minutes ago   Up 48 minutes             0.0.0.0:8081->8080/tcp, [::]:8081->8080/tcp
+
+=== Failed health check ===
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+curl: (7) Failed to connect to localhost port 5001 after 0 ms: Couldn't connect to server
