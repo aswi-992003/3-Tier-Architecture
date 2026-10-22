@@ -1,0 +1,81 @@
+=== Jenkins service ===
+jenkins-lts   started         midhtech_02 ~/Library/LaunchAgents/homebrew.mxcl.jenkins-lts.plist
+
+=== Jenkins web endpoint ===
+HTTP status: 200
+
+=== Docker version ===
+Client:
+ Version:           29.7.2
+ API version:       1.55
+ Go version:        go1.26.5
+ Git commit:        a7dcaa6
+ Built:             Wed Aug  5 18:27:50 2026
+ OS/Arch:           darwin/arm64
+ Context:           desktop-linux
+Cannot connect to the Docker daemon at unix:///Users/midhtech_02/.docker/run/docker.sock. Is the docker daemon running?
+
+=== Docker engine information ===
+Client:
+ Version:    29.7.2
+ Context:    desktop-linux
+ Debug Mode: false
+ Plugins:
+  agent: Docker AI Agent Runner (Docker Inc.)
+    Version:  v1.127.0
+    Path:     /Users/midhtech_02/.docker/cli-plugins/docker-agent
+  ai: Docker AI Agent - Ask Gordon (Docker Inc.)
+    Version:  v1.30.0
+    Path:     /Users/midhtech_02/.docker/cli-plugins/docker-ai
+  buildx: Docker Buildx (Docker Inc.)
+    Version:  v0.36.1-desktop.1
+    Path:     /Users/midhtech_02/.docker/cli-plugins/docker-buildx
+  compose: Docker Compose (Docker Inc.)
+    Version:  v5.5.0
+    Path:     /Users/midhtech_02/.docker/cli-plugins/docker-compose
+  debug: Get a shell into any image or container (Docker Inc.)
+    Version:  0.0.47
+    Path:     /Users/midhtech_02/.docker/cli-plugins/docker-debug
+  desktop: Docker Desktop commands (Docker Inc.)
+    Version:  v0.4.3
+    Path:     /Users/midhtech_02/.docker/cli-plugins/docker-desktop
+  dhi: CLI for managing Docker Hardened Images (Docker Inc.)
+    Version:  v0.0.7
+    Path:     /Users/midhtech_02/.docker/cli-plugins/docker-dhi
+  extension: Manages Docker extensions (Docker Inc.)
+    Version:  v0.2.31
+    Path:     /Users/midhtech_02/.docker/cli-plugins/docker-extension
+  init: Creates Docker-related starter files for your project (Docker Inc.)
+    Version:  v1.4.0
+    Path:     /Users/midhtech_02/.docker/cli-plugins/docker-init
+  mcp: Docker MCP Plugin (Docker Inc.)
+    Version:  v0.43.3
+    Path:     /Users/midhtech_02/.docker/cli-plugins/docker-mcp
+  model: Docker Model Runner (Docker Inc.)
+    Version:  v1.2.6
+    Path:     /Users/midhtech_02/.docker/cli-plugins/docker-model
+  offload: Docker Offload (Docker Inc.)
+    Version:  v0.6.13
+    Path:     /Users/midhtech_02/.docker/cli-plugins/docker-offload
+  pass: Docker Pass Secrets Manager Plugin (beta) (Docker Inc.)
+    Version:  v0.2.2
+    Path:     /Users/midhtech_02/.docker/cli-plugins/docker-pass
+  sandbox: "docker sandbox" is deprecated, use Docker Sandboxes instead (Docker Inc.)
+    Version:  v0.13.0
+    Path:     /Users/midhtech_02/.docker/cli-plugins/docker-sandbox
+  scout: Docker Scout (Docker Inc.)
+    Version:  v1.24.0
+    Path:     /Users/midhtech_02/.docker/cli-plugins/docker-scout
+
+Server:
+Cannot connect to the Docker daemon at unix:///Users/midhtech_02/.docker/run/docker.sock. Is the docker daemon running?
+
+=== Disk usage ===
+Filesystem        Size    Used   Avail Capacity iused ifree %iused  Mounted on
+/dev/disk3s1s1   228Gi    13Gi    84Gi    14%    484k  881M    0%   /
+
+=== Harbor registry connectivity ===
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+curl: (7) Failed to connect to localhost port 8082 after 0 ms: Couldn't connect to server

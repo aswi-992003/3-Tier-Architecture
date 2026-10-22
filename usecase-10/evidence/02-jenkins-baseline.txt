@@ -1,0 +1,24 @@
+=== Jenkins service ===
+jenkins-lts   started         midhtech_02 ~/Library/LaunchAgents/homebrew.mxcl.jenkins-lts.plist
+
+=== Jenkins HTTP check ===
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+HTTP/1.1 200 OK
+Server: Jetty(12.1.8)
+Date: Fri, 16 Oct 2026 11:15:46 GMT
+X-Content-Type-Options: nosniff
+Reporting-Endpoints: content-security-policy: http://localhost:8080/content-security-policy-reporting-endpoint/VD9O3fk_kHcElsKTE2oYKeyvkCgYtV25DqjcFX24BE8=:YW5vbnltb3Vz:aHVkc29uLm1vZGVsLkh1ZHNvbg==:bG9naW4=
+Content-Security-Policy-Report-Only: base-uri 'none'; default-src 'self'; form-action 'self'; frame-ancestors 'self'; img-src 'self' data:; script-src 'report-sample' 'self' usage.jenkins.io; style-src 'report-sample' 'self' 'unsafe-inline'; report-to content-security-policy; report-uri http://localhost:8080/content-security-policy-reporting-endpoint/VD9O3fk_kHcElsKTE2oYKeyvkCgYtV25DqjcFX24BE8=:YW5vbnltb3Vz:aHVkc29uLm1vZGVsLkh1ZHNvbg==:bG9naW4=
+Content-Type: text/html;charset=utf-8
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Cache-Control: no-cache,no-store,must-revalidate
+X-Hudson: 1.395
+X-Jenkins: 2.568.2
+X-Jenkins-Session: 6d19388c
+X-Frame-Options: sameorigin
+X-Instance-Identity: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqR+xPLjYcQhLmETrO3uVMNG2Vhu3oFuP7+uRpLYHlA7kBi1+e4li/JpxYBPEEbzPtSFSyiDs4wT+VREKQut9SdKT+WKulwe6qkImWRbtgjyyH91IjetZz4qddvFYsePKsRQcHn/Y1NmHT4VFiZo+i5TApToIt+IFaykNnjDx476umzlNSvq+ADmKfouDdAshvY1U7ZBI8dSPiW38J4UlWjn1poI+XSYE0p7x/w9GuY399WnVAz/BiErh19F0GECLmvNWWg/88O7aiRJQoMH6V9zZ6iWYHvY8qCtkiAZNtJ8GPpTuJhaXpXA9xJfQ6B8218UD0feDXSnCy3IeI8N4OwIDAQAB
+Set-Cookie: JSESSIONID.f7b0cb3c=node01dachn0uh993m60ocizyi7ybe4.node0; Path=/; HttpOnly; SameSite=Lax
+Transfer-Encoding: chunked
+
