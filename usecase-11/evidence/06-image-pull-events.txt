@@ -1,0 +1,7 @@
+LAST SEEN   TYPE      REASON      OBJECT                                          MESSAGE
+83s         Normal    Scheduled   pod/claims-frontend-usecase11-6d664f78f-vq5sg   Successfully assigned claims-k8s-lab/claims-frontend-usecase11-6d664f78f-vq5sg to desktop-control-plane
+15s         Normal    BackOff     pod/claims-frontend-usecase11-6d664f78f-vq5sg   Back-off pulling image "host.docker.internal:8082/claims/claims-frontend:usecase-11-missing"
+15s         Warning   Failed      pod/claims-frontend-usecase11-6d664f78f-vq5sg   Error: ImagePullBackOff
+3s          Normal    Pulling     pod/claims-frontend-usecase11-6d664f78f-vq5sg   Pulling image "host.docker.internal:8082/claims/claims-frontend:usecase-11-missing"
+3s          Warning   Failed      pod/claims-frontend-usecase11-6d664f78f-vq5sg   Failed to pull image "host.docker.internal:8082/claims/claims-frontend:usecase-11-missing": failed to pull and unpack image "host.docker.internal:8082/claims/claims-frontend:usecase-11-missing": failed to resolve reference "host.docker.internal:8082/claims/claims-frontend:usecase-11-missing": unexpected status from HEAD request to http://registry-mirror:1273/v2/claims/claims-frontend/manifests/usecase-11-missing?ns=host.docker.internal%3A8082: 500 Internal Server Error
+3s          Warning   Failed      pod/claims-frontend-usecase11-6d664f78f-vq5sg   Error: ErrImagePull

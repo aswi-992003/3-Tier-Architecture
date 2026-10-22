@@ -1,0 +1,3 @@
+Valid recovery image:
+host.docker.internal:8082/claims/claims-frontend:usecase-11-good
+Image ID: sha256:342662305417ba0ac933bc26b8b8e240ec9962b7ca83002379873b5b8634fcad

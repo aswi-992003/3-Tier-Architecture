@@ -1,0 +1,62 @@
+Name:             claims-frontend-usecase11-6d664f78f-vq5sg
+Namespace:        claims-k8s-lab
+Priority:         0
+Service Account:  default
+Node:             desktop-control-plane/172.20.0.4
+Start Time:       Thu, 22 Oct 2026 17:35:21 +0530
+Labels:           app=claims-frontend-usecase11
+                  pod-template-hash=6d664f78f
+Annotations:      <none>
+Status:           Pending
+IP:               10.244.0.25
+IPs:
+  IP:           10.244.0.25
+Controlled By:  ReplicaSet/claims-frontend-usecase11-6d664f78f
+Containers:
+  frontend:
+    Container ID:   
+    Image:          host.docker.internal:8082/claims/claims-frontend:usecase-11-missing
+    Image ID:       
+    Port:           8080/TCP (http)
+    Host Port:      0/TCP (http)
+    State:          Waiting
+      Reason:       ImagePullBackOff
+    Ready:          False
+    Restart Count:  0
+    Limits:
+      memory:  256Mi
+    Requests:
+      cpu:        50m
+      memory:     64Mi
+    Liveness:     http-get http://:http/ delay=20s timeout=2s period=10s #success=1 #failure=3
+    Readiness:    http-get http://:http/ delay=5s timeout=2s period=5s #success=1 #failure=3
+    Environment:  <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-2l6fk (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       False 
+  ContainersReady             False 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-2l6fk:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason     Age                From               Message
+  ----     ------     ----               ----               -------
+  Normal   Scheduled  74s                default-scheduler  Successfully assigned claims-k8s-lab/claims-frontend-usecase11-6d664f78f-vq5sg to desktop-control-plane
+  Normal   Pulling    36s (x3 over 73s)  kubelet            spec.containers{frontend}: Pulling image "host.docker.internal:8082/claims/claims-frontend:usecase-11-missing"
+  Warning  Failed     36s (x3 over 73s)  kubelet            spec.containers{frontend}: Failed to pull image "host.docker.internal:8082/claims/claims-frontend:usecase-11-missing": failed to pull and unpack image "host.docker.internal:8082/claims/claims-frontend:usecase-11-missing": failed to resolve reference "host.docker.internal:8082/claims/claims-frontend:usecase-11-missing": unexpected status from HEAD request to http://registry-mirror:1273/v2/claims/claims-frontend/manifests/usecase-11-missing?ns=host.docker.internal%3A8082: 500 Internal Server Error
+  Warning  Failed     36s (x3 over 73s)  kubelet            spec.containers{frontend}: Error: ErrImagePull
+  Normal   BackOff    6s (x4 over 72s)   kubelet            spec.containers{frontend}: Back-off pulling image "host.docker.internal:8082/claims/claims-frontend:usecase-11-missing"
+  Warning  Failed     6s (x4 over 72s)   kubelet            spec.containers{frontend}: Error: ImagePullBackOff

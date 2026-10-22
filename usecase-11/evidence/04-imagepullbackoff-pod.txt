@@ -1,0 +1,2 @@
+NAME                                        READY   STATUS         RESTARTS   AGE   IP            NODE                    NOMINATED NODE   READINESS GATES
+claims-frontend-usecase11-6d664f78f-vq5sg   0/1     ErrImagePull   0          58s   10.244.0.25   desktop-control-plane   <none>           <none>

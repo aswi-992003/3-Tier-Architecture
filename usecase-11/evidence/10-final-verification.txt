@@ -1,0 +1,15 @@
+=== Kubernetes context ===
+docker-desktop
+
+=== Deployment image ===
+host.docker.internal:8082/claims/claims-frontend:usecase-11-good
+
+=== Final pod status ===
+NAME                                         READY   STATUS    RESTARTS   AGE     IP            NODE                    NOMINATED NODE   READINESS GATES
+claims-frontend-usecase11-69568d76bb-vqvdd   1/1     Running   0          8m37s   10.244.0.26   desktop-control-plane   <none>           <none>
+
+=== Rollout status ===
+deployment "claims-frontend-usecase11" successfully rolled out
+
+=== Pull secret type ===
+kubernetes.io/dockerconfigjson
