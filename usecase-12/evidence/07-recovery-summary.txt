@@ -1,0 +1,22 @@
+Use Case 12 Controlled Failure and Recovery
+
+Controlled failure:
+The Kubernetes Secret claims-usecase12-secret was removed.
+The replacement backend Pod entered CreateContainerConfigError.
+Kubernetes reported that claims-usecase12-secret was not found.
+
+Root cause:
+The Deployment required API_TOKEN from a missing Kubernetes Secret.
+
+Recovery:
+The current secret value was loaded securely from Vault.
+The Kubernetes Secret was recreated without displaying its value.
+The backend Deployment was restarted successfully.
+The replacement Pod reached 1/1 Running.
+The health endpoint returned HTTP 200.
+
+Prevention:
+Validate required Kubernetes Secrets before restarting workloads.
+Use an approved automated synchronization process between Vault and Kubernetes.
+Monitor CreateContainerConfigError events and failed rollouts.
+Never print or commit secret values.

@@ -1,0 +1,21 @@
+LAST SEEN   TYPE      REASON              OBJECT                                 MESSAGE
+42s         Normal    Scheduled           pod/claims-backend-58fb48f4fd-pttth    Successfully assigned claims-k8s-lab/claims-backend-58fb48f4fd-pttth to desktop-control-plane
+29m         Normal    Scheduled           pod/claims-backend-7c99987498-r4sh2    Successfully assigned claims-k8s-lab/claims-backend-7c99987498-r4sh2 to desktop-control-plane
+29m         Normal    ScalingReplicaSet   deployment/claims-backend              Scaled up replica set claims-backend-7c99987498 from 0 to 1
+29m         Normal    SuccessfulCreate    replicaset/claims-backend-7c99987498   Created pod: claims-backend-7c99987498-r4sh2
+29m         Normal    Started             pod/claims-backend-7c99987498-r4sh2    Container started
+29m         Normal    Created             pod/claims-backend-7c99987498-r4sh2    Container created
+29m         Normal    Pulled              pod/claims-backend-7c99987498-r4sh2    Successfully pulled image "host.docker.internal:8082/claims/claims-backend@sha256:f409b2349c6d3f2a1151e4a5245e58c8aac5ac3d66de3d4884424b0f5f2a0d36" in 13ms (13ms including waiting). Image size: 62789677 bytes.
+29m         Normal    Pulling             pod/claims-backend-7c99987498-r4sh2    Pulling image "host.docker.internal:8082/claims/claims-backend@sha256:f409b2349c6d3f2a1151e4a5245e58c8aac5ac3d66de3d4884424b0f5f2a0d36"
+29m         Normal    SuccessfulDelete    replicaset/claims-backend-7bb98bc657   Deleted pod: claims-backend-7bb98bc657-vtcwq
+29m         Normal    Killing             pod/claims-backend-7bb98bc657-vtcwq    Stopping container backend
+29m         Normal    ScalingReplicaSet   deployment/claims-backend              Scaled down replica set claims-backend-7bb98bc657 from 1 to 0
+42s         Normal    SuccessfulCreate    replicaset/claims-backend-58fb48f4fd   Created pod: claims-backend-58fb48f4fd-pttth
+42s         Normal    Pulled              pod/claims-backend-58fb48f4fd-pttth    Successfully pulled image "host.docker.internal:8082/claims/claims-backend@sha256:f409b2349c6d3f2a1151e4a5245e58c8aac5ac3d66de3d4884424b0f5f2a0d36" in 12ms (12ms including waiting). Image size: 62789677 bytes.
+42s         Normal    ScalingReplicaSet   deployment/claims-backend              Scaled up replica set claims-backend-58fb48f4fd from 0 to 1
+41s         Normal    Pulled              pod/claims-backend-58fb48f4fd-pttth    Successfully pulled image "host.docker.internal:8082/claims/claims-backend@sha256:f409b2349c6d3f2a1151e4a5245e58c8aac5ac3d66de3d4884424b0f5f2a0d36" in 15ms (15ms including waiting). Image size: 62789677 bytes.
+29s         Normal    Pulled              pod/claims-backend-58fb48f4fd-pttth    Successfully pulled image "host.docker.internal:8082/claims/claims-backend@sha256:f409b2349c6d3f2a1151e4a5245e58c8aac5ac3d66de3d4884424b0f5f2a0d36" in 23ms (23ms including waiting). Image size: 62789677 bytes.
+16s         Normal    Pulled              pod/claims-backend-58fb48f4fd-pttth    Successfully pulled image "host.docker.internal:8082/claims/claims-backend@sha256:f409b2349c6d3f2a1151e4a5245e58c8aac5ac3d66de3d4884424b0f5f2a0d36" in 18ms (18ms including waiting). Image size: 62789677 bytes.
+5s          Normal    Pulled              pod/claims-backend-58fb48f4fd-pttth    Successfully pulled image "host.docker.internal:8082/claims/claims-backend@sha256:f409b2349c6d3f2a1151e4a5245e58c8aac5ac3d66de3d4884424b0f5f2a0d36" in 27ms (27ms including waiting). Image size: 62789677 bytes.
+5s          Warning   Failed              pod/claims-backend-58fb48f4fd-pttth    Error: secret "claims-usecase12-secret" not found
+5s          Normal    Pulling             pod/claims-backend-58fb48f4fd-pttth    Pulling image "host.docker.internal:8082/claims/claims-backend@sha256:f409b2349c6d3f2a1151e4a5245e58c8aac5ac3d66de3d4884424b0f5f2a0d36"

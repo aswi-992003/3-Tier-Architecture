@@ -1,0 +1,2 @@
+NAME                              READY   STATUS    RESTARTS   AGE   IP            NODE                    NOMINATED NODE   READINESS GATES
+claims-backend-7486d6f9bb-74tmx   1/1     Running   0          11s   10.244.0.29   desktop-control-plane   <none>           <none>

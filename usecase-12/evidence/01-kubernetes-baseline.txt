@@ -1,0 +1,18 @@
+=== Deployments ===
+NAME                        READY   UP-TO-DATE   AVAILABLE   AGE
+claims-backend              1/1     1            1           36d
+claims-db                   1/1     1            1           36d
+claims-frontend             1/1     1            1           36d
+claims-frontend-usecase11   1/1     1            1           44h
+
+=== Pods ===
+NAME                                         READY   STATUS    RESTARTS         AGE
+claims-backend-db4df5857-2wpmh               1/1     Running   18 (3h43m ago)   36d
+claims-db-7bf847f6-cgztb                     1/1     Running   18 (3h43m ago)   36d
+claims-frontend-64774fbfc8-9gd5r             1/1     Running   18 (3h43m ago)   36d
+claims-frontend-usecase11-69568d76bb-vqvdd   1/1     Running   1 (3h43m ago)    44h
+
+=== Secret names ===
+NAME                 TYPE                             DATA   AGE
+claims-db-secret     Opaque                           1      36d
+harbor-pull-secret   kubernetes.io/dockerconfigjson   1      36d
