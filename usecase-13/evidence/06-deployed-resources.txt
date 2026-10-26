@@ -1,0 +1,5 @@
+Container: policy-demo
+CPU request: 50m
+Memory request: 32Mi
+CPU limit: 200m
+Memory limit: 128Mi

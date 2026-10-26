@@ -1,0 +1,1 @@
+PASS: Policy correctly blocked the unsafe Deployment

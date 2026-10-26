@@ -1,0 +1,13 @@
+--- usecase-13/manifests/unsafe-deployment.yaml	2026-10-26 17:58:25
++++ usecase-13/manifests/fixed-deployment.yaml	2026-10-26 18:30:04
+@@ -21,3 +21,10 @@
+           ports:
+             - name: http
+               containerPort: 80
++          resources:
++            requests:
++              cpu: 50m
++              memory: 32Mi
++            limits:
++              cpu: 200m
++              memory: 128Mi

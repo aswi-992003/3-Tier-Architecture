@@ -1,0 +1,31 @@
+=== Use Case 13 final verification ===
+
+Branch:
+feature/usecase-13
+
+Unsafe manifest policy result:
+[31mFAIL[0m - usecase-13/manifests/unsafe-deployment.yaml - main - Container "policy-demo" must define resources.limits.cpu
+[31mFAIL[0m - usecase-13/manifests/unsafe-deployment.yaml - main - Container "policy-demo" must define resources.limits.memory
+[31mFAIL[0m - usecase-13/manifests/unsafe-deployment.yaml - main - Container "policy-demo" must define resources.requests.cpu
+[31mFAIL[0m - usecase-13/manifests/unsafe-deployment.yaml - main - Container "policy-demo" must define resources.requests.memory
+
+[31m4 tests, 0 passed, 0 warnings, 4 failures, 0 exceptions[0m
+
+Fixed manifest policy result:
+
+[32m4 tests, 4 passed, 0 warnings, 0 failures, 0 exceptions[0m
+
+Deployment status:
+NAME                    READY   UP-TO-DATE   AVAILABLE   AGE
+usecase13-policy-demo   1/1     1            1           3m48s
+
+Pod status:
+NAME                                     READY   STATUS    RESTARTS   AGE
+usecase13-policy-demo-6897785ff9-bbb7g   1/1     Running   0          3m48s
+
+Configured resources:
+Container: policy-demo
+CPU request: 50m
+Memory request: 32Mi
+CPU limit: 200m
+Memory limit: 128Mi

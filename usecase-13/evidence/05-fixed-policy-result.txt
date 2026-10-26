@@ -1,0 +1,1 @@
+PASS: Corrected Deployment satisfies the resource policy

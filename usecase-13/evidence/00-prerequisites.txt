@@ -1,0 +1,17 @@
+=== kubectl client ===
+Client Version: v1.36.1
+Kustomize Version: v5.8.1
+
+=== Kubernetes context ===
+docker-desktop
+
+=== Lab namespace ===
+NAME             STATUS   AGE
+claims-k8s-lab   Active   38d
+
+=== Conftest version ===
+Conftest: 0.71.1
+OPA: 1.21.1
+
+=== Deployment permission ===
+yes

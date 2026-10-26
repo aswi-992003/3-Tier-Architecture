@@ -1,0 +1,15 @@
+=== Current directory ===
+/Users/midhtech_02/3-Tier-Architecture
+
+=== Current branch ===
+feature/usecase-13
+
+=== Git status ===
+?? usecase-13/
+
+=== Use Case 13 directories ===
+usecase-13
+usecase-13/screenshots
+usecase-13/evidence
+usecase-13/manifests
+usecase-13/policy
