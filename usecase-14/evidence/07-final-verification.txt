@@ -1,0 +1,20 @@
+=== USE CASE 14 FINAL VERIFICATION ===
+
+=== Blue and Green resources ===
+NAME                              READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS   IMAGES              SELECTOR                           VERSION
+deployment.apps/usecase14-blue    1/1     1            1           77m   web          nginx:1.27-alpine   app=usecase14-demo,version=blue    blue
+deployment.apps/usecase14-green   1/1     1            1           69m   web          nginx:1.27-alpine   app=usecase14-demo,version=green   green
+
+NAME                                   READY   STATUS    RESTARTS   AGE   IP            NODE                    NOMINATED NODE   READINESS GATES   VERSION
+pod/usecase14-blue-d44d7ddc5-tbj2h     1/1     Running   0          77m   10.244.0.27   desktop-control-plane   <none>           <none>            blue
+pod/usecase14-green-85c7846d95-87m9l   1/1     Running   0          69m   10.244.0.28   desktop-control-plane   <none>           <none>            green
+
+=== Main Service selector ===
+{"app":"usecase14-demo","version":"blue"}
+
+=== Endpoint readiness ===
+Address: 10.244.0.27  Ready: true
+
+=== Application response ===
+  <h1>BLUE Version 1</h1>
+  <p>Stable release</p>

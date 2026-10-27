@@ -1,0 +1,5 @@
+NAME                            READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS   IMAGES              SELECTOR
+deployment.apps/usecase14-bad   0/1     1            0           34s   web          nginx:1.27-alpine   app=usecase14-demo,version=bad
+
+NAME                                READY   STATUS    RESTARTS   AGE   IP            NODE                    NOMINATED NODE   READINESS GATES
+pod/usecase14-bad-797d88d76-zflh9   0/1     Running   0          34s   10.244.0.29   desktop-control-plane   <none>           <none>

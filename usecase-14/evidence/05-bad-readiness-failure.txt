@@ -1,0 +1,4 @@
+  Normal   Pulled     90s                 kubelet            spec.containers{web}: Container image "nginx:1.27-alpine" already present on machine and can be accessed by the pod
+  Normal   Created    90s                 kubelet            spec.containers{web}: Container created
+  Normal   Started    90s                 kubelet            spec.containers{web}: Container started
+  Warning  Unhealthy  14s (x25 over 86s)  kubelet            spec.containers{web}: Readiness probe failed: HTTP probe failed with statuscode: 404

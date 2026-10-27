@@ -1,0 +1,7 @@
+=== Production Service ===
+Name: usecase14-service
+Selector: {"app":"usecase14-demo","version":"blue"}
+
+=== Green Preview Service ===
+Name: usecase14-green-preview
+Selector: {"app":"usecase14-demo","version":"green"}

@@ -1,0 +1,2 @@
+Connecting to usecase14-service (10.96.170.131:80)
+wget: can't connect to remote host (10.96.170.131): Connection refused

@@ -1,0 +1,16 @@
+=== Docker ===
+Docker server version: 29.7.2
+
+=== Kubernetes context ===
+docker-desktop
+
+=== Kubernetes nodes ===
+NAME                    STATUS   ROLES           AGE   VERSION
+desktop-control-plane   Ready    control-plane   46d   v1.36.1
+
+=== Lab namespace ===
+NAME             STATUS   AGE
+claims-k8s-lab   Active   40d
+
+=== Deployment permission ===
+yes

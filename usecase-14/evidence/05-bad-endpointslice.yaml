@@ -1,0 +1,46 @@
+apiVersion: v1
+items:
+- addressType: IPv4
+  apiVersion: discovery.k8s.io/v1
+  endpoints:
+  - addresses:
+    - 10.244.0.29
+    conditions:
+      ready: false
+      serving: false
+      terminating: false
+    nodeName: desktop-control-plane
+    targetRef:
+      kind: Pod
+      name: usecase14-bad-797d88d76-zflh9
+      namespace: claims-k8s-lab
+      uid: e837b59b-f23e-47f5-a143-f0903a87d37c
+  kind: EndpointSlice
+  metadata:
+    annotations:
+      endpoints.kubernetes.io/last-change-trigger-time: "2026-10-27T09:53:20Z"
+    creationTimestamp: "2026-10-27T09:13:38Z"
+    generateName: usecase14-service-
+    generation: 5
+    labels:
+      app: usecase14-demo
+      endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+      kubernetes.io/service-name: usecase14-service
+    name: usecase14-service-86xhq
+    namespace: claims-k8s-lab
+    ownerReferences:
+    - apiVersion: v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Service
+      name: usecase14-service
+      uid: c7377f05-3008-4ab9-a5b9-f7ab7464aee4
+    resourceVersion: "547808"
+    uid: 8d4e5b11-a581-46cb-b76b-2d7502bd2cd0
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+kind: List
+metadata:
+  resourceVersion: ""

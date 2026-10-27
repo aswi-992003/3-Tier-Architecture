@@ -1,0 +1,11 @@
+=== BLUE PRODUCTION TEST ===
+HTTP status: 200
+Response time: 0.003906 seconds
+  <h1>BLUE Version 1</h1>
+  <p>Stable release</p>
+
+=== GREEN PREVIEW TEST ===
+HTTP status: 200
+Response time: 0.006163 seconds
+  <h1>GREEN Version 2</h1>
+  <p>New release candidate</p>

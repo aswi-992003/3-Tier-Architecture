@@ -1,0 +1,2 @@
+NAME                ENDPOINTS        AGE
+usecase14-service   10.244.0.28:80   33m

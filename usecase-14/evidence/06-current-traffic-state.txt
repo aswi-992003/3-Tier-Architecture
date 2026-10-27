@@ -1,0 +1,9 @@
+=== Current production selector ===
+{"app":"usecase14-demo","version":"green"}
+
+=== Current EndpointSlice readiness ===
+Address: 10.244.0.28  Ready: true
+
+=== Application response ===
+  <h1>GREEN Version 2</h1>
+  <p>New release candidate</p>

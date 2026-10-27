@@ -1,0 +1,1 @@
+Selector after rollback: {"app":"usecase14-demo","version":"green"}

@@ -1,0 +1,3 @@
+NAME                      ENDPOINTS        AGE
+usecase14-service         10.244.0.27:80   20m
+usecase14-green-preview   10.244.0.28:80   55s

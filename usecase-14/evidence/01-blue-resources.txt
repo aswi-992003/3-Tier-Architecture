@@ -1,0 +1,8 @@
+NAME                             READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS   IMAGES              SELECTOR
+deployment.apps/usecase14-blue   1/1     1            1           16s   web          nginx:1.27-alpine   app=usecase14-demo,version=blue
+
+NAME                                 READY   STATUS    RESTARTS   AGE   IP            NODE                    NOMINATED NODE   READINESS GATES
+pod/usecase14-blue-d44d7ddc5-tbj2h   1/1     Running   0          16s   10.244.0.27   desktop-control-plane   <none>           <none>
+
+NAME                        TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)   AGE   SELECTOR
+service/usecase14-service   ClusterIP   10.96.170.131   <none>        80/TCP    16s   app=usecase14-demo,version=blue

@@ -1,0 +1,1 @@
+deployment.apps "usecase14-bad" deleted from claims-k8s-lab namespace

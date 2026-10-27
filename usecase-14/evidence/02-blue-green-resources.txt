@@ -1,0 +1,7 @@
+NAME                              READY   UP-TO-DATE   AVAILABLE   AGE    CONTAINERS   IMAGES              SELECTOR                           VERSION
+deployment.apps/usecase14-blue    1/1     1            1           10m    web          nginx:1.27-alpine   app=usecase14-demo,version=blue    blue
+deployment.apps/usecase14-green   1/1     1            1           101s   web          nginx:1.27-alpine   app=usecase14-demo,version=green   green
+
+NAME                                   READY   STATUS    RESTARTS   AGE    IP            NODE                    NOMINATED NODE   READINESS GATES   VERSION
+pod/usecase14-blue-d44d7ddc5-tbj2h     1/1     Running   0          10m    10.244.0.27   desktop-control-plane   <none>           <none>            blue
+pod/usecase14-green-85c7846d95-87m9l   1/1     Running   0          101s   10.244.0.28   desktop-control-plane   <none>           <none>            green
