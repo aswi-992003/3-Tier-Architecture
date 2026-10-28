@@ -1,0 +1,25 @@
+STEP 6: DEV AND STAGE DEPLOYMENT COMPARISON
+
+NAME                             READY   UP-TO-DATE   AVAILABLE   AGE     CONTAINERS   IMAGES                                                                          SELECTOR
+deployment.apps/usecase15-demo   1/1     1            1           2m57s   web          nginx@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10   app=usecase15-demo
+
+NAME                                  READY   STATUS    RESTARTS   AGE     IP            NODE                    NOMINATED NODE   READINESS GATES
+pod/usecase15-demo-56c6cd77fd-q274g   1/1     Running   0          2m57s   10.244.0.29   desktop-control-plane   <none>           <none>
+
+NAME                             READY   UP-TO-DATE   AVAILABLE   AGE     CONTAINERS   IMAGES                                                                          SELECTOR
+deployment.apps/usecase15-demo   2/2     2            2           2m47s   web          nginx@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10   app=usecase15-demo
+
+NAME                                  READY   STATUS    RESTARTS   AGE     IP            NODE                    NOMINATED NODE   READINESS GATES
+pod/usecase15-demo-7596cc5b7b-fv9p4   1/1     Running   0          2m47s   10.244.0.31   desktop-control-plane   <none>           <none>
+pod/usecase15-demo-7596cc5b7b-x6ns2   1/1     Running   0          2m47s   10.244.0.30   desktop-control-plane   <none>           <none>
+
+=== Deployed image references ===
+Dev: nginx@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10
+Stage: nginx@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10
+
+=== Helm releases ===
+NAME         	NAMESPACE 	REVISION	UPDATED                            	STATUS  	CHART                    	APP VERSION
+claims       	claims-dev	2       	2026-09-11 19:19:22.78243 +0530 IST	deployed	claims-0.1.0             	5531cba    
+usecase15-dev	claims-dev	1       	2026-10-28 17:56:35.89818 +0530 IST	deployed	usecase15-promotion-0.1.0	1.0        
+NAME           	NAMESPACE   	REVISION	UPDATED                             	STATUS  	CHART                    	APP VERSION
+usecase15-stage	claims-stage	1       	2026-10-28 17:56:45.248342 +0530 IST	deployed	usecase15-promotion-0.1.0	1.0        

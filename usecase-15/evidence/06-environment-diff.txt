@@ -1,0 +1,50 @@
+--- usecase-15/evidence/06-rendered-dev.yaml	2026-10-28 17:56:27
++++ usecase-15/evidence/06-rendered-stage.yaml	2026-10-28 17:56:27
+@@ -20,9 +20,9 @@
+   name: usecase15-demo
+   labels:
+     app: usecase15-demo
+-    environment: dev
++    environment: stage
+ spec:
+-  replicas: 1
++  replicas: 2
+   selector:
+     matchLabels:
+       app: usecase15-demo
+@@ -30,7 +30,7 @@
+     metadata:
+       labels:
+         app: usecase15-demo
+-        environment: dev
++        environment: stage
+     spec:
+       containers:
+         - name: web
+@@ -41,11 +41,11 @@
+               containerPort: 80
+           env:
+             - name: APP_ENV
+-              value: "dev"
++              value: "stage"
+             - name: API_TOKEN
+               valueFrom:
+                 secretKeyRef:
+-                  name: claims-dev-secret
++                  name: claims-stage-secret
+                   key: API_TOKEN
+           readinessProbe:
+             httpGet:
+@@ -55,8 +55,8 @@
+             periodSeconds: 3
+           resources:
+             limits:
+-              cpu: 100m
+-              memory: 64Mi
++              cpu: 250m
++              memory: 256Mi
+             requests:
+-              cpu: 25m
+-              memory: 32Mi
++              cpu: 100m
++              memory: 128Mi
