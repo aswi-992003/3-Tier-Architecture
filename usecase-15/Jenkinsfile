@@ -1,0 +1,158 @@
+pipeline {
+    agent any
+
+    environment {
+        PATH = "/Users/midhtech_02/.docker/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin"
+        ARGOCD_NAMESPACE = "argocd"
+    }
+
+    stages {
+        stage('Validate Environment Configuration') {
+            steps {
+                sh '''
+                    set -eu
+
+                    echo "Validating Helm chart"
+                    helm lint usecase-15/chart \
+                      -f usecase-15/values/values-common.yaml \
+                      -f usecase-15/values/values-dev.yaml
+
+                    echo "Registering Argo CD applications"
+                    kubectl apply -f usecase-15/argocd/
+
+                    echo "Checking environment namespaces"
+                    kubectl get namespace claims-dev
+                    kubectl get namespace claims-qa
+                    kubectl get namespace claims-stage
+                    kubectl get namespace claims-prod
+                '''
+            }
+        }
+
+        stage('Promote to Dev') {
+            steps {
+                sh '''
+                    argocd app sync usecase15-dev \
+                      --core \
+                      --app-namespace argocd
+
+                    argocd app wait usecase15-dev \
+                      --core \
+                      --app-namespace argocd \
+                      --sync \
+                      --health \
+                      --timeout 180
+                '''
+            }
+        }
+
+        stage('Promote to QA') {
+            steps {
+                sh '''
+                    argocd app sync usecase15-qa \
+                      --core \
+                      --app-namespace argocd
+
+                    argocd app wait usecase15-qa \
+                      --core \
+                      --app-namespace argocd \
+                      --sync \
+                      --health \
+                      --timeout 180
+                '''
+            }
+        }
+
+        stage('Approve and Promote to Stage') {
+            steps {
+                input(
+                    message: 'QA passed. Promote the same artifact to Stage?',
+                    ok: 'Promote to Stage'
+                )
+
+                sh '''
+                    argocd app sync usecase15-stage \
+                      --core \
+                      --app-namespace argocd
+
+                    argocd app wait usecase15-stage \
+                      --core \
+                      --app-namespace argocd \
+                      --sync \
+                      --health \
+                      --timeout 180
+                '''
+            }
+        }
+
+        stage('Approve and Promote to Production') {
+            steps {
+                input(
+                    message: 'Stage passed. Promote the same artifact to Production?',
+                    ok: 'Promote to Production'
+                )
+
+                sh '''
+                    argocd app sync usecase15-prod \
+                      --core \
+                      --app-namespace argocd
+
+                    argocd app wait usecase15-prod \
+                      --core \
+                      --app-namespace argocd \
+                      --sync \
+                      --health \
+                      --timeout 180
+                '''
+            }
+        }
+
+        stage('Verify All Environments') {
+            steps {
+                sh '''
+                    set -eu
+
+                    for APP in \
+                      usecase15-dev \
+                      usecase15-qa \
+                      usecase15-stage \
+                      usecase15-prod
+                    do
+                      echo "===== $APP ====="
+
+                      argocd app get "$APP" \
+                        --core \
+                        --app-namespace argocd
+                    done
+
+                    for NAMESPACE in \
+                      claims-dev \
+                      claims-qa \
+                      claims-stage \
+                      claims-prod
+                    do
+                      echo "===== $NAMESPACE ====="
+
+                      kubectl get deployment,pods \
+                        -n "$NAMESPACE" \
+                        -l app=usecase15-demo
+                    done
+                '''
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Use Case 15 environment promotion completed successfully.'
+        }
+
+        failure {
+            echo 'Environment promotion failed. Check the first failed stage.'
+        }
+
+        aborted {
+            echo 'Environment promotion was stopped or approval was rejected.'
+        }
+    }
+}
