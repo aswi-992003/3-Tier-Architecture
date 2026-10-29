@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: usecase15-qa
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://gitlab.com/midh-technologies-group1/3-tier-architecture.git
+    targetRevision: feature/usecase-15
+    path: usecase-15/chart
+    helm:
+      releaseName: usecase15-demo
+      valueFiles:
+        - ../values/values-common.yaml
+        - ../values/values-qa.yaml
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: claims-qa
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
