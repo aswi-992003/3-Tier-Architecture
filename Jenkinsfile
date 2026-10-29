@@ -44,29 +44,31 @@ pipeline {
         }
 
         stage('Unit Tests') {
-            steps {
-                withCredentials([
-                    string(
-                        credentialsId: 'claims-db-password',
-                        variable: 'DB_PASSWORD'
-                    )
-                ]) {
-                    sh '''
-                        set -e
+    steps {
+        withCredentials([
+            string(
+                credentialsId: 'claims-db-password',
+                variable: 'DB_PASSWORD'
+            )
+        ]) {
+            sh '''
+                set -e
 
-                        cd backend
-                        . venv/bin/activate
+                cd backend
+                . venv/bin/activate
 
-                        export DB_HOST=localhost
-                        export DB_NAME=claimsdb
-                        export DB_USER=claimsuser
-                        export DB_PORT=5432
+                export DB_HOST=localhost
+                export DB_NAME=claimsdb
+                export DB_USER=claimsuser
+                export DB_PORT=5432
 
-                        pytest -v
-                    '''
-                }
-            }
+                python -m pytest -v \
+                  --cov=. \
+                  --cov-report=xml:coverage.xml
+            '''
         }
+    }
+}
 
         stage('SonarQube Analysis') {
             steps {
@@ -75,12 +77,12 @@ pipeline {
 
                     withSonarQubeEnv('SonarQube') {
                         sh """
-                            ${scannerHome}/bin/sonar-scanner \
-                              -Dsonar.projectKey=3-tier-architecture \
-                              -Dsonar.projectName=3-tier-architecture \
-                              -Dsonar.sources=. \
-                              -Dsonar.exclusions=backend/venv/**,frontend/node_modules/**,frontend/dist/**
-                        """
+                          ${scannerHome}/bin/sonar-scanner \
+                         -Dsonar.projectKey=3-tier-architecture \
+                         -Dsonar.projectName=3-tier-architecture \
+                        -Dsonar.sources=backend,frontend,usecase-15 \
+                         -Dsonar.exclusions=backend/venv/**,frontend/node_modules/**,frontend/dist/**,usecase-15/evidence/**
+                """
                     }
                 }
             }
