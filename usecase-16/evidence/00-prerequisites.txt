@@ -1,0 +1,33 @@
+=== Git ===
+git version 2.54.0 (Apple Git-157)
+
+=== Terraform ===
+Terraform v1.16.4
+on darwin_arm64
+
+Your version of Terraform is out of date! The latest version
+is 1.17.1. You can update by downloading from https://developer.hashicorp.com/terraform/install
+
+=== Kubernetes client and cluster ===
+Client Version: v1.36.1
+Kustomize Version: v5.8.1
+Kubernetes control plane is running at https://127.0.0.1:50943
+CoreDNS is running at https://127.0.0.1:50943/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+
+To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+
+=== Argo CD ===
+argocd: v3.5.6+c2b1e30.dirty
+  BuildDate: 2026-10-20T20:02:37Z
+  GitCommit: c2b1e3017e2cec86b122172e861dcd026453ae44
+  GitTreeState: dirty
+  GitTag: v3.5.6
+  GoVersion: go1.27.3
+  Compiler: gc
+  Platform: darwin/arm64
+
+=== Current Kubernetes context ===
+docker-desktop
+
+=== Current branch ===
+feature/usecase-16

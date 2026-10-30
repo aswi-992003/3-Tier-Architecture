@@ -1,0 +1,77 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: usecase16-page
+  namespace: claims-drift-lab
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html>
+      <body>
+        <h1>Use Case 16 - Desired State</h1>
+        <p>Desired replicas: 2</p>
+      </body>
+    </html>
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: usecase16-demo
+  namespace: claims-drift-lab
+  labels:
+    app: usecase16-demo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: usecase16-demo
+  template:
+    metadata:
+      labels:
+        app: usecase16-demo
+    spec:
+      containers:
+        - name: web
+          image: nginx:1.27-alpine
+          ports:
+            - name: http
+              containerPort: 80
+          resources:
+            requests:
+              cpu: 25m
+              memory: 32Mi
+            limits:
+              cpu: 100m
+              memory: 64Mi
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 2
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          volumeMounts:
+            - name: webpage
+              mountPath: /usr/share/nginx/html
+      volumes:
+        - name: webpage
+          configMap:
+            name: usecase16-page
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: usecase16-demo
+  namespace: claims-drift-lab
+spec:
+  selector:
+    app: usecase16-demo
+  ports:
+    - name: http
+      port: 80
+      targetPort: http
