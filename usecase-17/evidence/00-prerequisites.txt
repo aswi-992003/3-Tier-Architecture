@@ -1,0 +1,19 @@
+=== Branch ===
+feature/usecase-17
+
+=== Kubernetes context ===
+docker-desktop
+
+=== Database workload ===
+NAME        READY   UP-TO-DATE   AVAILABLE   AGE
+claims-db   1/1     1            1           45d
+
+=== Database Pods ===
+NAME                                         READY   STATUS    RESTARTS         AGE
+claims-backend-7486d6f9bb-74tmx              1/1     Running   6 (7m24s ago)    8d
+claims-db-7bf847f6-cgztb                     1/1     Running   24 (7m24s ago)   45d
+claims-frontend-64774fbfc8-9gd5r             1/1     Running   24 (7m24s ago)   45d
+claims-frontend-usecase11-69568d76bb-vqvdd   1/1     Running   7 (7m24s ago)    10d
+usecase13-policy-demo-6897785ff9-bbb7g       1/1     Running   5 (7m24s ago)    6d16h
+usecase14-blue-d44d7ddc5-tbj2h               1/1     Running   4 (7m24s ago)    5d21h
+usecase14-green-85c7846d95-87m9l             1/1     Running   4 (7m24s ago)    5d20h

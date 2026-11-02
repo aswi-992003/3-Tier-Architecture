@@ -1,0 +1,99 @@
+=== USE CASE 17 FINAL EVIDENCE ===
+
+=== Current branch ===
+feature/usecase-17
+
+=== Evidence files ===
+usecase-17/evidence/00-prerequisites.txt
+usecase-17/evidence/01-record-before-backup.txt
+usecase-17/evidence/02-backup-artifact.txt
+usecase-17/evidence/02-backup-duration-seconds.txt
+usecase-17/evidence/03-record-after-delete.txt
+usecase-17/evidence/03-record-count-after-delete.txt
+usecase-17/evidence/04-restore-duration-seconds.txt
+usecase-17/evidence/04-restore-output.txt
+usecase-17/evidence/05-application-health.txt
+usecase-17/evidence/05-record-after-restore.txt
+usecase-17/evidence/05-recovery-verification.txt
+usecase-17/evidence/06-recovery-timing.txt
+usecase-17/evidence/07-final-evidence.txt
+usecase-17/evidence/08-final-success-evidence.txt
+
+=== Backup artifacts ===
+-rw-r--r--@ 1 midhtech_02  staff   1.7K  2 Nov 12:16 usecase-17/backups/usecase17_backup_test.sql
+
+=== RTO and RPO document ===
+# Use Case 17 — RTO and RPO
+
+## RTO
+
+Recovery Time Objective is the maximum acceptable time required to
+restore data or service after a failure.
+
+For this lab, the observed RTO includes:
+
+- Restore-command duration
+- Time required to verify record 1701
+- Time required to confirm application access
+
+Observed RTO = restore duration + verification duration.
+
+The restore-duration evidence is stored in:
+
+`evidence/04-restore-duration-seconds.txt`
+
+## RPO
+
+Recovery Point Objective is the maximum acceptable amount of data that
+can be lost, expressed as time.
+
+Record 1701 existed when the backup was created. No valid changes were
+made between backup creation and the controlled deletion. After the
+restore, record 1701 returned successfully.
+
+Therefore, the observed RPO for this controlled test is effectively zero.
+
+In production, RPO depends on backup frequency. For example, hourly
+backups may allow up to one hour of data loss.
+
+## Result
+
+The backup was proven usable by performing a successful restore.
+Record 1701 was recovered and verified through the database and
+application. No valid data was permanently lost.
+
+=== Recovery summary ===
+# Use Case 17 Recovery Summary
+
+## Test scope
+
+A single safe lab record with ID 1701 was selected.
+
+## Backup
+
+A backup was created and the backup artifact was confirmed to exist.
+
+## Controlled failure
+
+Record 1701 was intentionally deleted to simulate data loss. No shared
+or production data was modified.
+
+## Recovery
+
+The backup was restored using the approved restore command.
+
+## Verification
+
+Record 1701 was present after restoration, and the application could
+read the restored data.
+
+## Recovery measurements
+
+- Backup duration: recorded in the evidence directory
+- Restore duration: recorded in `04-restore-duration-seconds.txt`
+- Observed RTO: restore duration plus verification duration
+- Observed RPO: effectively zero
+
+## Conclusion
+
+The test proved successful recovery, not only backup creation.

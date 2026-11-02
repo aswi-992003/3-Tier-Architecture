@@ -1,0 +1,8 @@
+Use Case 17 Recovery Timing
+
+Backup duration: 16 seconds
+Restore duration: 43 seconds
+
+Backup artifact: usecase-17/backups/usecase17_backup_test.sql
+Recovered record: 1701
+Recovery result: PASS

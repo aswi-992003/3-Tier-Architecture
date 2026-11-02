@@ -1,0 +1,5 @@
+  id  |         record_name         |  record_status   |         created_at         
+------+-----------------------------+------------------+----------------------------
+ 1701 | Use Case 17 recovery record | READY_FOR_BACKUP | 2026-11-02 06:26:06.480806
+(1 row)
+

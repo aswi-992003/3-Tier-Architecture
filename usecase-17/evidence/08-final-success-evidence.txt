@@ -1,0 +1,35 @@
+USE CASE 17 - FINAL SUCCESS EVIDENCE
+
+=== Branch ===
+feature/usecase-17
+
+=== Backup artifact ===
+-rw-r--r--@ 1 midhtech_02  staff   1.7K  2 Nov 12:16 usecase-17/backups/usecase17_backup_test.sql
+b92febfe1a743045e8004014c481a38e41b6eb7aec450a73bdc17fd6d0933266  usecase-17/backups/usecase17_backup_test.sql
+
+=== Recovered record ===
+  id  |         record_name         |  record_status   
+------+-----------------------------+------------------
+ 1701 | Use Case 17 recovery record | READY_FOR_BACKUP
+(1 row)
+
+
+=== Database workload ===
+NAME                        READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/claims-db   1/1     1            1           45d
+
+NAME                           READY   STATUS    RESTARTS        AGE
+pod/claims-db-7bf847f6-cgztb   1/1     Running   24 (123m ago)   45d
+
+=== Timing ===
+Use Case 17 Recovery Timing
+
+Backup duration: 16 seconds
+Restore duration: 43 seconds
+
+Backup artifact: usecase-17/backups/usecase17_backup_test.sql
+Recovered record: 1701
+Recovery result: PASS
+
+=== Final result ===
+PASS: Test record was successfully restored

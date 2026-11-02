@@ -1,0 +1,19 @@
+=== Backup file ===
+-rw-r--r--@ 1 midhtech_02  staff   1.7K  2 Nov 12:16 usecase-17/backups/usecase17_backup_test.sql
+
+=== Backup checksum ===
+b92febfe1a743045e8004014c481a38e41b6eb7aec450a73bdc17fd6d0933266  usecase-17/backups/usecase17_backup_test.sql
+
+=== Backup duration ===
+16 seconds
+
+=== Backup contains the selected table ===
+21:ALTER TABLE IF EXISTS ONLY public.usecase17_backup_test DROP CONSTRAINT IF EXISTS usecase17_backup_test_pkey;
+22:DROP TABLE IF EXISTS public.usecase17_backup_test;
+28:-- Name: usecase17_backup_test; Type: TABLE; Schema: public; Owner: -
+31:CREATE TABLE public.usecase17_backup_test (
+40:-- Data for Name: usecase17_backup_test; Type: TABLE DATA; Schema: public; Owner: -
+43:COPY public.usecase17_backup_test (id, record_name, record_status, created_at) FROM stdin;
+49:-- Name: usecase17_backup_test usecase17_backup_test_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+52:ALTER TABLE ONLY public.usecase17_backup_test
+53:    ADD CONSTRAINT usecase17_backup_test_pkey PRIMARY KEY (id);
