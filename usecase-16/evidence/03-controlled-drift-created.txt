@@ -1,0 +1,18 @@
+=== Live deployment after manual change ===
+NAME             LIVE-REPLICAS   READY   AVAILABLE
+usecase16-demo   3               3       3
+
+=== Running Pods after manual change ===
+NAME                              READY   STATUS    RESTARTS   AGE   IP            NODE                    NOMINATED NODE   READINESS GATES
+usecase16-demo-57c79cbf8f-9nf22   1/1     Running   0          22s   10.244.0.38   desktop-control-plane   <none>           <none>
+usecase16-demo-57c79cbf8f-rhnx9   1/1     Running   0          16m   10.244.0.36   desktop-control-plane   <none>           <none>
+usecase16-demo-57c79cbf8f-swrhj   1/1     Running   0          16m   10.244.0.37   desktop-control-plane   <none>           <none>
+
+=== Desired replicas stored in Git ===
+12:        <p>Desired replicas: 2</p>
+13-      </body>
+14-    </html>
+--
+24:  replicas: 2
+25-  selector:
+26-    matchLabels:

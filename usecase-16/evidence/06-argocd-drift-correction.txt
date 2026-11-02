@@ -1,0 +1,12 @@
+=== Argo CD status after correction ===
+NAME                   SYNC STATUS   HEALTH STATUS
+usecase16-drift-demo   Synced        Healthy
+
+=== Deployment after correction ===
+NAME             DESIRED   READY   AVAILABLE
+usecase16-demo   2         2       2
+
+=== Pods after correction ===
+NAME                              READY   STATUS    RESTARTS   AGE
+usecase16-demo-57c79cbf8f-9nf22   1/1     Running   0          104m
+usecase16-demo-57c79cbf8f-swrhj   1/1     Running   0          120m

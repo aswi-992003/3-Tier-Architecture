@@ -1,0 +1,16 @@
+=== Argo CD application ===
+NAME                   SYNC STATUS   HEALTH STATUS
+usecase16-drift-demo   Synced        Healthy
+
+=== Desired deployment baseline ===
+NAME             DESIRED   READY   AVAILABLE
+usecase16-demo   2         2       2
+
+=== Running Pods ===
+NAME                              READY   STATUS    RESTARTS   AGE   IP            NODE                    NOMINATED NODE   READINESS GATES
+usecase16-demo-57c79cbf8f-rhnx9   1/1     Running   0          32s   10.244.0.36   desktop-control-plane   <none>           <none>
+usecase16-demo-57c79cbf8f-swrhj   1/1     Running   0          32s   10.244.0.37   desktop-control-plane   <none>           <none>
+
+=== Service ===
+NAME             TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)   AGE
+usecase16-demo   ClusterIP   10.96.11.129   <none>        80/TCP    32s

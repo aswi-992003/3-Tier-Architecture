@@ -1,0 +1,21 @@
+=== Argo CD drift status ===
+NAME                   SYNC STATUS   HEALTH STATUS
+usecase16-drift-demo   OutOfSync     Healthy
+
+=== Desired replicas in Git ===
+12:        <p>Desired replicas: 2</p>
+13-      </body>
+14-    </html>
+--
+24:  replicas: 2
+25-  selector:
+26-    matchLabels:
+
+=== Live replicas in Kubernetes ===
+Live replicas: 3
+
+=== Current Pods ===
+NAME                              READY   STATUS    RESTARTS   AGE   IP            NODE                    NOMINATED NODE   READINESS GATES
+usecase16-demo-57c79cbf8f-9nf22   1/1     Running   0          82m   10.244.0.38   desktop-control-plane   <none>           <none>
+usecase16-demo-57c79cbf8f-rhnx9   1/1     Running   0          98m   10.244.0.36   desktop-control-plane   <none>           <none>
+usecase16-demo-57c79cbf8f-swrhj   1/1     Running   0          98m   10.244.0.37   desktop-control-plane   <none>           <none>

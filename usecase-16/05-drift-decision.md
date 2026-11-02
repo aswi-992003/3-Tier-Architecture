@@ -1,0 +1,35 @@
+# Use Case 16 Drift Decision
+
+## Detected difference
+
+- Git desired replicas: 2
+- Kubernetes live replicas: 3
+- Argo CD status: OutOfSync
+- Application health: Healthy
+
+## Root cause
+
+The Deployment was manually scaled from two replicas to three replicas.
+This controlled manual change was made to demonstrate configuration drift.
+
+## Decision
+
+The Git-managed desired state must win.
+
+The third replica is not present in the approved Git configuration and must
+not become a permanent undocumented change.
+
+## Approved correction
+
+Use Argo CD Sync to restore the Kubernetes Deployment to the Git-defined state
+of two replicas.
+
+Do not repair the drift with another manual kubectl scale command.
+
+## Prevention
+
+- Treat Git as the source of truth.
+- Restrict direct Kubernetes changes with RBAC.
+- Monitor Argo CD OutOfSync status.
+- Enable Argo CD self-healing when approved.
+- Require changes through merge requests.

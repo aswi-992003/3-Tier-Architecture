@@ -1,0 +1,48 @@
+diff -u -N /var/folders/bf/rhgjflzd39l4ym51bny7qd0r0000gn/T/LIVE-2500643075/apps.v1.Deployment.claims-drift-lab.usecase16-demo /var/folders/bf/rhgjflzd39l4ym51bny7qd0r0000gn/T/MERGED-3417753634/apps.v1.Deployment.claims-drift-lab.usecase16-demo
+--- /var/folders/bf/rhgjflzd39l4ym51bny7qd0r0000gn/T/LIVE-2500643075/apps.v1.Deployment.claims-drift-lab.usecase16-demo	2026-10-30 18:46:15
++++ /var/folders/bf/rhgjflzd39l4ym51bny7qd0r0000gn/T/MERGED-3417753634/apps.v1.Deployment.claims-drift-lab.usecase16-demo	2026-10-30 18:46:15
+@@ -2,12 +2,11 @@
+ kind: Deployment
+ metadata:
+   annotations:
+-    argocd.argoproj.io/tracking-id: usecase16-drift-demo:apps/Deployment:claims-drift-lab/usecase16-demo
+     deployment.kubernetes.io/revision: "1"
+     kubectl.kubernetes.io/last-applied-configuration: |
+       {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{"argocd.argoproj.io/tracking-id":"usecase16-drift-demo:apps/Deployment:claims-drift-lab/usecase16-demo"},"labels":{"app":"usecase16-demo"},"name":"usecase16-demo","namespace":"claims-drift-lab"},"spec":{"replicas":2,"selector":{"matchLabels":{"app":"usecase16-demo"}},"template":{"metadata":{"labels":{"app":"usecase16-demo"}},"spec":{"containers":[{"image":"nginx:1.27-alpine","livenessProbe":{"httpGet":{"path":"/","port":"http"},"initialDelaySeconds":5,"periodSeconds":10},"name":"web","ports":[{"containerPort":80,"name":"http"}],"readinessProbe":{"httpGet":{"path":"/","port":"http"},"initialDelaySeconds":2,"periodSeconds":5},"resources":{"limits":{"cpu":"100m","memory":"64Mi"},"requests":{"cpu":"25m","memory":"32Mi"}},"volumeMounts":[{"mountPath":"/usr/share/nginx/html","name":"webpage"}]}],"volumes":[{"configMap":{"name":"usecase16-page"},"name":"webpage"}]}}}}
+   creationTimestamp: "2026-10-30T11:37:22Z"
+-  generation: 2
++  generation: 3
+   labels:
+     app: usecase16-demo
+   name: usecase16-demo
+@@ -16,7 +15,7 @@
+   uid: cb2f8859-1af6-423d-b628-2e7f95ed49b8
+ spec:
+   progressDeadlineSeconds: 600
+-  replicas: 3
++  replicas: 2
+   revisionHistoryLimit: 10
+   selector:
+     matchLabels:
+diff -u -N /var/folders/bf/rhgjflzd39l4ym51bny7qd0r0000gn/T/LIVE-2500643075/v1.ConfigMap.claims-drift-lab.usecase16-page /var/folders/bf/rhgjflzd39l4ym51bny7qd0r0000gn/T/MERGED-3417753634/v1.ConfigMap.claims-drift-lab.usecase16-page
+--- /var/folders/bf/rhgjflzd39l4ym51bny7qd0r0000gn/T/LIVE-2500643075/v1.ConfigMap.claims-drift-lab.usecase16-page	2026-10-30 18:46:15
++++ /var/folders/bf/rhgjflzd39l4ym51bny7qd0r0000gn/T/MERGED-3417753634/v1.ConfigMap.claims-drift-lab.usecase16-page	2026-10-30 18:46:15
+@@ -11,7 +11,6 @@
+ kind: ConfigMap
+ metadata:
+   annotations:
+-    argocd.argoproj.io/tracking-id: usecase16-drift-demo:/ConfigMap:claims-drift-lab/usecase16-page
+     kubectl.kubernetes.io/last-applied-configuration: |
+       {"apiVersion":"v1","data":{"index.html":"\u003c!DOCTYPE html\u003e\n\u003chtml\u003e\n  \u003cbody\u003e\n    \u003ch1\u003eUse Case 16 - Desired State\u003c/h1\u003e\n    \u003cp\u003eDesired replicas: 2\u003c/p\u003e\n  \u003c/body\u003e\n\u003c/html\u003e\n"},"kind":"ConfigMap","metadata":{"annotations":{"argocd.argoproj.io/tracking-id":"usecase16-drift-demo:/ConfigMap:claims-drift-lab/usecase16-page"},"name":"usecase16-page","namespace":"claims-drift-lab"}}
+   creationTimestamp: "2026-10-30T11:37:22Z"
+diff -u -N /var/folders/bf/rhgjflzd39l4ym51bny7qd0r0000gn/T/LIVE-2500643075/v1.Service.claims-drift-lab.usecase16-demo /var/folders/bf/rhgjflzd39l4ym51bny7qd0r0000gn/T/MERGED-3417753634/v1.Service.claims-drift-lab.usecase16-demo
+--- /var/folders/bf/rhgjflzd39l4ym51bny7qd0r0000gn/T/LIVE-2500643075/v1.Service.claims-drift-lab.usecase16-demo	2026-10-30 18:46:15
++++ /var/folders/bf/rhgjflzd39l4ym51bny7qd0r0000gn/T/MERGED-3417753634/v1.Service.claims-drift-lab.usecase16-demo	2026-10-30 18:46:15
+@@ -2,7 +2,6 @@
+ kind: Service
+ metadata:
+   annotations:
+-    argocd.argoproj.io/tracking-id: usecase16-drift-demo:/Service:claims-drift-lab/usecase16-demo
+     kubectl.kubernetes.io/last-applied-configuration: |
+       {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{"argocd.argoproj.io/tracking-id":"usecase16-drift-demo:/Service:claims-drift-lab/usecase16-demo"},"name":"usecase16-demo","namespace":"claims-drift-lab"},"spec":{"ports":[{"name":"http","port":80,"targetPort":"http"}],"selector":{"app":"usecase16-demo"}}}
+   creationTimestamp: "2026-10-30T11:37:22Z"
