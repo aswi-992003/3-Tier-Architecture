@@ -1,0 +1,87 @@
+import json
+import os
+import sys
+from datetime import datetime, timezone
+from http.server import BaseHTTPRequestHandler, HTTPServer
+from urllib.parse import parse_qs, urlparse
+
+SERVICE = os.getenv("SERVICE_NAME", "usecase18-demo")
+ENVIRONMENT = os.getenv("APP_ENVIRONMENT", "lab")
+VERSION = os.getenv("APP_VERSION", "v1")
+PORT = int(os.getenv("PORT", "8080"))
+
+
+def write_log(level, message, request_id, path):
+    event = {
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "level": level,
+        "service": SERVICE,
+        "environment": ENVIRONMENT,
+        "version": VERSION,
+        "request_id": request_id,
+        "path": path,
+        "message": message,
+    }
+
+    print(json.dumps(event), flush=True)
+
+
+class RequestHandler(BaseHTTPRequestHandler):
+    def send_json(self, status_code, payload):
+        body = json.dumps(payload).encode("utf-8")
+
+        self.send_response(status_code)
+        self.send_header("Content-Type", "application/json")
+        self.send_header("Content-Length", str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
+
+    def do_GET(self):
+        parsed_url = urlparse(self.path)
+        query = parse_qs(parsed_url.query)
+
+        if parsed_url.path == "/health":
+            self.send_json(
+                200,
+                {
+                    "status": "healthy",
+                    "service": SERVICE,
+                    "environment": ENVIRONMENT,
+                    "version": VERSION,
+                },
+            )
+            return
+
+        if parsed_url.path == "/generate-log":
+            request_id = query.get("request_id", ["missing-request-id"])[0]
+
+            write_log(
+                "INFO",
+                "Use Case 18 known log message",
+                request_id,
+                parsed_url.path,
+            )
+
+            self.send_json(
+                200,
+                {
+                    "status": "logged",
+                    "request_id": request_id,
+                    "service": SERVICE,
+                },
+            )
+            return
+
+        self.send_json(404, {"error": "not found"})
+
+    def log_message(self, format, *args):
+        return
+
+
+if __name__ == "__main__":
+    write_log("INFO", "Use Case 18 application started", "startup", "/")
+
+    try:
+        HTTPServer(("0.0.0.0", PORT), RequestHandler).serve_forever()
+    except KeyboardInterrupt:
+        sys.exit(0)

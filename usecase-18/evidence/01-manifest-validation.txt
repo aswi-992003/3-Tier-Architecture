@@ -1,0 +1,6 @@
+=== ConfigMap validation ===
+configmap/usecase18-app created (dry run)
+
+=== Deployment and Service validation ===
+deployment.apps/usecase18-demo created (dry run)
+service/usecase18-demo created (dry run)

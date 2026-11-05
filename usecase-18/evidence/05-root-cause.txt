@@ -1,0 +1,10 @@
+Use Case 18 - Logging Failure Location
+
+Application Pod log: PRESENT
+Alloy Pod status: RUNNING
+Alloy namespace filter: claims-logging-broken
+Actual application namespace: claims-logging-lab
+Loki destination log: MISSING
+
+Root cause: Alloy was configured to discover Pods in the wrong namespace.
+Failure point: Collector discovery and collection stage.

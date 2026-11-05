@@ -1,0 +1,14 @@
+=== Loki deployment ===
+NAME   READY   UP-TO-DATE   AVAILABLE   AGE
+loki   1/1     1            1           3m29s
+
+=== Loki Pod ===
+NAME                    READY   STATUS    RESTARTS   AGE     IP            NODE                    NOMINATED NODE   READINESS GATES
+loki-7cf7fd6dbd-jskgf   1/1     Running   0          3m29s   10.244.0.39   desktop-control-plane   <none>           <none>
+
+=== Loki Service ===
+NAME   TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)    AGE
+loki   ClusterIP   10.96.74.16   <none>        3100/TCP   3m29s
+
+=== Loki readiness ===
+ready

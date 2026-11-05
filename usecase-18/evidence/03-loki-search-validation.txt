@@ -1,0 +1,4 @@
+Loki API status: success
+Request ID: 
+Matching log lines: 186
+PASS: Known request ID was found in Loki

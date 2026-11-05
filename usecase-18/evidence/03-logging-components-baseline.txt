@@ -1,0 +1,22 @@
+=== Existing logging components ===
+No logging destination or collector found
+
+=== Logging lab resources ===
+NAME                                  READY   STATUS    RESTARTS   AGE
+pod/usecase18-demo-6cfb4b5565-s5hm2   1/1     Running   0          16m
+
+NAME                     TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
+service/usecase18-demo   ClusterIP   10.96.230.176   <none>        8080/TCP   16m
+
+NAME                             READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/usecase18-demo   1/1     1            1           16m
+
+NAME                                        DESIRED   CURRENT   READY   AGE
+replicaset.apps/usecase18-demo-6cfb4b5565   1         1         1       16m
+
+NAME                         DATA   AGE
+configmap/kube-root-ca.crt   1      177m
+configmap/usecase18-app      1      16m
+
+=== Logging Helm releases ===
+No logging Helm release found

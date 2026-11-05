@@ -1,0 +1,11 @@
+--- usecase-18/logging/alloy-values.yaml	2026-11-03 18:55:39
++++ usecase-18/logging/alloy-values-broken.yaml	2026-11-04 18:06:11
+@@ -11,7 +11,7 @@
+         role = "pod"
+ 
+         namespaces {
+-          names = ["claims-logging-lab"]
++          names = ["claims-logging-broken"]
+         }
+       }
+ 

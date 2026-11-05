@@ -1,0 +1,1 @@
+{"service":"usecase18-demo","environment":"lab","version":"v1","request_id":"usecase18-recovery-20261104194009","message":"logging pipeline recovered"}

@@ -1,0 +1,10 @@
+Use Case 18 - Final Incident Summary
+
+Symptom: Application log was visible in Pod logs but missing from Loki.
+Root cause: Alloy was configured to discover the wrong namespace: claims-logging-broken.
+Failure point: Collector discovery and collection stage.
+Fix: Changed the Alloy namespace filter to claims-logging-lab and upgraded Alloy.
+Verification: The recovery request ID was found in Grafana Loki.
+Request ID: usecase18-recovery-20261104194009
+Result: Logging pipeline recovered successfully.
+Prevention: Validate collector namespace filters and run a synthetic log search after configuration changes.

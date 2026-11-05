@@ -1,0 +1,1012 @@
+{
+    "status": "success",
+    "data": {
+        "resultType": "streams",
+        "result": [
+            {
+                "stream": {
+                    "app": "loki",
+                    "container": "loki",
+                    "detected_level": "error",
+                    "instance": "claims-logging-lab/loki-7cf7fd6dbd-jskgf:loki",
+                    "job": "loki.source.kubernetes.pod_logs",
+                    "namespace": "claims-logging-lab",
+                    "pod": "loki-7cf7fd6dbd-jskgf",
+                    "service_name": "loki"
+                },
+                "values": [
+                    [
+                        "1793795057482761420",
+                        "level=error ts=2026-11-04T12:24:17.412495503Z caller=ratestore.go:110 msg=\"error getting ingester clients\" err=\"empty ring\"\n"
+                    ]
+                ]
+            },
+            {
+                "stream": {
+                    "app": "loki",
+                    "container": "loki",
+                    "detected_level": "info",
+                    "instance": "claims-logging-lab/loki-7cf7fd6dbd-jskgf:loki",
+                    "job": "loki.source.kubernetes.pod_logs",
+                    "namespace": "claims-logging-lab",
+                    "pod": "loki-7cf7fd6dbd-jskgf",
+                    "service_name": "loki"
+                },
+                "values": [
+                    [
+                        "1793795507485670712",
+                        "level=info ts=2026-11-04T12:31:47.421053253Z caller=recalculate_owned_streams.go:52 msg=\"completed recalculate owned streams job\"\n"
+                    ],
+                    [
+                        "1793795507485588545",
+                        "level=info ts=2026-11-04T12:31:47.420838878Z caller=recalculate_owned_streams.go:49 msg=\"starting recalculate owned streams job\"\n"
+                    ],
+                    [
+                        "1793795477486446962",
+                        "level=info ts=2026-11-04T12:31:17.421305295Z caller=recalculate_owned_streams.go:52 msg=\"completed recalculate owned streams job\"\n"
+                    ],
+                    [
+                        "1793795477486439712",
+                        "level=info ts=2026-11-04T12:31:17.421039837Z caller=recalculate_owned_streams.go:49 msg=\"starting recalculate owned streams job\"\n"
+                    ],
+                    [
+                        "1793795477486438087",
+                        "level=info ts=2026-11-04T12:31:17.402416378Z caller=index_set.go:186 msg=\"cleaning up unwanted indexes from table index_20760\"\n"
+                    ],
+                    [
+                        "1793795477486436587",
+                        "level=info ts=2026-11-04T12:31:17.40239742Z caller=index_set.go:107 msg=\"finished uploading table index_20760\"\n"
+                    ],
+                    [
+                        "1793795477486434962",
+                        "level=info ts=2026-11-04T12:31:17.400368462Z caller=index_set.go:86 msg=\"uploading table index_20760\"\n"
+                    ],
+                    [
+                        "1793795477486433545",
+                        "level=info ts=2026-11-04T12:31:17.400355462Z caller=index_set.go:186 msg=\"cleaning up unwanted indexes from table index_20761\"\n"
+                    ],
+                    [
+                        "1793795477486431545",
+                        "level=info ts=2026-11-04T12:31:17.400323378Z caller=index_set.go:107 msg=\"finished uploading table index_20761\"\n"
+                    ],
+                    [
+                        "1793795477486425545",
+                        "level=info ts=2026-11-04T12:31:17.395816712Z caller=index_set.go:86 msg=\"uploading table index_20761\"\n"
+                    ],
+                    [
+                        "1793795477486307962",
+                        "level=info ts=2026-11-04T12:31:17.395606253Z caller=table_manager.go:136 index-store=tsdb-2024-01-01 msg=\"uploading tables\"\n"
+                    ],
+                    [
+                        "1793795447486055837",
+                        "level=info ts=2026-11-04T12:30:47.420437003Z caller=recalculate_owned_streams.go:52 msg=\"completed recalculate owned streams job\"\n"
+                    ],
+                    [
+                        "1793795447485964003",
+                        "level=info ts=2026-11-04T12:30:47.420274503Z caller=recalculate_owned_streams.go:49 msg=\"starting recalculate owned streams job\"\n"
+                    ],
+                    [
+                        "1793795417485856587",
+                        "level=info ts=2026-11-04T12:30:17.419420837Z caller=recalculate_owned_streams.go:52 msg=\"completed recalculate owned streams job\"\n"
+                    ],
+                    [
+                        "1793795417485848253",
+                        "level=info ts=2026-11-04T12:30:17.419313712Z caller=recalculate_owned_streams.go:49 msg=\"starting recalculate owned streams job\"\n"
+                    ],
+                    [
+                        "1793795417485775628",
+                        "level=info ts=2026-11-04T12:30:17.39523742Z caller=table_manager.go:136 index-store=tsdb-2024-01-01 msg=\"uploading tables\"\n"
+                    ],
+                    [
+                        "1793795387485859920",
+                        "level=info ts=2026-11-04T12:29:47.420058962Z caller=recalculate_owned_streams.go:52 msg=\"completed recalculate owned streams job\"\n"
+                    ],
+                    [
+                        "1793795387485811378",
+                        "level=info ts=2026-11-04T12:29:47.419895712Z caller=recalculate_owned_streams.go:49 msg=\"starting recalculate owned streams job\"\n"
+                    ],
+                    [
+                        "1793795357485010962",
+                        "level=info ts=2026-11-04T12:29:17.419925962Z caller=checkpoint.go:554 msg=\"tmp checkpoint cleanup done\" duration=54.792\u00b5s success=true\n"
+                    ],
+                    [
+                        "1793795357485009420",
+                        "level=info ts=2026-11-04T12:29:17.419866253Z caller=checkpoint.go:549 msg=\"tmp checkpoint cleanup starting\"\n"
+                    ],
+                    [
+                        "1793795357485006795",
+                        "level=info ts=2026-11-04T12:29:17.419854837Z caller=checkpoint.go:336 msg=\"attempting checkpoint for\" dir=/loki/wal/checkpoint.000007\n"
+                    ],
+                    [
+                        "1793795357485004962",
+                        "level=info ts=2026-11-04T12:29:17.419559962Z caller=checkpoint.go:712 msg=\"starting checkpoint\"\n"
+                    ],
+                    [
+                        "1793795357485002253",
+                        "level=info ts=2026-11-04T12:29:17.419528045Z caller=recalculate_owned_streams.go:52 msg=\"completed recalculate owned streams job\"\n"
+                    ],
+                    [
+                        "1793795357484998920",
+                        "level=info ts=2026-11-04T12:29:17.419404878Z caller=recalculate_owned_streams.go:49 msg=\"starting recalculate owned streams job\"\n"
+                    ],
+                    [
+                        "1793795357484996545",
+                        "level=info ts=2026-11-04T12:29:17.397892253Z caller=table_manager.go:300 index-store=tsdb-2024-01-01 msg=\"query readiness setup completed\" duration=6.375\u00b5s distinct_users_len=0 distinct_users=\n"
+                    ],
+                    [
+                        "1793795357484991503",
+                        "level=info ts=2026-11-04T12:29:17.397490295Z caller=table_manager.go:239 index-store=tsdb-2024-01-01 msg=\"syncing tables\"\n"
+                    ],
+                    [
+                        "1793795357484932295",
+                        "level=info ts=2026-11-04T12:29:17.39518992Z caller=table_manager.go:136 index-store=tsdb-2024-01-01 msg=\"uploading tables\"\n"
+                    ],
+                    [
+                        "1793795327485765128",
+                        "level=info ts=2026-11-04T12:28:47.420513253Z caller=recalculate_owned_streams.go:52 msg=\"completed recalculate owned streams job\"\n"
+                    ],
+                    [
+                        "1793795327485688545",
+                        "level=info ts=2026-11-04T12:28:47.420163545Z caller=recalculate_owned_streams.go:49 msg=\"starting recalculate owned streams job\"\n"
+                    ],
+                    [
+                        "1793795297484783462",
+                        "level=info ts=2026-11-04T12:28:17.419671837Z caller=recalculate_owned_streams.go:52 msg=\"completed recalculate owned streams job\"\n"
+                    ],
+                    [
+                        "1793795297484768128",
+                        "level=info ts=2026-11-04T12:28:17.419556712Z caller=recalculate_owned_streams.go:49 msg=\"starting recalculate owned streams job\"\n"
+                    ],
+                    [
+                        "1793795297484683253",
+                        "level=info ts=2026-11-04T12:28:17.394634753Z caller=table_manager.go:136 index-store=tsdb-2024-01-01 msg=\"uploading tables\"\n"
+                    ],
+                    [
+                        "1793795267484176753",
+                        "level=info ts=2026-11-04T12:27:47.418536962Z caller=recalculate_owned_streams.go:52 msg=\"completed recalculate owned streams job\"\n"
+                    ],
+                    [
+                        "1793795267484100628",
+                        "level=info ts=2026-11-04T12:27:47.418356337Z caller=recalculate_owned_streams.go:49 msg=\"starting recalculate owned streams job\"\n"
+                    ],
+                    [
+                        "1793795237484139712",
+                        "level=info ts=2026-11-04T12:27:17.419448837Z caller=recalculate_owned_streams.go:52 msg=\"completed recalculate owned streams job\"\n"
+                    ],
+                    [
+                        "1793795237484101045",
+                        "level=info ts=2026-11-04T12:27:17.419319587Z caller=recalculate_owned_streams.go:49 msg=\"starting recalculate owned streams job\"\n"
+                    ],
+                    [
+                        "1793795237484026170",
+                        "level=info ts=2026-11-04T12:27:17.394022753Z caller=table_manager.go:136 index-store=tsdb-2024-01-01 msg=\"uploading tables\"\n"
+                    ],
+                    [
+                        "1793795207484791795",
+                        "level=info ts=2026-11-04T12:26:47.418342128Z caller=recalculate_owned_streams.go:52 msg=\"completed recalculate owned streams job\"\n"
+                    ],
+                    [
+                        "1793795207484662212",
+                        "level=info ts=2026-11-04T12:26:47.418211962Z caller=recalculate_owned_streams.go:49 msg=\"starting recalculate owned streams job\"\n"
+                    ],
+                    [
+                        "1793795177483747878",
+                        "level=info ts=2026-11-04T12:26:17.418342712Z caller=recalculate_owned_streams.go:52 msg=\"completed recalculate owned streams job\"\n"
+                    ],
+                    [
+                        "1793795177483743878",
+                        "level=info ts=2026-11-04T12:26:17.418231712Z caller=recalculate_owned_streams.go:49 msg=\"starting recalculate owned streams job\"\n"
+                    ],
+                    [
+                        "1793795177483696003",
+                        "level=info ts=2026-11-04T12:26:17.39378967Z caller=table_manager.go:136 index-store=tsdb-2024-01-01 msg=\"uploading tables\"\n"
+                    ],
+                    [
+                        "1793795147484001712",
+                        "level=info ts=2026-11-04T12:25:47.418064753Z caller=recalculate_owned_streams.go:52 msg=\"completed recalculate owned streams job\"\n"
+                    ],
+                    [
+                        "1793795147483882795",
+                        "level=info ts=2026-11-04T12:25:47.417609045Z caller=recalculate_owned_streams.go:49 msg=\"starting recalculate owned streams job\"\n"
+                    ],
+                    [
+                        "1793795117483242920",
+                        "level=info ts=2026-11-04T12:25:17.418122628Z caller=recalculate_owned_streams.go:52 msg=\"completed recalculate owned streams job\"\n"
+                    ],
+                    [
+                        "1793795117483233962",
+                        "level=info ts=2026-11-04T12:25:17.417979003Z caller=recalculate_owned_streams.go:49 msg=\"starting recalculate owned streams job\"\n"
+                    ],
+                    [
+                        "1793795117483126795",
+                        "level=info ts=2026-11-04T12:25:17.393260962Z caller=table_manager.go:136 index-store=tsdb-2024-01-01 msg=\"uploading tables\"\n"
+                    ],
+                    [
+                        "1793795095883541299",
+                        "level=info ts=2026-11-04T12:24:55.797148007Z caller=flush.go:305 component=ingester msg=\"flushing stream\" user=fake fp=bd83b7167ef267b2 immediate=false num_chunks=1 total_comp=\"68 B\" avg_comp=\"68 B\" total_uncomp=\"1.3 kB\" avg_uncomp=\"1.3 kB\" max_age=1 labels=\"{container=\\\"config-reloader\\\", instance=\\\"claims-logging-lab/alloy-5bbbb47849-5cbkc:config-reloader\\\", job=\\\"loki.source.kubernetes.pod_logs\\\", namespace=\\\"claims-logging-lab\\\", pod=\\\"alloy-5bbbb47849-5cbkc\\\", service_name=\\\"config-reloader\\\"}\"\n"
+                    ],
+                    [
+                        "1793795095583265341",
+                        "level=info ts=2026-11-04T12:24:55.497792549Z caller=flush.go:305 component=ingester msg=\"flushing stream\" user=fake fp=790e26e75ce53837 immediate=false num_chunks=1 total_comp=\"68 B\" avg_comp=\"68 B\" total_uncomp=\"726 B\" avg_uncomp=\"726 B\" max_age=1 labels=\"{app=\\\"usecase18-demo\\\", container=\\\"application\\\", environment=\\\"lab\\\", instance=\\\"claims-logging-lab/usecase18-demo-6cfb4b5565-s5hm2:application\\\", job=\\\"loki.source.kubernetes.pod_logs\\\", namespace=\\\"claims-logging-lab\\\", pod=\\\"usecase18-demo-6cfb4b5565-s5hm2\\\", service=\\\"usecase18-demo\\\", service_name=\\\"usecase18-demo\\\", version=\\\"v1\\\"}\"\n"
+                    ],
+                    [
+                        "1793795095282713965",
+                        "level=info ts=2026-11-04T12:24:55.197157382Z caller=flush.go:305 component=ingester msg=\"flushing stream\" user=fake fp=d5c412e33d0b3a11 immediate=false num_chunks=1 total_comp=\"74 B\" avg_comp=\"74 B\" total_uncomp=\"53 kB\" avg_uncomp=\"53 kB\" max_age=1 labels=\"{app=\\\"loki\\\", container=\\\"loki\\\", instance=\\\"claims-logging-lab/loki-7cf7fd6dbd-jskgf:loki\\\", job=\\\"loki.source.kubernetes.pod_logs\\\", namespace=\\\"claims-logging-lab\\\", pod=\\\"loki-7cf7fd6dbd-jskgf\\\", service_name=\\\"loki\\\"}\"\n"
+                    ],
+                    [
+                        "1793795094983500007",
+                        "level=info ts=2026-11-04T12:24:54.896584674Z caller=flush.go:305 component=ingester msg=\"flushing stream\" user=fake fp=9de8d17df29dd660 immediate=false num_chunks=1 total_comp=\"68 B\" avg_comp=\"68 B\" total_uncomp=\"17 kB\" avg_uncomp=\"17 kB\" max_age=1 labels=\"{container=\\\"alloy\\\", instance=\\\"claims-logging-lab/alloy-5bbbb47849-5cbkc:alloy\\\", job=\\\"loki.source.kubernetes.pod_logs\\\", namespace=\\\"claims-logging-lab\\\", pod=\\\"alloy-5bbbb47849-5cbkc\\\", service_name=\\\"alloy\\\"}\"\n"
+                    ],
+                    [
+                        "1793795087483173545",
+                        "level=info ts=2026-11-04T12:24:47.417407962Z caller=recalculate_owned_streams.go:52 msg=\"completed recalculate owned streams job\"\n"
+                    ],
+                    [
+                        "1793795087483171295",
+                        "level=info ts=2026-11-04T12:24:47.417356587Z caller=recalculate_owned_streams.go:82 msg=\"fixed limit has been updated\" tenant=fake old=2147483647 new=5000\n"
+                    ],
+                    [
+                        "1793795087483164712",
+                        "level=info ts=2026-11-04T12:24:47.417327337Z caller=recalculate_owned_streams.go:63 msg=\"detected ring changes, re-evaluating streams ownership\"\n"
+                    ],
+                    [
+                        "1793795087483119628",
+                        "level=info ts=2026-11-04T12:24:47.417259212Z caller=recalculate_owned_streams.go:49 msg=\"starting recalculate owned streams job\"\n"
+                    ],
+                    [
+                        "1793795067582882175",
+                        "level=info ts=2026-11-04T12:24:27.546443758Z caller=frontend_scheduler_worker.go:106 msg=\"adding connection to scheduler\" addr=10.244.0.35:9095\n"
+                    ],
+                    [
+                        "1793795062682449881",
+                        "level=info ts=2026-11-04T12:24:22.593122714Z caller=tables_manager.go:70 msg=\"waiting 10m0s for ring to stay stable and previous compactions to finish before starting compactor\"\n"
+                    ],
+                    [
+                        "1793795062682435381",
+                        "level=info ts=2026-11-04T12:24:22.593054422Z caller=compactor.go:489 msg=\"this instance has been chosen to run the compactor, starting compactor\"\n"
+                    ],
+                    [
+                        "1793795060582684755",
+                        "level=info ts=2026-11-04T12:24:20.546588588Z caller=worker.go:235 component=querier msg=\"adding connection\" addr=10.244.0.35:9095\n"
+                    ],
+                    [
+                        "1793795060582667213",
+                        "level=info ts=2026-11-04T12:24:20.546563255Z caller=scheduler.go:652 msg=\"this scheduler is in the ReplicationSet, will now accept requests.\"\n"
+                    ],
+                    [
+                        "1793795057593044503",
+                        "level=info ts=2026-11-04T12:24:17.592961003Z caller=loki.go:615 msg=\"Loki started\" startup_time=378.590875ms\n"
+                    ],
+                    [
+                        "1793795057593036462",
+                        "level=info ts=2026-11-04T12:24:17.59292942Z caller=compactor.go:430 msg=\"compactor is ACTIVE in the ring\"\n"
+                    ],
+                    [
+                        "1793795057582695128",
+                        "level=info ts=2026-11-04T12:24:17.545548378Z caller=module_service.go:82 msg=starting module=query-frontend\n"
+                    ],
+                    [
+                        "1793795057582694503",
+                        "level=info ts=2026-11-04T12:24:17.545551295Z caller=module_service.go:82 msg=starting module=querier\n"
+                    ],
+                    [
+                        "1793795057582693045",
+                        "level=info ts=2026-11-04T12:24:17.545432878Z caller=module_service.go:82 msg=starting module=query-scheduler\n"
+                    ],
+                    [
+                        "1793795057582674712",
+                        "level=info ts=2026-11-04T12:24:17.545379045Z caller=ringmanager.go:203 msg=\"scheduler is ACTIVE in the ring\"\n"
+                    ],
+                    [
+                        "1793795057482792545",
+                        "level=info ts=2026-11-04T12:24:17.416669587Z caller=lifecycler.go:562 component=ingester msg=\"auto-joining cluster after timeout\" ring=ingester\n"
+                    ],
+                    [
+                        "1793795057482792045",
+                        "level=info ts=2026-11-04T12:24:17.416601753Z caller=lifecycler.go:721 component=ingester msg=\"instance not found in ring, adding with no tokens\" ring=ingester\n"
+                    ],
+                    [
+                        "1793795057482791462",
+                        "level=info ts=2026-11-04T12:24:17.41649942Z caller=lifecycler.go:694 component=ingester msg=\"not loading tokens from file, tokens file path is empty\"\n"
+                    ],
+                    [
+                        "1793795057482790962",
+                        "level=info ts=2026-11-04T12:24:17.416468128Z caller=ingester.go:778 component=ingester msg=\"sleeping for initial delay before starting periodic flushing\" delay=4.965535311s\n"
+                    ],
+                    [
+                        "1793795057482790462",
+                        "level=info ts=2026-11-04T12:24:17.416371628Z caller=wal.go:173 msg=started component=wal\n"
+                    ],
+                    [
+                        "1793795057482789962",
+                        "level=info ts=2026-11-04T12:24:17.416338545Z caller=ingester.go:565 component=ingester msg=\"WAL recovery finished\" time=3.718083ms\n"
+                    ],
+                    [
+                        "1793795057482789503",
+                        "level=info ts=2026-11-04T12:24:17.41629767Z caller=ingester.go:557 component=ingester msg=\"closing recoverer\"\n"
+                    ],
+                    [
+                        "1793795057482789003",
+                        "level=info ts=2026-11-04T12:24:17.416265003Z caller=ingester.go:609 component=ingester msg=\"WAL segment recovery finished\" elapsed=3.64ms errors=false\n"
+                    ],
+                    [
+                        "1793795057482787628",
+                        "level=info ts=2026-11-04T12:24:17.414256295Z caller=ingester.go:593 component=ingester msg=\"recovering from WAL\"\n"
+                    ],
+                    [
+                        "1793795057482787128",
+                        "level=info ts=2026-11-04T12:24:17.41424917Z caller=ingester.go:587 component=ingester msg=\"recovered WAL checkpoint recovery finished\" elapsed=1.630541ms errors=false\n"
+                    ],
+                    [
+                        "1793795057482786628",
+                        "level=info ts=2026-11-04T12:24:17.413066878Z caller=ruler.go:536 msg=\"ruler up and running\"\n"
+                    ],
+                    [
+                        "1793795057482784878",
+                        "level=info ts=2026-11-04T12:24:17.41305317Z caller=module_service.go:82 msg=starting module=ruler\n"
+                    ],
+                    [
+                        "1793795057482784378",
+                        "level=info ts=2026-11-04T12:24:17.413044628Z caller=module_service.go:82 msg=starting module=rule-evaluator\n"
+                    ],
+                    [
+                        "1793795057482783920",
+                        "level=info ts=2026-11-04T12:24:17.412979878Z caller=compactor.go:426 msg=\"waiting until compactor is ACTIVE in the ring\"\n"
+                    ],
+                    [
+                        "1793795057482783462",
+                        "level=info ts=2026-11-04T12:24:17.412969253Z caller=compactor.go:416 msg=\"compactor is JOINING in the ring\"\n"
+                    ],
+                    [
+                        "1793795057482782962",
+                        "level=info ts=2026-11-04T12:24:17.412965378Z caller=compactor.go:412 msg=\"waiting until compactor is JOINING in the ring\"\n"
+                    ],
+                    [
+                        "1793795057482782503",
+                        "level=info ts=2026-11-04T12:24:17.412844587Z caller=checkpoint.go:501 msg=\"old checkpoint cleanup done\" duration=8.667\u00b5s success=true\n"
+                    ],
+                    [
+                        "1793795057482782003",
+                        "level=info ts=2026-11-04T12:24:17.41283367Z caller=checkpoint.go:496 msg=\"old checkpoint cleanup starting\"\n"
+                    ],
+                    [
+                        "1793795057482781503",
+                        "level=info ts=2026-11-04T12:24:17.412824128Z caller=checkpoint.go:554 msg=\"tmp checkpoint cleanup done\" duration=23.167\u00b5s success=true\n"
+                    ],
+                    [
+                        "1793795057482781045",
+                        "level=info ts=2026-11-04T12:24:17.412636337Z caller=checkpoint.go:549 msg=\"tmp checkpoint cleanup starting\"\n"
+                    ],
+                    [
+                        "1793795057482780545",
+                        "level=info ts=2026-11-04T12:24:17.41279242Z caller=basic_lifecycler_delegates.go:63 msg=\"not loading tokens from file, tokens file path is empty\"\n"
+                    ],
+                    [
+                        "1793795057482780045",
+                        "level=info ts=2026-11-04T12:24:17.41279042Z caller=basic_lifecycler.go:324 msg=\"instance not found in the ring\" instance=loki-7cf7fd6dbd-jskgf ring=compactor\n"
+                    ],
+                    [
+                        "1793795057482779545",
+                        "level=info ts=2026-11-04T12:24:17.412779087Z caller=ringmanager.go:199 msg=\"waiting until scheduler is ACTIVE in the ring\"\n"
+                    ],
+                    [
+                        "1793795057482779087",
+                        "level=info ts=2026-11-04T12:24:17.412765795Z caller=ringmanager.go:190 msg=\"scheduler is JOINING in the ring\"\n"
+                    ],
+                    [
+                        "1793795057482778587",
+                        "level=info ts=2026-11-04T12:24:17.412752878Z caller=ringmanager.go:186 msg=\"waiting until scheduler is JOINING in the ring\"\n"
+                    ],
+                    [
+                        "1793795057482778003",
+                        "level=info ts=2026-11-04T12:24:17.412663878Z caller=basic_lifecycler.go:324 component=distributor msg=\"instance not found in the ring\" instance=loki-7cf7fd6dbd-jskgf ring=distributor\n"
+                    ],
+                    [
+                        "1793795057482773920",
+                        "level=info ts=2026-11-04T12:24:17.412648212Z caller=ring.go:390 msg=\"ring doesn't exist in KV store yet\"\n"
+                    ],
+                    [
+                        "1793795057482773420",
+                        "level=info ts=2026-11-04T12:24:17.412622045Z caller=ingester.go:571 component=ingester msg=\"recovering from checkpoint\"\n"
+                    ],
+                    [
+                        "1793795057482772962",
+                        "level=info ts=2026-11-04T12:24:17.41262792Z caller=module_service.go:82 msg=starting module=compactor\n"
+                    ],
+                    [
+                        "1793795057482772462",
+                        "level=info ts=2026-11-04T12:24:17.412577628Z caller=module_service.go:82 msg=starting module=ingester\n"
+                    ],
+                    [
+                        "1793795057482772003",
+                        "level=info ts=2026-11-04T12:24:17.412569295Z caller=module_service.go:82 msg=starting module=ingester-querier\n"
+                    ],
+                    [
+                        "1793795057482771462",
+                        "level=info ts=2026-11-04T12:24:17.412549503Z caller=basic_lifecycler_delegates.go:63 msg=\"not loading tokens from file, tokens file path is empty\"\n"
+                    ],
+                    [
+                        "1793795057482770753",
+                        "level=info ts=2026-11-04T12:24:17.412538712Z caller=basic_lifecycler.go:324 msg=\"instance not found in the ring\" instance=loki-7cf7fd6dbd-jskgf ring=scheduler\n"
+                    ],
+                    [
+                        "1793795057482761920",
+                        "level=info ts=2026-11-04T12:24:17.412544503Z caller=ring.go:390 component=distributor msg=\"ring doesn't exist in KV store yet\"\n"
+                    ],
+                    [
+                        "1793795057482760920",
+                        "level=info ts=2026-11-04T12:24:17.412461087Z caller=module_service.go:82 msg=starting module=distributor\n"
+                    ],
+                    [
+                        "1793795057482760462",
+                        "level=info ts=2026-11-04T12:24:17.412448628Z caller=ring.go:390 msg=\"ring doesn't exist in KV store yet\"\n"
+                    ],
+                    [
+                        "1793795057482759962",
+                        "level=info ts=2026-11-04T12:24:17.412438795Z caller=module_service.go:82 msg=starting module=ring\n"
+                    ],
+                    [
+                        "1793795057482759503",
+                        "level=info ts=2026-11-04T12:24:17.412433503Z caller=module_service.go:82 msg=starting module=store\n"
+                    ],
+                    [
+                        "1793795057482759045",
+                        "level=info ts=2026-11-04T12:24:17.412391878Z caller=ring.go:390 msg=\"ring doesn't exist in KV store yet\"\n"
+                    ],
+                    [
+                        "1793795057482758545",
+                        "level=info ts=2026-11-04T12:24:17.412293587Z caller=module_service.go:82 msg=starting module=query-scheduler-ring\n"
+                    ],
+                    [
+                        "1793795057482758087",
+                        "level=info ts=2026-11-04T12:24:17.412266753Z caller=module_service.go:82 msg=starting module=memberlist-kv\n"
+                    ],
+                    [
+                        "1793795057482757587",
+                        "level=info ts=2026-11-04T12:24:17.41225317Z caller=module_service.go:82 msg=starting module=query-frontend-tripperware\n"
+                    ],
+                    [
+                        "1793795057482757045",
+                        "level=info ts=2026-11-04T12:24:17.411976212Z caller=module_service.go:82 msg=starting module=server\n"
+                    ],
+                    [
+                        "1793795057482755545",
+                        "level=info ts=2026-11-04T12:24:17.411813462Z caller=module_service.go:82 msg=starting module=cache-generation-loader\n"
+                    ],
+                    [
+                        "1793795057482755045",
+                        "level=info ts=2026-11-04T12:24:17.397743712Z caller=mapper.go:47 msg=\"cleaning up mapped rules directory\" path=/loki/rules-temp\n"
+                    ],
+                    [
+                        "1793795057482754545",
+                        "level=info ts=2026-11-04T12:24:17.39754442Z caller=worker.go:134 component=querier msg=\"Starting querier worker using query-scheduler and scheduler ring for addresses\"\n"
+                    ],
+                    [
+                        "1793795057482754003",
+                        "level=info ts=2026-11-04T12:24:17.394911503Z caller=head_manager.go:313 index-store=tsdb-2024-01-01 component=tsdb-head-manager msg=\"loaded wals by period\" groups=0\n"
+                    ],
+                    [
+                        "1793795057482750795",
+                        "level=info ts=2026-11-04T12:24:17.39472542Z caller=manager.go:86 index-store=tsdb-2024-01-01 component=tsdb-manager msg=\"loaded leftover local indices\" err=null successful=true buckets=0 indices=0 failures=0\n"
+                    ],
+                    [
+                        "1793795057482750295",
+                        "level=info ts=2026-11-04T12:24:17.394659128Z caller=head_manager.go:313 index-store=tsdb-2024-01-01 component=tsdb-head-manager msg=\"loaded wals by period\" groups=0\n"
+                    ],
+                    [
+                        "1793795057482748753",
+                        "level=info ts=2026-11-04T12:24:17.393884462Z caller=shipper.go:165 index-store=tsdb-2024-01-01 msg=\"starting index shipper in RW mode\"\n"
+                    ],
+                    [
+                        "1793795057482747253",
+                        "level=info ts=2026-11-04T12:24:17.393868003Z caller=table_manager.go:300 index-store=tsdb-2024-01-01 msg=\"query readiness setup completed\" duration=1.083\u00b5s distinct_users_len=0 distinct_users=\n"
+                    ],
+                    [
+                        "1793795057482746295",
+                        "level=info ts=2026-11-04T12:24:17.39248842Z caller=table_manager.go:456 index-store=tsdb-2024-01-01 msg=\"loading local table index_20760\"\n"
+                    ],
+                    [
+                        "1793795057482745795",
+                        "level=info ts=2026-11-04T12:24:17.392004378Z caller=table_manager.go:136 index-store=tsdb-2024-01-01 msg=\"uploading tables\"\n"
+                    ],
+                    [
+                        "1793795057482745170",
+                        "level=info ts=2026-11-04T12:24:17.388662503Z caller=server.go:397 msg=\"server listening on addresses\" http=[::]:3100 grpc=[::]:9095\n"
+                    ],
+                    [
+                        "1793795057482742628",
+                        "level=info ts=2026-11-04T12:24:17.384663628Z caller=main.go:147 msg=\"Loading configuration file\" filename=/etc/loki/loki.yaml\n"
+                    ],
+                    [
+                        "1793795057482718712",
+                        "level=info ts=2026-11-04T12:24:17.384629545Z caller=main.go:146 msg=\"Starting Loki\" version=\"(version=3.7.0, branch=k299, revision=3361de24)\"\n"
+                    ]
+                ]
+            },
+            {
+                "stream": {
+                    "app": "usecase18-demo",
+                    "container": "application",
+                    "detected_level": "info",
+                    "environment": "lab",
+                    "instance": "claims-logging-lab/usecase18-demo-6cfb4b5565-s5hm2:application",
+                    "job": "loki.source.kubernetes.pod_logs",
+                    "namespace": "claims-logging-lab",
+                    "pod": "usecase18-demo-6cfb4b5565-s5hm2",
+                    "service": "usecase18-demo",
+                    "service_name": "usecase18-demo",
+                    "version": "v1"
+                },
+                "values": [
+                    [
+                        "1793795450601344671",
+                        "{\"timestamp\": \"2026-11-04T12:30:50.601094+00:00\", \"level\": \"INFO\", \"service\": \"usecase18-demo\", \"environment\": \"lab\", \"version\": \"v1\", \"request_id\": \"usecase18-loki-20261104180050\", \"path\": \"/generate-log\", \"message\": \"Use Case 18 known log message\"}\n"
+                    ],
+                    [
+                        "1793795058234872295",
+                        "{\"timestamp\": \"2026-11-04T12:24:18.234667+00:00\", \"level\": \"INFO\", \"service\": \"usecase18-demo\", \"environment\": \"lab\", \"version\": \"v1\", \"request_id\": \"startup\", \"path\": \"/\", \"message\": \"Use Case 18 application started\"}\n"
+                    ]
+                ]
+            },
+            {
+                "stream": {
+                    "container": "alloy",
+                    "detected_level": "info",
+                    "instance": "claims-logging-lab/alloy-5bbbb47849-5cbkc:alloy",
+                    "job": "loki.source.kubernetes.pod_logs",
+                    "namespace": "claims-logging-lab",
+                    "pod": "alloy-5bbbb47849-5cbkc",
+                    "service_name": "alloy"
+                },
+                "values": [
+                    [
+                        "1793795237269887712",
+                        "ts=2026-11-04T12:27:17.26965442Z level=info msg=\"scheduling loaded components and services\" controller_id=\"\"\n"
+                    ],
+                    [
+                        "1793795237269603628",
+                        "ts=2026-11-04T12:27:17.269522087Z level=info msg=\"config reloaded\" service=http\n"
+                    ],
+                    [
+                        "1793795237269602295",
+                        "ts=2026-11-04T12:27:17.269488628Z level=info msg=\"finished complete graph evaluation\" controller_path=/ controller_id=\"\" trace_id=79a7cc9eae524f7054360db6724ca1f5 duration=2.428542ms\n"
+                    ],
+                    [
+                        "1793795237269599503",
+                        "ts=2026-11-04T12:27:17.269479045Z level=info msg=\"finished node evaluation\" controller_path=/ controller_id=\"\" trace_id=79a7cc9eae524f7054360db6724ca1f5 node_id=cluster duration=1.5\u00b5s\n"
+                    ],
+                    [
+                        "1793795237269587587",
+                        "ts=2026-11-04T12:27:17.269471003Z level=info msg=\"finished node evaluation\" controller_path=/ controller_id=\"\" trace_id=79a7cc9eae524f7054360db6724ca1f5 node_id=ui duration=9.417\u00b5s\n"
+                    ],
+                    [
+                        "1793795237269480545",
+                        "ts=2026-11-04T12:27:17.269455837Z level=info msg=\"finished node evaluation\" controller_path=/ controller_id=\"\" trace_id=79a7cc9eae524f7054360db6724ca1f5 node_id=http duration=9.75\u00b5s\n"
+                    ],
+                    [
+                        "1793795237269457420",
+                        "ts=2026-11-04T12:27:17.269435503Z level=info msg=\"finished node evaluation\" controller_path=/ controller_id=\"\" trace_id=79a7cc9eae524f7054360db6724ca1f5 node_id=remotecfg duration=33.083\u00b5s\n"
+                    ],
+                    [
+                        "1793795237269455420",
+                        "ts=2026-11-04T12:27:17.269390337Z level=info msg=\"finished node evaluation\" controller_path=/ controller_id=\"\" trace_id=79a7cc9eae524f7054360db6724ca1f5 node_id=tracing duration=35\u00b5s\n"
+                    ],
+                    [
+                        "1793795237269448878",
+                        "ts=2026-11-04T12:27:17.269346045Z level=info msg=\"finished node evaluation\" controller_path=/ controller_id=\"\" trace_id=79a7cc9eae524f7054360db6724ca1f5 node_id=loki.source.kubernetes.pod_logs duration=37.875\u00b5s\n"
+                    ],
+                    [
+                        "1793795237269435628",
+                        "ts=2026-11-04T12:27:17.269295128Z level=info msg=\"finished node evaluation\" controller_path=/ controller_id=\"\" trace_id=79a7cc9eae524f7054360db6724ca1f5 node_id=discovery.relabel.pod_logs duration=348.208\u00b5s\n"
+                    ],
+                    [
+                        "1793795237268973337",
+                        "ts=2026-11-04T12:27:17.268934337Z level=info msg=\"finished node evaluation\" controller_path=/ controller_id=\"\" trace_id=79a7cc9eae524f7054360db6724ca1f5 node_id=discovery.kubernetes.pods duration=148.333\u00b5s\n"
+                    ],
+                    [
+                        "1793795237268847795",
+                        "ts=2026-11-04T12:27:17.268770837Z level=info msg=\"finished node evaluation\" controller_path=/ controller_id=\"\" trace_id=79a7cc9eae524f7054360db6724ca1f5 node_id=loki.process.application_logs duration=446.125\u00b5s\n"
+                    ],
+                    [
+                        "1793795237268376462",
+                        "ts=2026-11-04T12:27:17.268305087Z level=info msg=\"finished node evaluation\" controller_path=/ controller_id=\"\" trace_id=79a7cc9eae524f7054360db6724ca1f5 node_id=loki.write.local duration=261.041\u00b5s\n"
+                    ],
+                    [
+                        "1793795237268075462",
+                        "ts=2026-11-04T12:27:17.268009337Z level=info msg=\"finished node evaluation\" controller_path=/ controller_id=\"\" trace_id=79a7cc9eae524f7054360db6724ca1f5 node_id=labelstore duration=14.25\u00b5s\n"
+                    ],
+                    [
+                        "1793795237268023295",
+                        "ts=2026-11-04T12:27:17.26794117Z level=info msg=\"finished node evaluation\" controller_path=/ controller_id=\"\" trace_id=79a7cc9eae524f7054360db6724ca1f5 node_id=livedebugging duration=32.792\u00b5s\n"
+                    ],
+                    [
+                        "1793795237267966712",
+                        "ts=2026-11-04T12:27:17.26787442Z level=info msg=\"finished node evaluation\" controller_path=/ controller_id=\"\" trace_id=79a7cc9eae524f7054360db6724ca1f5 node_id=logging duration=151.292\u00b5s\n"
+                    ],
+                    [
+                        "1793795237267795628",
+                        "ts=2026-11-04T12:27:17.267688337Z level=info msg=\"finished node evaluation\" controller_path=/ controller_id=\"\" trace_id=79a7cc9eae524f7054360db6724ca1f5 node_id=otel duration=1.458\u00b5s\n"
+                    ],
+                    [
+                        "1793795237267714628",
+                        "ts=2026-11-04T12:27:17.267596712Z level=info msg=\"starting complete graph evaluation\" controller_path=/ controller_id=\"\" trace_id=79a7cc9eae524f7054360db6724ca1f5\n"
+                    ],
+                    [
+                        "1793795237266522587",
+                        "ts=2026-11-04T12:27:17.266318337Z level=info msg=\"reload requested via /-/reload endpoint\" service=http\n"
+                    ],
+                    [
+                        "1793795062454374672",
+                        "ts=2026-11-04T12:24:22.454259381Z level=info msg=\"opened log stream\" component_path=/ component_id=loki.source.kubernetes.pod_logs target=claims-logging-lab/alloy-5bbbb47849-5cbkc:config-reloader start_time=0001-01-01T00:00:00.000Z\n"
+                    ],
+                    [
+                        "1793795062454373006",
+                        "ts=2026-11-04T12:24:22.454198297Z level=info msg=\"opened log stream\" component_path=/ component_id=loki.source.kubernetes.pod_logs target=claims-logging-lab/alloy-5bbbb47849-5cbkc:alloy start_time=0001-01-01T00:00:00.000Z\n"
+                    ],
+                    [
+                        "1793795062454368464",
+                        "ts=2026-11-04T12:24:22.454161547Z level=info msg=\"opened log stream\" component_path=/ component_id=loki.source.kubernetes.pod_logs target=claims-logging-lab/usecase18-demo-6cfb4b5565-s5hm2:application start_time=0001-01-01T00:00:00.000Z\n"
+                    ],
+                    [
+                        "1793795062454345839",
+                        "ts=2026-11-04T12:24:22.454033297Z level=info msg=\"opened log stream\" component_path=/ component_id=loki.source.kubernetes.pod_logs target=claims-logging-lab/loki-7cf7fd6dbd-jskgf:loki start_time=0001-01-01T00:00:00.000Z\n"
+                    ],
+                    [
+                        "1793795062445310131",
+                        "ts=2026-11-04T12:24:22.444813381Z level=info msg=\"tailer running\" component_path=/ component_id=loki.source.kubernetes.pod_logs target=claims-logging-lab/loki-7cf7fd6dbd-jskgf:loki\n"
+                    ],
+                    [
+                        "1793795062445308506",
+                        "ts=2026-11-04T12:24:22.444792756Z level=info msg=\"tailer running\" component_path=/ component_id=loki.source.kubernetes.pod_logs target=claims-logging-lab/usecase18-demo-6cfb4b5565-s5hm2:application\n"
+                    ],
+                    [
+                        "1793795062445292672",
+                        "ts=2026-11-04T12:24:22.444731839Z level=info msg=\"tailer running\" component_path=/ component_id=loki.source.kubernetes.pod_logs target=claims-logging-lab/alloy-5bbbb47849-5cbkc:alloy\n"
+                    ],
+                    [
+                        "1793795062444809422",
+                        "ts=2026-11-04T12:24:22.444706547Z level=info msg=\"tailer running\" component_path=/ component_id=loki.source.kubernetes.pod_logs target=claims-logging-lab/alloy-5bbbb47849-5cbkc:config-reloader\n"
+                    ],
+                    [
+                        "1793795062444615006",
+                        "ts=2026-11-04T12:24:22.444458047Z level=info msg=\"Using pod service account via in-cluster config\" component_path=/ component_id=loki.source.kubernetes.pod_logs\n"
+                    ],
+                    [
+                        "1793795057446835045",
+                        "ts=2026-11-04T12:24:17.446732962Z level=info msg=\"now listening for http traffic\" service=http addr=0.0.0.0:12345\n"
+                    ],
+                    [
+                        "1793795057443517087",
+                        "ts=2026-11-04T12:24:17.443376753Z level=info msg=\"peers changed\" service=cluster peers_count=1 min_cluster_size=0 peers=alloy-5bbbb47849-5cbkc\n"
+                    ],
+                    [
+                        "1793795057443441878",
+                        "ts=2026-11-04T12:24:17.443023045Z level=info msg=\"starting cluster node\" service=cluster peers_count=0 peers=\"\" advertise_addr=127.0.0.1:12345 minimum_cluster_size=0 minimum_size_wait_timeout=0s\n"
+                    ],
+                    [
+                        "1793795057442796878",
+                        "ts=2026-11-04T12:24:17.442708212Z level=info msg=\"scheduling loaded components and services\" controller_id=\"\"\n"
+                    ],
+                    [
+                        "1793795057442792337",
+                        "ts=2026-11-04T12:24:17.442673337Z level=info msg=\"{^_^} Alloy is running\"\n"
+                    ],
+                    [
+                        "1793795057442661753",
+                        "ts=2026-11-04T12:24:17.442528003Z level=info msg=\"finished complete graph evaluation\" controller_path=/ controller_id=\"\" trace_id=74e2d42d749e2fcb535df445c5cf3de9 duration=2.341541ms\n"
+                    ],
+                    [
+                        "1793795057442636420",
+                        "ts=2026-11-04T12:24:17.442506462Z level=info msg=\"finished node evaluation\" controller_path=/ controller_id=\"\" trace_id=74e2d42d749e2fcb535df445c5cf3de9 node_id=labelstore duration=2.792\u00b5s\n"
+                    ],
+                    [
+                        "1793795057442635753",
+                        "ts=2026-11-04T12:24:17.44249767Z level=info msg=\"finished node evaluation\" controller_path=/ controller_id=\"\" trace_id=74e2d42d749e2fcb535df445c5cf3de9 node_id=ui duration=2.334\u00b5s\n"
+                    ],
+                    [
+                        "1793795057442633503",
+                        "ts=2026-11-04T12:24:17.44248942Z level=info msg=\"finished node evaluation\" controller_path=/ controller_id=\"\" trace_id=74e2d42d749e2fcb535df445c5cf3de9 node_id=livedebugging duration=3.667\u00b5s\n"
+                    ],
+                    [
+                        "1793795057442631795",
+                        "ts=2026-11-04T12:24:17.442484003Z level=info msg=\"finished node evaluation\" controller_path=/ controller_id=\"\" trace_id=74e2d42d749e2fcb535df445c5cf3de9 node_id=otel duration=2.083\u00b5s\n"
+                    ],
+                    [
+                        "1793795057442630837",
+                        "ts=2026-11-04T12:24:17.442479587Z level=info msg=\"finished node evaluation\" controller_path=/ controller_id=\"\" trace_id=74e2d42d749e2fcb535df445c5cf3de9 node_id=logging duration=66.625\u00b5s\n"
+                    ],
+                    [
+                        "1793795057442630337",
+                        "ts=2026-11-04T12:24:17.44241117Z level=info msg=\"finished node evaluation\" controller_path=/ controller_id=\"\" trace_id=74e2d42d749e2fcb535df445c5cf3de9 node_id=tracing duration=5.5\u00b5s\n"
+                    ],
+                    [
+                        "1793795057442629753",
+                        "ts=2026-11-04T12:24:17.442403253Z level=info msg=\"finished node evaluation\" controller_path=/ controller_id=\"\" trace_id=74e2d42d749e2fcb535df445c5cf3de9 node_id=loki.source.kubernetes.pod_logs duration=347.375\u00b5s\n"
+                    ],
+                    [
+                        "1793795057442628337",
+                        "ts=2026-11-04T12:24:17.442267712Z level=info msg=\"Using pod service account via in-cluster config\" component_path=/ component_id=loki.source.kubernetes.pod_logs\n"
+                    ],
+                    [
+                        "1793795057442627795",
+                        "ts=2026-11-04T12:24:17.44205342Z level=info msg=\"finished node evaluation\" controller_path=/ controller_id=\"\" trace_id=74e2d42d749e2fcb535df445c5cf3de9 node_id=discovery.relabel.pod_logs duration=51.041\u00b5s\n"
+                    ],
+                    [
+                        "1793795057442626462",
+                        "ts=2026-11-04T12:24:17.441997587Z level=info msg=\"finished node evaluation\" controller_path=/ controller_id=\"\" trace_id=74e2d42d749e2fcb535df445c5cf3de9 node_id=discovery.kubernetes.pods duration=1.167583ms\n"
+                    ],
+                    [
+                        "1793795057442625087",
+                        "ts=2026-11-04T12:24:17.441250212Z level=info msg=\"Using pod service account via in-cluster config\" component_path=/ component_id=discovery.kubernetes.pods\n"
+                    ],
+                    [
+                        "1793795057442622045",
+                        "ts=2026-11-04T12:24:17.440827837Z level=info msg=\"finished node evaluation\" controller_path=/ controller_id=\"\" trace_id=74e2d42d749e2fcb535df445c5cf3de9 node_id=cluster duration=583ns\n"
+                    ],
+                    [
+                        "1793795057442621378",
+                        "ts=2026-11-04T12:24:17.440826212Z level=info msg=\"finished node evaluation\" controller_path=/ controller_id=\"\" trace_id=74e2d42d749e2fcb535df445c5cf3de9 node_id=http duration=4.166\u00b5s\n"
+                    ],
+                    [
+                        "1793795057442619170",
+                        "ts=2026-11-04T12:24:17.440825628Z level=info msg=\"applying non-TLS config to HTTP server\" service=http\n"
+                    ],
+                    [
+                        "1793795057442616045",
+                        "ts=2026-11-04T12:24:17.440820795Z level=info msg=\"finished node evaluation\" controller_path=/ controller_id=\"\" trace_id=74e2d42d749e2fcb535df445c5cf3de9 node_id=remotecfg duration=17.083\u00b5s\n"
+                    ],
+                    [
+                        "1793795057442613795",
+                        "ts=2026-11-04T12:24:17.440801587Z level=info msg=\"finished node evaluation\" controller_path=/ controller_id=\"\" trace_id=74e2d42d749e2fcb535df445c5cf3de9 node_id=loki.process.application_logs duration=125\u00b5s\n"
+                    ],
+                    [
+                        "1793795057442612045",
+                        "ts=2026-11-04T12:24:17.440672337Z level=info msg=\"finished node evaluation\" controller_path=/ controller_id=\"\" trace_id=74e2d42d749e2fcb535df445c5cf3de9 node_id=loki.write.local duration=411.875\u00b5s\n"
+                    ],
+                    [
+                        "1793795057442608962",
+                        "ts=2026-11-04T12:24:17.440253087Z level=info msg=\"starting complete graph evaluation\" controller_path=/ controller_id=\"\" trace_id=74e2d42d749e2fcb535df445c5cf3de9\n"
+                    ],
+                    [
+                        "1793795057442605628",
+                        "ts=2026-11-04T12:24:17.440136337Z level=info msg=\"running usage stats reporter\"\n"
+                    ],
+                    [
+                        "1793795057442605087",
+                        "ts=2026-11-04T12:24:17.435814795Z level=info msg=\"no peer discovery configured: both join and discover peers are empty\" service=cluster\n"
+                    ],
+                    [
+                        "1793795057442603295",
+                        "ts=2026-11-04T12:24:17.435255003Z level=info msg=\"memory is not limited, skipping\" package=github.com/KimMachineGun/automemlimit/memlimit\n"
+                    ],
+                    [
+                        "1793795057442599795",
+                        "ts=2026-11-04T12:24:17.435009795Z level=info msg=\"boringcrypto enabled\" enabled=false\n"
+                    ],
+                    [
+                        "1793795057442583462",
+                        "ts=2026-11-04T12:24:17.434939795Z level=info msg=\"Alloy is starting\"\n"
+                    ]
+                ]
+            },
+            {
+                "stream": {
+                    "container": "config-reloader",
+                    "detected_level": "info",
+                    "instance": "claims-logging-lab/alloy-5bbbb47849-5cbkc:config-reloader",
+                    "job": "loki.source.kubernetes.pod_logs",
+                    "namespace": "claims-logging-lab",
+                    "pod": "alloy-5bbbb47849-5cbkc",
+                    "service_name": "config-reloader"
+                },
+                "values": [
+                    [
+                        "1793795237270295170",
+                        "level=info ts=2026-11-04T12:27:17.270094628Z caller=reloader.go:546 msg=\"Reload triggered\" cfg_in= cfg_out= cfg_dirs= watched_dirs=/etc/alloy\n"
+                    ],
+                    [
+                        "1793795057259427670",
+                        "level=info ts=2026-11-04T12:24:17.259381087Z caller=reloader.go:328 msg=\"started watching config file and directories for changes\" cfg= cfgDirs= out= dirs=/etc/alloy\n"
+                    ],
+                    [
+                        "1793795057259397128",
+                        "level=info ts=2026-11-04T12:24:17.25933017Z caller=reloader.go:282 msg=\"reloading via HTTP\"\n"
+                    ],
+                    [
+                        "1793795057259004212",
+                        "ts=2026-11-04T12:24:17.258857753Z level=info caller=/workspace/cmd/prometheus-config-reloader/main.go:148 msg=\"Starting prometheus-config-reloader\" version=\"(version=0.94.2, branch=, revision=0db9044)\" build_context=\"(go=go1.26.10, platform=linux/arm64, user=, date=20261022-14:26:32, tags=unknown)\"\n"
+                    ]
+                ]
+            }
+        ],
+        "stats": {
+            "summary": {
+                "bytesProcessedPerSecond": 5643422,
+                "linesProcessedPerSecond": 28947,
+                "totalBytesProcessed": 103522,
+                "totalLinesProcessed": 531,
+                "execTime": 0.018344,
+                "queueTime": 0.000195,
+                "subqueries": 0,
+                "totalEntriesReturned": 186,
+                "splits": 0,
+                "shards": 1,
+                "totalPostFilterLines": 531,
+                "totalStructuredMetadataBytesProcessed": 14346
+            },
+            "querier": {
+                "store": {
+                    "totalChunksRef": 0,
+                    "totalChunksDownloaded": 0,
+                    "chunksDownloadTime": 0,
+                    "queryReferencedStructuredMetadata": false,
+                    "queryUsedV2Engine": false,
+                    "chunk": {
+                        "headChunkBytes": 0,
+                        "headChunkLines": 0,
+                        "decompressedBytes": 0,
+                        "decompressedLines": 0,
+                        "compressedBytes": 0,
+                        "totalDuplicates": 0,
+                        "postFilterLines": 0,
+                        "headChunkStructuredMetadataBytes": 0,
+                        "decompressedStructuredMetadataBytes": 0
+                    },
+                    "chunkRefsFetchTime": 0,
+                    "congestionControlLatency": 0,
+                    "pipelineWrapperFilteredLines": 0,
+                    "dataobj": {
+                        "prePredicateDecompressedRows": 0,
+                        "prePredicateDecompressedBytes": 0,
+                        "prePredicateDecompressedStructuredMetadataBytes": 0,
+                        "postPredicateRows": 0,
+                        "postPredicateDecompressedBytes": 0,
+                        "postPredicateStructuredMetadataBytes": 0,
+                        "postFilterRows": 0,
+                        "pagesScanned": 0,
+                        "pagesDownloaded": 0,
+                        "pagesDownloadedBytes": 0,
+                        "pageBatches": 0,
+                        "totalRowsAvailable": 0,
+                        "totalPageDownloadTime": 0
+                    }
+                },
+                "querierExecTime": 0.0099
+            },
+            "ingester": {
+                "totalReached": 1,
+                "totalChunksMatched": 4,
+                "totalBatches": 3,
+                "totalLinesSent": 186,
+                "store": {
+                    "totalChunksRef": 4,
+                    "totalChunksDownloaded": 4,
+                    "chunksDownloadTime": 382167,
+                    "queryReferencedStructuredMetadata": false,
+                    "queryUsedV2Engine": false,
+                    "chunk": {
+                        "headChunkBytes": 12346,
+                        "headChunkLines": 72,
+                        "decompressedBytes": 91176,
+                        "decompressedLines": 459,
+                        "compressedBytes": 14307,
+                        "totalDuplicates": 0,
+                        "postFilterLines": 531,
+                        "headChunkStructuredMetadataBytes": 576,
+                        "decompressedStructuredMetadataBytes": 13770
+                    },
+                    "chunkRefsFetchTime": 299208,
+                    "congestionControlLatency": 0,
+                    "pipelineWrapperFilteredLines": 0,
+                    "dataobj": {
+                        "prePredicateDecompressedRows": 0,
+                        "prePredicateDecompressedBytes": 0,
+                        "prePredicateDecompressedStructuredMetadataBytes": 0,
+                        "postPredicateRows": 0,
+                        "postPredicateDecompressedBytes": 0,
+                        "postPredicateStructuredMetadataBytes": 0,
+                        "postFilterRows": 0,
+                        "pagesScanned": 0,
+                        "pagesDownloaded": 0,
+                        "pagesDownloadedBytes": 0,
+                        "pageBatches": 0,
+                        "totalRowsAvailable": 0,
+                        "totalPageDownloadTime": 0
+                    }
+                },
+                "recvWaitTime": 0.002753
+            },
+            "cache": {
+                "chunk": {
+                    "entriesFound": 0,
+                    "entriesRequested": 0,
+                    "entriesStored": 0,
+                    "bytesReceived": 0,
+                    "bytesSent": 0,
+                    "requests": 0,
+                    "downloadTime": 0,
+                    "queryLengthServed": 0
+                },
+                "index": {
+                    "entriesFound": 0,
+                    "entriesRequested": 0,
+                    "entriesStored": 0,
+                    "bytesReceived": 0,
+                    "bytesSent": 0,
+                    "requests": 0,
+                    "downloadTime": 0,
+                    "queryLengthServed": 0
+                },
+                "result": {
+                    "entriesFound": 0,
+                    "entriesRequested": 0,
+                    "entriesStored": 0,
+                    "bytesReceived": 0,
+                    "bytesSent": 0,
+                    "requests": 0,
+                    "downloadTime": 0,
+                    "queryLengthServed": 0
+                },
+                "statsResult": {
+                    "entriesFound": 0,
+                    "entriesRequested": 0,
+                    "entriesStored": 0,
+                    "bytesReceived": 0,
+                    "bytesSent": 0,
+                    "requests": 0,
+                    "downloadTime": 0,
+                    "queryLengthServed": 0
+                },
+                "volumeResult": {
+                    "entriesFound": 0,
+                    "entriesRequested": 0,
+                    "entriesStored": 0,
+                    "bytesReceived": 0,
+                    "bytesSent": 0,
+                    "requests": 0,
+                    "downloadTime": 0,
+                    "queryLengthServed": 0
+                },
+                "seriesResult": {
+                    "entriesFound": 0,
+                    "entriesRequested": 0,
+                    "entriesStored": 0,
+                    "bytesReceived": 0,
+                    "bytesSent": 0,
+                    "requests": 0,
+                    "downloadTime": 0,
+                    "queryLengthServed": 0
+                },
+                "labelResult": {
+                    "entriesFound": 0,
+                    "entriesRequested": 0,
+                    "entriesStored": 0,
+                    "bytesReceived": 0,
+                    "bytesSent": 0,
+                    "requests": 0,
+                    "downloadTime": 0,
+                    "queryLengthServed": 0
+                },
+                "instantMetricResult": {
+                    "entriesFound": 0,
+                    "entriesRequested": 0,
+                    "entriesStored": 0,
+                    "bytesReceived": 0,
+                    "bytesSent": 0,
+                    "requests": 0,
+                    "downloadTime": 0,
+                    "queryLengthServed": 0
+                }
+            },
+            "index": {
+                "totalChunks": 0,
+                "postFilterChunks": 0,
+                "shardsDuration": 0,
+                "usedBloomFilters": false,
+                "totalStreams": 0,
+                "chunkRefsLookupTime": 0,
+                "bloomFilterTime": 0
+            }
+        }
+    }
+}

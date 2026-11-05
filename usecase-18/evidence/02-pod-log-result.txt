@@ -1,0 +1,1 @@
+PASS: Known log is visible at the Kubernetes Pod level

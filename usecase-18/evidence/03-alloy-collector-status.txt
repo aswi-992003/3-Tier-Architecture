@@ -1,0 +1,19 @@
+=== Alloy Helm release ===
+alloy	claims-logging-lab	1       	2026-11-03 18:55:48.463863 +0530 IST	deployed	alloy-1.15.0	v1.21.3    
+
+=== Alloy workload ===
+NAME                    READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS              IMAGES                                                                                                                                                                   SELECTOR
+deployment.apps/alloy   1/1     1            1           17m   alloy,config-reloader   docker.io/grafana/alloy:v1.21.3,quay.io/prometheus-operator/prometheus-config-reloader:v0.94.2@sha256:a1897c67478bc23434534e91ad3855280771196b1daf17144db9dbcb655bef71   app.kubernetes.io/instance=alloy,app.kubernetes.io/name=alloy
+
+NAME                         READY   STATUS    RESTARTS   AGE   IP            NODE                    NOMINATED NODE   READINESS GATES
+pod/alloy-5bbbb47849-5cbkc   2/2     Running   0          17m   10.244.0.40   desktop-control-plane   <none>           <none>
+
+=== Loki destination ===
+NAME                   READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/loki   1/1     1            1           26m
+
+NAME                        READY   STATUS    RESTARTS   AGE
+pod/loki-7cf7fd6dbd-jskgf   1/1     Running   0          26m
+
+=== Alloy error check ===
+PASS: No Alloy forwarding errors found

@@ -1,0 +1,25 @@
+=== Correct Alloy namespace configuration ===
+11-        role = "pod"
+12-
+13-        namespaces {
+14:          names = ["claims-logging-lab"]
+15-        }
+16-      }
+17-
+--
+68-
+69-      loki.write "local" {
+70-        endpoint {
+71:          url = "http://loki.claims-logging-lab.svc.cluster.local:3100/loki/api/v1/push"
+72-        }
+73-      }
+74-
+
+=== Broken Alloy namespace configuration ===
+11-        role = "pod"
+12-
+13-        namespaces {
+14:          names = ["claims-logging-broken"]
+15-        }
+16-      }
+17-

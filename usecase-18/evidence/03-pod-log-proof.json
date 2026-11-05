@@ -1,0 +1,1 @@
+{"timestamp": "2026-11-04T12:30:50.601094+00:00", "level": "INFO", "service": "usecase18-demo", "environment": "lab", "version": "v1", "request_id": "usecase18-loki-20261104180050", "path": "/generate-log", "message": "Use Case 18 known log message"}

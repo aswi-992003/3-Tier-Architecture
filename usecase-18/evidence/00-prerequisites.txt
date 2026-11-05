@@ -1,0 +1,10 @@
+=== Branch ===
+feature/usecase-18
+
+=== Kubernetes node ===
+NAME                    STATUS   ROLES           AGE   VERSION
+desktop-control-plane   Ready    control-plane   53d   v1.36.1
+
+=== Logging namespace ===
+NAME                 STATUS   AGE
+claims-logging-lab   Active   81s

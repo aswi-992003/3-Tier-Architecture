@@ -1,0 +1,5 @@
+Loki API status: success
+Request ID: usecase18-broken-20261104180745
+Matching Loki log lines: 0
+PASS: Log exists in the Pod but is missing from Loki
+Failure location: Alloy discovery/collection stage

@@ -1,0 +1,2 @@
+NAME                     READY   STATUS    RESTARTS      AGE   IP            NODE                    NOMINATED NODE   READINESS GATES
+alloy-5bbbb47849-5cbkc   2/2     Running   2 (29m ago)   23h   10.244.0.36   desktop-control-plane   <none>           <none>

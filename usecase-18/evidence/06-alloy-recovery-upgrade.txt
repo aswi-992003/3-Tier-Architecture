@@ -1,0 +1,10 @@
+Release "alloy" has been upgraded. Happy Helming!
+NAME: alloy
+LAST DEPLOYED: Wed Nov  4 18:16:34 2026
+NAMESPACE: claims-logging-lab
+STATUS: deployed
+REVISION: 3
+DESCRIPTION: Upgrade complete
+TEST SUITE: None
+NOTES:
+Welcome to Grafana Alloy!

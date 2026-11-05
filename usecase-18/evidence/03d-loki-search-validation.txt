@@ -1,0 +1,4 @@
+Loki API status: success
+Request ID: usecase18-loki-20261103191509
+Matching log lines: 0
+FAIL: Known request ID was not found in Loki

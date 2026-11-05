@@ -1,0 +1,11 @@
+=== Deployment ===
+NAME             READY   UP-TO-DATE   AVAILABLE   AGE
+usecase18-demo   0/1     1            0           14s
+
+=== Pod ===
+NAME                              READY   STATUS              RESTARTS   AGE   IP       NODE                    NOMINATED NODE   READINESS GATES
+usecase18-demo-6cfb4b5565-s5hm2   0/1     ContainerCreating   0          14s   <none>   desktop-control-plane   <none>           <none>
+
+=== Service ===
+NAME             TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
+usecase18-demo   ClusterIP   10.96.230.176   <none>        8080/TCP   14s
