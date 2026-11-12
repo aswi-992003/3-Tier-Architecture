@@ -1,0 +1,8 @@
+=== Monitoring workloads and services ===
+claims-logging-lab   pod/grafana-58c855b9d5-qrftp                            1/1     Running     2 (37m ago)    5d23h
+claims-logging-lab   service/grafana                                   ClusterIP      10.96.171.19    <none>        80/TCP                       5d23h
+
+=== Monitoring Helm releases ===
+grafana        	claims-logging-lab	1       	2026-11-04 18:45:50.132981 +0530 IST	deployed	grafana-10.5.15          	12.3.1     
+
+=== Prometheus resources ===

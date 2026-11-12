@@ -1,0 +1,27 @@
+=== Helm release ===
+NAME                	NAMESPACE 	REVISION	UPDATED                             	STATUS  	CHART                       	APP VERSION
+usecase19-monitoring	monitoring	2       	2026-11-11 14:26:15.441193 +0530 IST	deployed	kube-prometheus-stack-93.2.0	v0.95.2    
+
+=== Monitoring Pods ===
+NAME                                                       READY   STATUS    RESTARTS      AGE     IP            NODE                    NOMINATED NODE   READINESS GATES
+alertmanager-usecase19-monitoring-kube-alertmanager-0      2/2     Running   0             2m33s   10.244.0.46   desktop-control-plane   <none>           <none>
+prometheus-usecase19-monitoring-kube-prometheus-0          2/2     Running   0             2m33s   10.244.0.47   desktop-control-plane   <none>           <none>
+usecase19-monitoring-kube-operator-bcb95b5bb-8rncp         1/1     Running   0             2m50s   10.244.0.45   desktop-control-plane   <none>           <none>
+usecase19-monitoring-kube-state-metrics-66d58c6b9d-2vzdq   1/1     Running   2 (12m ago)   20h     10.244.0.22   desktop-control-plane   <none>           <none>
+usecase19-monitoring-prometheus-node-exporter-z8rvq        1/1     Running   0             2m50s   172.20.0.4    desktop-control-plane   <none>           <none>
+
+=== Monitoring Services ===
+NAME                                            TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)                      AGE
+alertmanager-operated                           ClusterIP   None            <none>        9093/TCP,9094/TCP,9094/UDP   2m33s
+prometheus-operated                             ClusterIP   None            <none>        9090/TCP                     2m33s
+usecase19-monitoring-kube-alertmanager          ClusterIP   10.96.105.232   <none>        9093/TCP,8080/TCP            20h
+usecase19-monitoring-kube-operator              ClusterIP   10.96.28.54     <none>        443/TCP                      20h
+usecase19-monitoring-kube-prometheus            ClusterIP   10.96.114.148   <none>        9090/TCP,8080/TCP            20h
+usecase19-monitoring-kube-state-metrics         ClusterIP   10.96.215.217   <none>        8080/TCP                     20h
+usecase19-monitoring-prometheus-node-exporter   ClusterIP   10.96.164.93    <none>        9100/TCP                     20h
+
+=== Monitoring CRDs ===
+podmonitors                         pmon               monitoring.coreos.com/v1          true         PodMonitor
+probes                              prb                monitoring.coreos.com/v1          true         Probe
+prometheusrules                     promrule           monitoring.coreos.com/v1          true         PrometheusRule
+servicemonitors                     smon               monitoring.coreos.com/v1          true         ServiceMonitor

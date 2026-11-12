@@ -1,0 +1,24 @@
+NAME                                        READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/claims-backend              1/1     1            1           54d
+deployment.apps/claims-db                   1/1     1            1           54d
+deployment.apps/claims-frontend             1/1     1            1           54d
+deployment.apps/claims-frontend-usecase11   1/1     1            1           18d
+deployment.apps/usecase13-policy-demo       1/1     1            1           14d
+deployment.apps/usecase14-blue              1/1     1            1           14d
+deployment.apps/usecase14-green             1/1     1            1           14d
+
+NAME                                             READY   STATUS    RESTARTS         AGE
+pod/claims-backend-7486d6f9bb-74tmx              1/1     Running   10 (3m27s ago)   17d
+pod/claims-db-7bf847f6-cgztb                     1/1     Running   28 (3m27s ago)   54d
+pod/claims-frontend-64774fbfc8-9gd5r             1/1     Running   28 (3m27s ago)   53d
+pod/claims-frontend-usecase11-69568d76bb-vqvdd   1/1     Running   11 (3m27s ago)   18d
+pod/usecase13-policy-demo-6897785ff9-bbb7g       1/1     Running   9 (3m27s ago)    14d
+pod/usecase14-blue-d44d7ddc5-tbj2h               1/1     Running   8 (3m27s ago)    14d
+pod/usecase14-green-85c7846d95-87m9l             1/1     Running   8 (3m27s ago)    14d
+
+NAME                              TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
+service/claims-backend            ClusterIP   10.96.108.71    <none>        5001/TCP   54d
+service/claims-db                 ClusterIP   10.96.123.47    <none>        5432/TCP   54d
+service/claims-frontend           ClusterIP   10.96.242.75    <none>        8080/TCP   54d
+service/usecase14-green-preview   ClusterIP   10.96.203.79    <none>        80/TCP     14d
+service/usecase14-service         ClusterIP   10.96.170.131   <none>        80/TCP     14d

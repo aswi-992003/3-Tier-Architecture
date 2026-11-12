@@ -1,0 +1,31 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"monitoring.coreos.com/v1","kind":"PrometheusRule","metadata":{"annotations":{},"labels":{"release":"usecase19-monitoring"},"name":"usecase19-slo-alert","namespace":"monitoring"},"spec":{"groups":[{"name":"usecase19.slo","rules":[{"alert":"UseCase19HealthEndpointDown","annotations":{"description":"The /api/health Blackbox probe has failed for 30 seconds.","runbook_url":"usecase-19/07-runbook.md","summary":"Claims backend health endpoint is unavailable"},"expr":"probe_success{usecase=\"usecase19\"} == 0","for":"30s","labels":{"service":"claims-backend","severity":"warning","slo":"availability","usecase":"usecase19"}}]}]}}
+    prometheus-operator-validated: "true"
+  creationTimestamp: "2026-11-11T11:41:35Z"
+  generation: 1
+  labels:
+    release: usecase19-monitoring
+  name: usecase19-slo-alert
+  namespace: monitoring
+  resourceVersion: "748519"
+  uid: 5fc1bdf6-3374-46ca-97ba-f6b8560ca861
+spec:
+  groups:
+  - name: usecase19.slo
+    rules:
+    - alert: UseCase19HealthEndpointDown
+      annotations:
+        description: The /api/health Blackbox probe has failed for 30 seconds.
+        runbook_url: usecase-19/07-runbook.md
+        summary: Claims backend health endpoint is unavailable
+      expr: probe_success{usecase="usecase19"} == 0
+      for: 30s
+      labels:
+        service: claims-backend
+        severity: warning
+        slo: availability
+        usecase: usecase19

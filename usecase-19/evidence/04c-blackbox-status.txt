@@ -1,0 +1,13 @@
+=== Blackbox Helm release ===
+NAME                	NAMESPACE 	REVISION	UPDATED                             	STATUS  	CHART                               	APP VERSION
+usecase19-blackbox  	monitoring	1       	2026-11-11 14:41:21.109778 +0530 IST	deployed	prometheus-blackbox-exporter-11.21.2	v0.29.1    
+
+=== Blackbox workload and service ===
+NAME                                 READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/usecase19-blackbox   1/1     1            1           8s
+
+NAME                                      READY   STATUS    RESTARTS   AGE
+pod/usecase19-blackbox-797b5f7468-n5pkt   1/1     Running   0          8s
+
+NAME                         TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
+service/usecase19-blackbox   ClusterIP   10.96.193.164   <none>        9115/TCP   8s

@@ -1,0 +1,6 @@
+Measurement period: 30 days
+SLO target: 99%
+Error budget: 1%
+Total period: 43200 minutes
+Allowed unavailable time: 432 minutes
+Allowed unavailable time: 7 hours 12 minutes

@@ -1,0 +1,16 @@
+Release "usecase19-blackbox" does not exist. Installing it now.
+NAME: usecase19-blackbox
+LAST DEPLOYED: Wed Nov 11 14:41:21 2026
+NAMESPACE: monitoring
+STATUS: deployed
+REVISION: 1
+DESCRIPTION: Install complete
+TEST SUITE: None
+NOTES:
+See https://github.com/prometheus/blackbox_exporter/ for how to configure Prometheus and the Blackbox Exporter.
+
+1. Get the application URL by running these commands:
+  export POD_NAME=$(kubectl get pods --namespace monitoring -l "app.kubernetes.io/name=prometheus-blackbox-exporter,app.kubernetes.io/instance=usecase19-blackbox" -o jsonpath="{.items[0].metadata.name}")
+  export CONTAINER_PORT=$(kubectl get pod --namespace monitoring $POD_NAME -o jsonpath="{.spec.containers[0].ports[0].containerPort}")
+  echo "Visit http://127.0.0.1:8080 to use your application"
+  kubectl --namespace monitoring port-forward $POD_NAME 8080:$CONTAINER_PORT

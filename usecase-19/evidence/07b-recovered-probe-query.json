@@ -1,0 +1,23 @@
+{
+    "status": "success",
+    "data": {
+        "resultType": "vector",
+        "result": [
+            {
+                "metric": {
+                    "__name__": "probe_success",
+                    "instance": "http://claims-backend.claims-k8s-lab.svc.cluster.local:5001/api/health",
+                    "job": "usecase19-health",
+                    "namespace": "monitoring",
+                    "path": "/api/health",
+                    "service": "claims-backend",
+                    "usecase": "usecase19"
+                },
+                "value": [
+                    1794402915.398,
+                    "1"
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,228 @@
+{
+    "status": "success",
+    "data": {
+        "alerts": [
+            {
+                "labels": {
+                    "alertname": "KubeControllerManagerInstanceUnreachable",
+                    "container": "kube-controller-manager",
+                    "endpoint": "http-metrics",
+                    "instance": "172.20.0.4:10257",
+                    "job": "kube-controller-manager",
+                    "namespace": "kube-system",
+                    "pod": "kube-controller-manager-desktop-control-plane",
+                    "service": "usecase19-monitoring-kube-kube-controller-manager",
+                    "severity": "warning"
+                },
+                "annotations": {
+                    "description": "A KubeControllerManager instance has been unreachable for more than 15 minutes.",
+                    "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubecontrollermanagerinstanceunreachable",
+                    "summary": "KubeControllerManager instance is unreachable."
+                },
+                "state": "firing",
+                "activeAt": "2026-11-11T12:46:09.249538656Z",
+                "value": "0e+00"
+            },
+            {
+                "labels": {
+                    "alertname": "CPUThrottlingHigh",
+                    "container": "kindnet-cni",
+                    "instance": "172.20.0.4:10250",
+                    "namespace": "kube-system",
+                    "pod": "kindnet-kns8s",
+                    "service": "usecase19-monitoring-kube-kubelet",
+                    "severity": "info"
+                },
+                "annotations": {
+                    "description": "44.22% throttling of CPU in namespace kube-system for container kindnet-cni in pod kindnet-kns8s on cluster .",
+                    "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/cputhrottlinghigh",
+                    "summary": "Processes experience elevated CPU throttling."
+                },
+                "state": "firing",
+                "activeAt": "2026-11-11T12:46:19.716374352Z",
+                "value": "4.421669106881405e-01"
+            },
+            {
+                "labels": {
+                    "alertname": "KubeProxyInstanceUnreachable",
+                    "endpoint": "http-metrics",
+                    "instance": "172.20.0.4:10249",
+                    "job": "kube-proxy",
+                    "namespace": "kube-system",
+                    "pod": "kube-proxy-cfxtg",
+                    "service": "usecase19-monitoring-kube-kube-proxy",
+                    "severity": "warning"
+                },
+                "annotations": {
+                    "description": "A KubeProxy instance has been unreachable for more than 15 minutes.",
+                    "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeproxyinstanceunreachable",
+                    "summary": "KubeProxy instance is unreachable."
+                },
+                "state": "firing",
+                "activeAt": "2026-11-11T12:46:02.700779291Z",
+                "value": "0e+00"
+            },
+            {
+                "labels": {
+                    "alertname": "NodeClockNotSynchronising",
+                    "container": "node-exporter",
+                    "endpoint": "http-metrics",
+                    "instance": "172.20.0.4:9100",
+                    "job": "node-exporter",
+                    "namespace": "monitoring",
+                    "pod": "usecase19-monitoring-prometheus-node-exporter-z8rvq",
+                    "service": "usecase19-monitoring-prometheus-node-exporter",
+                    "severity": "warning"
+                },
+                "annotations": {
+                    "description": "Clock at 172.20.0.4:9100 is not synchronising. Ensure NTP is configured on this host.",
+                    "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/node/nodeclocknotsynchronising",
+                    "summary": "Clock not synchronising."
+                },
+                "state": "firing",
+                "activeAt": "2026-11-11T12:46:06.192928441Z",
+                "value": "0e+00"
+            },
+            {
+                "labels": {
+                    "alertname": "etcdMembersDown",
+                    "container": "etcd",
+                    "job": "kube-etcd",
+                    "namespace": "kube-system",
+                    "service": "usecase19-monitoring-kube-kube-etcd",
+                    "severity": "warning"
+                },
+                "annotations": {
+                    "description": "etcd cluster \"kube-etcd\": members are down (1).",
+                    "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/etcd/etcdmembersdown",
+                    "summary": "etcd cluster members are down."
+                },
+                "state": "firing",
+                "activeAt": "2026-11-11T12:45:48.966593375Z",
+                "value": "1e+00"
+            },
+            {
+                "labels": {
+                    "alertname": "etcdInsufficientMembers",
+                    "container": "etcd",
+                    "endpoint": "http-metrics",
+                    "job": "kube-etcd",
+                    "namespace": "kube-system",
+                    "service": "usecase19-monitoring-kube-kube-etcd",
+                    "severity": "critical"
+                },
+                "annotations": {
+                    "description": "etcd cluster \"kube-etcd\": insufficient members (0).",
+                    "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/etcd/etcdinsufficientmembers",
+                    "summary": "etcd cluster has insufficient number of members."
+                },
+                "state": "firing",
+                "activeAt": "2026-11-11T12:45:48.966593375Z",
+                "value": "0e+00"
+            },
+            {
+                "labels": {
+                    "alertname": "TargetDown",
+                    "job": "kube-proxy",
+                    "namespace": "kube-system",
+                    "service": "usecase19-monitoring-kube-kube-proxy",
+                    "severity": "warning"
+                },
+                "annotations": {
+                    "description": "100% of the kube-proxy/usecase19-monitoring-kube-kube-proxy targets in kube-system namespace are down.",
+                    "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/targetdown",
+                    "summary": "One or more targets are unreachable."
+                },
+                "state": "firing",
+                "activeAt": "2026-11-11T12:46:00.909261999Z",
+                "value": "1e+02"
+            },
+            {
+                "labels": {
+                    "alertname": "TargetDown",
+                    "job": "kube-etcd",
+                    "namespace": "kube-system",
+                    "service": "usecase19-monitoring-kube-kube-etcd",
+                    "severity": "warning"
+                },
+                "annotations": {
+                    "description": "100% of the kube-etcd/usecase19-monitoring-kube-kube-etcd targets in kube-system namespace are down.",
+                    "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/targetdown",
+                    "summary": "One or more targets are unreachable."
+                },
+                "state": "firing",
+                "activeAt": "2026-11-11T12:46:00.909261999Z",
+                "value": "1e+02"
+            },
+            {
+                "labels": {
+                    "alertname": "TargetDown",
+                    "job": "kube-controller-manager",
+                    "namespace": "kube-system",
+                    "service": "usecase19-monitoring-kube-kube-controller-manager",
+                    "severity": "warning"
+                },
+                "annotations": {
+                    "description": "100% of the kube-controller-manager/usecase19-monitoring-kube-kube-controller-manager targets in kube-system namespace are down.",
+                    "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/targetdown",
+                    "summary": "One or more targets are unreachable."
+                },
+                "state": "firing",
+                "activeAt": "2026-11-11T12:46:00.909261999Z",
+                "value": "1e+02"
+            },
+            {
+                "labels": {
+                    "alertname": "TargetDown",
+                    "job": "kube-scheduler",
+                    "namespace": "kube-system",
+                    "service": "usecase19-monitoring-kube-kube-scheduler",
+                    "severity": "warning"
+                },
+                "annotations": {
+                    "description": "100% of the kube-scheduler/usecase19-monitoring-kube-kube-scheduler targets in kube-system namespace are down.",
+                    "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/targetdown",
+                    "summary": "One or more targets are unreachable."
+                },
+                "state": "firing",
+                "activeAt": "2026-11-11T12:46:00.909261999Z",
+                "value": "1e+02"
+            },
+            {
+                "labels": {
+                    "alertname": "Watchdog",
+                    "severity": "none"
+                },
+                "annotations": {
+                    "description": "This is an alert meant to ensure that the entire alerting pipeline is functional.\nThis alert is always firing, therefore it should always be firing in Alertmanager\nand always fire against a receiver. There are integrations with various notification\nmechanisms that send a notification when this alert is not firing. For example the\n\"DeadMansSnitch\" integration in PagerDuty.\n",
+                    "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/watchdog",
+                    "summary": "An alert that should always be firing to certify that Alertmanager is working properly."
+                },
+                "state": "firing",
+                "activeAt": "2026-11-11T08:57:30.909261999Z",
+                "value": "1e+00"
+            },
+            {
+                "labels": {
+                    "alertname": "KubeSchedulerInstanceUnreachable",
+                    "container": "kube-scheduler",
+                    "endpoint": "http-metrics",
+                    "instance": "172.20.0.4:10259",
+                    "job": "kube-scheduler",
+                    "namespace": "kube-system",
+                    "pod": "kube-scheduler-desktop-control-plane",
+                    "service": "usecase19-monitoring-kube-kube-scheduler",
+                    "severity": "warning"
+                },
+                "annotations": {
+                    "description": "A KubeScheduler instance has been unreachable for more than 15 minutes.",
+                    "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeschedulerinstanceunreachable",
+                    "summary": "KubeScheduler instance is unreachable."
+                },
+                "state": "firing",
+                "activeAt": "2026-11-11T12:46:08.121853698Z",
+                "value": "0e+00"
+            }
+        ]
+    }
+}

@@ -1,0 +1,23 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: usecase19-slo-alert
+  namespace: monitoring
+  labels:
+    release: usecase19-monitoring
+spec:
+  groups:
+    - name: usecase19.slo
+      rules:
+        - alert: UseCase19HealthEndpointDown
+          expr: probe_success{usecase="usecase19"} == 0
+          for: 2m
+          labels:
+            severity: warning
+            service: claims-backend
+            usecase: usecase19
+            slo: availability
+          annotations:
+            summary: Claims backend health endpoint is unavailable
+            description: The /api/health Blackbox probe has failed for 30 seconds.
+            runbook_url: usecase-19/07-runbook.md

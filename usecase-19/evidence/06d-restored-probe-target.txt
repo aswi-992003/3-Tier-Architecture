@@ -1,0 +1,1 @@
+http://claims-backend.claims-k8s-lab.svc.cluster.local:5001/api/health

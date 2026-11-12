@@ -1,0 +1,3 @@
+probe_duration_seconds 0.011251334
+probe_http_status_code 200
+probe_success 1

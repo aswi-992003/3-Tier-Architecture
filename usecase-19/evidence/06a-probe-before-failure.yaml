@@ -1,0 +1,30 @@
+apiVersion: monitoring.coreos.com/v1
+kind: Probe
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"monitoring.coreos.com/v1","kind":"Probe","metadata":{"annotations":{},"labels":{"release":"usecase19-monitoring","usecase":"usecase19"},"name":"usecase19-health","namespace":"monitoring"},"spec":{"interval":"15s","jobName":"usecase19-health","module":"http_2xx","prober":{"url":"usecase19-blackbox.monitoring.svc.cluster.local:9115"},"targets":{"staticConfig":{"labels":{"path":"/api/health","service":"claims-backend","usecase":"usecase19"},"static":["http://claims-backend.claims-k8s-lab.svc.cluster.local:5001/api/health"]}}}}
+  creationTimestamp: "2026-11-11T09:45:29Z"
+  generation: 1
+  labels:
+    release: usecase19-monitoring
+    usecase: usecase19
+  name: usecase19-health
+  namespace: monitoring
+  resourceVersion: "739054"
+  uid: c078d644-1514-4c3d-907d-836805d4a022
+spec:
+  interval: 15s
+  jobName: usecase19-health
+  module: http_2xx
+  prober:
+    path: /probe
+    url: usecase19-blackbox.monitoring.svc.cluster.local:9115
+  targets:
+    staticConfig:
+      labels:
+        path: /api/health
+        service: claims-backend
+        usecase: usecase19
+      static:
+      - http://claims-backend.claims-k8s-lab.svc.cluster.local:5001/api/health

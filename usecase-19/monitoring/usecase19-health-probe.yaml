@@ -1,0 +1,22 @@
+apiVersion: monitoring.coreos.com/v1
+kind: Probe
+metadata:
+  name: usecase19-health
+  namespace: monitoring
+  labels:
+    release: usecase19-monitoring
+    usecase: usecase19
+spec:
+  jobName: usecase19-health
+  interval: 15s
+  module: http_2xx
+  prober:
+    url: usecase19-blackbox.monitoring.svc.cluster.local:9115
+  targets:
+    staticConfig:
+      static:
+        - http://claims-backend.claims-k8s-lab.svc.cluster.local:5001/api/health
+      labels:
+        usecase: usecase19
+        service: claims-backend
+        path: /api/health

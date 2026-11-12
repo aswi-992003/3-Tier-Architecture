@@ -1,0 +1,10 @@
+NAME           	NAMESPACE         	REVISION	UPDATED                             	STATUS  	CHART                    	APP VERSION
+alloy          	claims-logging-lab	3       	2026-11-04 18:16:34.063588 +0530 IST	deployed	alloy-1.15.0             	v1.21.3    
+claims         	claims-dev        	2       	2026-09-11 19:19:22.78243 +0530 IST 	deployed	claims-0.1.0             	5531cba    
+claims         	claims-gitops     	3       	2026-09-19 12:57:41.519904 +0530 IST	deployed	claims-0.1.0             	5531cba    
+claims         	claims-staging    	3       	2026-09-15 17:03:16.518874 +0530 IST	deployed	claims-0.1.0             	5531cba    
+grafana        	claims-logging-lab	1       	2026-11-04 18:45:50.132981 +0530 IST	deployed	grafana-10.5.15          	12.3.1     
+usecase15-demo 	claims-qa         	2       	2026-10-29 15:40:35.774843 +0530 IST	deployed	usecase15-promotion-0.1.0	1.0        
+usecase15-demo 	claims-prod       	1       	2026-10-29 15:36:47.462208 +0530 IST	deployed	usecase15-promotion-0.1.0	1.0        
+usecase15-dev  	claims-dev        	1       	2026-10-28 17:56:35.89818 +0530 IST 	deployed	usecase15-promotion-0.1.0	1.0        
+usecase15-stage	claims-stage      	3       	2026-10-28 17:59:47.591776 +0530 IST	deployed	usecase15-promotion-0.1.0	1.0        

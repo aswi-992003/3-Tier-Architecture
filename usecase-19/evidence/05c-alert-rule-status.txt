@@ -1,0 +1,2 @@
+NAME                  GROUP           ALERT                         FOR
+usecase19-slo-alert   usecase19.slo   UseCase19HealthEndpointDown   30s

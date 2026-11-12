@@ -1,0 +1,49 @@
+=== Branch ===
+feature/usecase-19
+
+=== Kubernetes context ===
+docker-desktop
+
+=== Application resources ===
+NAME                                        READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/claims-backend              1/1     1            1           49d
+deployment.apps/claims-db                   1/1     1            1           49d
+deployment.apps/claims-frontend             1/1     1            1           49d
+deployment.apps/claims-frontend-usecase11   1/1     1            1           14d
+deployment.apps/usecase13-policy-demo       1/1     1            1           9d
+deployment.apps/usecase14-blue              1/1     1            1           9d
+deployment.apps/usecase14-green             1/1     1            1           9d
+
+NAME                                             READY   STATUS    RESTARTS         AGE
+pod/claims-backend-7486d6f9bb-74tmx              1/1     Running   9 (3h48m ago)    12d
+pod/claims-db-7bf847f6-cgztb                     1/1     Running   27 (3h48m ago)   49d
+pod/claims-frontend-64774fbfc8-9gd5r             1/1     Running   27 (3h48m ago)   48d
+pod/claims-frontend-usecase11-69568d76bb-vqvdd   1/1     Running   10 (3h48m ago)   14d
+pod/usecase13-policy-demo-6897785ff9-bbb7g       1/1     Running   8 (3h48m ago)    9d
+pod/usecase14-blue-d44d7ddc5-tbj2h               1/1     Running   7 (3h48m ago)    9d
+pod/usecase14-green-85c7846d95-87m9l             1/1     Running   7 (3h48m ago)    9d
+
+NAME                              TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
+service/claims-backend            ClusterIP   10.96.108.71    <none>        5001/TCP   49d
+service/claims-db                 ClusterIP   10.96.123.47    <none>        5432/TCP   49d
+service/claims-frontend           ClusterIP   10.96.242.75    <none>        8080/TCP   49d
+service/usecase14-green-preview   ClusterIP   10.96.203.79    <none>        80/TCP     9d
+service/usecase14-service         ClusterIP   10.96.170.131   <none>        80/TCP     9d
+
+=== Monitoring components ===
+claims-logging-lab   pod/grafana-58c855b9d5-qrftp                            1/1     Running     1 (3h48m ago)    22h
+claims-logging-lab   service/grafana                                   ClusterIP      10.96.171.19    <none>        80/TCP                       22h
+
+=== Helm releases ===
+NAME           	NAMESPACE         	REVISION	UPDATED                             	STATUS  	CHART                    	APP VERSION
+alloy          	claims-logging-lab	3       	2026-11-04 18:16:34.063588 +0530 IST	deployed	alloy-1.15.0             	v1.21.3    
+claims         	claims-dev        	2       	2026-09-11 19:19:22.78243 +0530 IST 	deployed	claims-0.1.0             	5531cba    
+claims         	claims-staging    	3       	2026-09-15 17:03:16.518874 +0530 IST	deployed	claims-0.1.0             	5531cba    
+claims         	claims-gitops     	3       	2026-09-19 12:57:41.519904 +0530 IST	deployed	claims-0.1.0             	5531cba    
+grafana        	claims-logging-lab	1       	2026-11-04 18:45:50.132981 +0530 IST	deployed	grafana-10.5.15          	12.3.1     
+usecase15-demo 	claims-prod       	1       	2026-10-29 15:36:47.462208 +0530 IST	deployed	usecase15-promotion-0.1.0	1.0        
+usecase15-demo 	claims-qa         	2       	2026-10-29 15:40:35.774843 +0530 IST	deployed	usecase15-promotion-0.1.0	1.0        
+usecase15-dev  	claims-dev        	1       	2026-10-28 17:56:35.89818 +0530 IST 	deployed	usecase15-promotion-0.1.0	1.0        
+usecase15-stage	claims-stage      	3       	2026-10-28 17:59:47.591776 +0530 IST	deployed	usecase15-promotion-0.1.0	1.0        
+
+=== Monitoring CRDs ===

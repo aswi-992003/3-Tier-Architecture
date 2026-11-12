@@ -1,0 +1,2 @@
+claims-logging-lab   pod/grafana-58c855b9d5-qrftp                            1/1     Running     2 (29m ago)    5d23h
+claims-logging-lab   service/grafana                                   ClusterIP      10.96.171.19    <none>        80/TCP                       5d23h
